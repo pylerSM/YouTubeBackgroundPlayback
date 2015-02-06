@@ -1,5 +1,6 @@
 package com.pyler.youtubebackgroundplayback;
 
+import android.content.Context;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodReplacement;
 import de.robv.android.xposed.XposedHelpers;
@@ -7,8 +8,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String PACKAGE = "com.google.android.youtube";
-	public static final String CLASS = "ctz";
-	public static final String METHOD = "u";
+	public static final String[] CLASS = { "ctz", "cyj" };
+	public static final String[] METHOD = { "u", "u" };
 
 	@Override
 	public void handleLoadPackage(final LoadPackageParam lpparam)
@@ -16,7 +17,30 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		if (!PACKAGE.equals(lpparam.packageName)) {
 			return;
 		}
-		XposedHelpers.findAndHookMethod(CLASS, lpparam.classLoader, METHOD,
-				XC_MethodReplacement.returnConstant(true));
+		Object activityThread = XposedHelpers.callStaticMethod(
+				XposedHelpers.findClass("android.app.ActivityThread", null),
+				"currentActivityThread");
+		Context context = (Context) XposedHelpers.callMethod(activityThread,
+				"getSystemContext");
+		int versionCode = context.getPackageManager().getPackageInfo(
+				lpparam.packageName, 0).versionCode;
+		int i = getVersionIndex(versionCode);
+		if (i != -1) {
+			XposedHelpers.findAndHookMethod(CLASS[i], lpparam.classLoader,
+					METHOD[i], XC_MethodReplacement.returnConstant(true));
+		}
+	}
+
+	public int getVersionIndex(int version) {
+		if ((version == 100405130) || (version == 100405170)) {
+			// YouTube 10.04.5
+			return 1;
+		} else if ((version == 100305130) || (version == 100305170)) {
+			// YouTube 10.03.5
+			return 0;
+		} else {
+			// Unsupported version
+			return -1;
+		}
 	}
 }
