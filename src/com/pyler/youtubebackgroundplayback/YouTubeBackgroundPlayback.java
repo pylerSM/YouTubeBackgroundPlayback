@@ -11,7 +11,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String YOUTUBE_PACKAGE = "com.google.android.youtube";
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
-			"ctz", "cyj", "cyy" };
+			"ctz", "cyj", "cyy", "cyk" };
 	public static final String METHOD_ENABLE_BACKGROUND_PLAYBACK = "u";
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
 	public static final String METHOD_START_PLAYBACK = "k";
@@ -61,7 +61,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	}
 
 	public int getVersionIndex(int version) {
-		if ((version == 100506130) || (version == 100506170)) {
+		if ((version == 100603130) || (version == 100603170)) {
+			// YouTube 10.06.3
+			return 4;
+		} else if ((version == 100506130) || (version == 100506170)) {
 			// YouTube 10.05.6
 			return 3;
 		} else if ((version == 100405130) || (version == 100405170)) {
