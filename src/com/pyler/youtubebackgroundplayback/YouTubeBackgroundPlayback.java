@@ -14,9 +14,11 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
 			"ctz", "cyj", "cyy", "cyk", "cyl" };
 	public static final String METHOD_ENABLE_BACKGROUND_PLAYBACK = "u";
-	public static final String FIELD_AUDIO_FOCUS_CHANGE = "p";
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
-	public static final String METHOD_RESTART_PLAYBACK = "k";
+	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
+			"k", "k", "j" };
+	public static final String FIELD_ENABLE_NOTIFICATION = "e";
+	public int id;
 
 	@Override
 	public void handleLoadPackage(LoadPackageParam lpparam) throws Throwable {
@@ -30,8 +32,16 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 				Object playbackControl = (Object) XposedHelpers.getObjectField(
 						param.thisObject, FIELD_PLAYBACK_CONTROL);
 				XposedHelpers.callMethod(playbackControl,
-						METHOD_RESTART_PLAYBACK);
+						METHOD_RESTART_PLAYBACK[id]);
 
+			}
+		};
+		XC_MethodHook enableNotification = new XC_MethodHook() {
+			@Override
+			protected void afterHookedMethod(MethodHookParam param)
+					throws Throwable {
+				XposedHelpers.setBooleanField(param.thisObject,
+						FIELD_ENABLE_NOTIFICATION, true);
 			}
 		};
 		Object activityThread = XposedHelpers.callStaticMethod(
@@ -41,7 +51,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 				"getSystemContext");
 		int versionCode = context.getPackageManager().getPackageInfo(
 				lpparam.packageName, 0).versionCode;
-		int id = getVersionIndex(versionCode);
+		id = getVersionIndex(versionCode);
 		if (id != -1) {
 			XposedHelpers.findAndHookMethod(
 					CLASS_ENABLE_BACKGROUND_PLAYBACK[id], lpparam.classLoader,
@@ -50,6 +60,9 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			XposedBridge.hookAllMethods(XposedHelpers.findClass(
 					BACKGROUND_PLAYER_SERVICE, lpparam.classLoader),
 					"handlePlaybackServiceException", restartPlayback);
+			XposedBridge.hookAllConstructors(XposedHelpers.findClass(
+					BACKGROUND_PLAYER_SERVICE, lpparam.classLoader),
+					enableNotification);
 		} else {
 			XposedBridge.log("This YouTube version is not supported yet.");
 		}
