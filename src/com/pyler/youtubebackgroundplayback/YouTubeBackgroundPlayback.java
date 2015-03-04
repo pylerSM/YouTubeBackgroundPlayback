@@ -18,7 +18,12 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
 			"k", "k", "j" };
 	public static final String FIELD_ENABLE_NOTIFICATION = "e";
+	public static final String METHOD_NEXT_TRACK = "d";
+	public static final String FIELD_TIME_MILLS = "a";
+	public static final String FIELD_LENGTH_MILLS = "b";
 	public int id;
+	public long prevTime = -1;
+	public boolean advanceSent = false;
 
 	@Override
 	public void handleLoadPackage(LoadPackageParam lpparam) throws Throwable {
@@ -44,6 +49,30 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 						FIELD_ENABLE_NOTIFICATION, true);
 			}
 		};
+		XC_MethodHook advanceNextTrack = new XC_MethodHook() {
+			@Override
+			protected void afterHookedMethod(MethodHookParam param)
+					throws Throwable {
+				long time = XposedHelpers.getLongField(param.args[0],
+						FIELD_TIME_MILLS);
+				long length = XposedHelpers.getLongField(param.args[0],
+						FIELD_LENGTH_MILLS);
+				if (time == prevTime && time > 0 && length > 0
+						&& time + 2000 > length) {
+					if (!advanceSent) {
+						advanceSent = true;
+						Object playbackControl = (Object) XposedHelpers
+								.getObjectField(param.thisObject,
+										FIELD_PLAYBACK_CONTROL);
+						XposedHelpers.callMethod(playbackControl,
+								METHOD_NEXT_TRACK);
+					}
+				} else {
+					prevTime = time;
+					advanceSent = false;
+				}
+			}
+		};
 		Object activityThread = XposedHelpers.callStaticMethod(
 				XposedHelpers.findClass("android.app.ActivityThread", null),
 				"currentActivityThread");
@@ -63,6 +92,9 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			XposedBridge.hookAllConstructors(XposedHelpers.findClass(
 					BACKGROUND_PLAYER_SERVICE, lpparam.classLoader),
 					enableNotification);
+			XposedBridge.hookAllMethods(XposedHelpers.findClass(
+					BACKGROUND_PLAYER_SERVICE, lpparam.classLoader),
+					"handleVideoTimeEvent", advanceNextTrack);
 		} else {
 			XposedBridge.log("This YouTube version is not supported yet.");
 		}
