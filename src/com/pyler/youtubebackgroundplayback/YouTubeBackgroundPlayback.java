@@ -102,7 +102,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	}
 
 	public int getVersionIndex(int version) {
-		if ((version == 100852130) || (version == 100852170)) {
+		if ((version == 100853130) || (version == 100853170)) {
+			// YouTube 10.08.53
+			return 5;
+		} else if ((version == 100852130) || (version == 100852170)) {
 			// YouTube 10.08.52
 			return 5;
 		} else if ((version == 100603130) || (version == 100603170)) {
