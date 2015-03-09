@@ -16,7 +16,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String METHOD_ENABLE_BACKGROUND_PLAYBACK = "u";
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
-			"k", "k", "j" };
+			"k", "k", "j", "j" };
 	public static final String FIELD_ENABLE_NOTIFICATION = "e";
 	public static final String METHOD_NEXT_TRACK = "d";
 	public static final String FIELD_TIME_MILLS = "a";
