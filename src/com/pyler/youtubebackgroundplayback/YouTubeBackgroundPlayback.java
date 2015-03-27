@@ -12,11 +12,11 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String YOUTUBE_PACKAGE = "com.google.android.youtube";
 	public static final String BACKGROUND_PLAYER_SERVICE = "com.google.android.apps.youtube.core.player.BackgroundPlayerService";
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
-			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj" };
+			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym" };
 	public static final String METHOD_ENABLE_BACKGROUND_PLAYBACK = "u";
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
-			"k", "k", "j", "j", "j" };
+			"k", "k", "j", "j", "j", "j" };
 	public static final String FIELD_ENABLE_NOTIFICATION = "e";
 	public static final String METHOD_NEXT_TRACK = "d";
 	public static final String FIELD_TIME_MILLS = "a";
@@ -101,7 +101,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	}
 
 	public int getVersionIndex(int version) {
-		if ((version == 101052130) || (version == 101052170)) {
+		if ((version == 101155130) || (version == 101155170)) {
+			// YouTube 10.11.55
+			return 8;
+		} else if ((version == 101052130) || (version == 101052170)) {
 			// YouTube 10.10.52
 			return 7;
 		} else if ((version == 100956130) || (version == 100956170)) {
