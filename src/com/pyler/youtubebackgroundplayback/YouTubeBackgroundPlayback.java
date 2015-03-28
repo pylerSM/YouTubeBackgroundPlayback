@@ -13,7 +13,8 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String BACKGROUND_PLAYER_SERVICE = "com.google.android.apps.youtube.core.player.BackgroundPlayerService";
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
 			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym" };
-	public static final String METHOD_ENABLE_BACKGROUND_PLAYBACK = "u";
+	public static final String[] METHOD_ENABLE_BACKGROUND_PLAYBACK = { "u",
+			"u", "u", "u", "u", "u", "u", "u", "v" };
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
 			"k", "k", "j", "j", "j", "j" };
@@ -84,7 +85,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		if (id != -1) {
 			XposedHelpers.findAndHookMethod(
 					CLASS_ENABLE_BACKGROUND_PLAYBACK[id], lpparam.classLoader,
-					METHOD_ENABLE_BACKGROUND_PLAYBACK,
+					METHOD_ENABLE_BACKGROUND_PLAYBACK[id],
 					XC_MethodReplacement.returnConstant(true));
 			XposedBridge.hookAllMethods(XposedHelpers.findClass(
 					BACKGROUND_PLAYER_SERVICE, lpparam.classLoader),
