@@ -12,12 +12,14 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String YOUTUBE_PACKAGE = "com.google.android.youtube";
 	public static final String BACKGROUND_PLAYER_SERVICE = "com.google.android.apps.youtube.core.player.BackgroundPlayerService";
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
-			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym" };
+			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym", "cyc",
+			"cyb" };
 	public static final String[] METHOD_ENABLE_BACKGROUND_PLAYBACK = { "u",
-			"u", "u", "u", "u", "u", "u", "u", "v" };
-	public static final String FIELD_PLAYBACK_CONTROL = "i";
+			"u", "u", "u", "u", "u", "u", "u", "v", "v", "x" };
+	public static final String[] FIELD_PLAYBACK_CONTROL = { "i", "i", "i", "i",
+			"i", "i", "i", "i", "i", "i", "h" };
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
-			"k", "k", "j", "j", "j", "j" };
+			"k", "k", "j", "j", "j", "j", "j", "j" };
 	public static final String FIELD_ENABLE_NOTIFICATION = "e";
 	public static final String METHOD_NEXT_TRACK = "d";
 	public static final String FIELD_TIME_MILLS = "a";
@@ -36,7 +38,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			protected void afterHookedMethod(MethodHookParam param)
 					throws Throwable {
 				Object playbackControl = (Object) XposedHelpers.getObjectField(
-						param.thisObject, FIELD_PLAYBACK_CONTROL);
+						param.thisObject, FIELD_PLAYBACK_CONTROL[id]);
 				XposedHelpers.callMethod(playbackControl,
 						METHOD_RESTART_PLAYBACK[id]);
 
@@ -64,7 +66,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 						advanceSent = true;
 						Object playbackControl = (Object) XposedHelpers
 								.getObjectField(param.thisObject,
-										FIELD_PLAYBACK_CONTROL);
+										FIELD_PLAYBACK_CONTROL[id]);
 						XposedHelpers.callMethod(playbackControl,
 								METHOD_NEXT_TRACK);
 					}
@@ -102,7 +104,13 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	}
 
 	public int getVersionIndex(int version) {
-		if ((version == 101155130) || (version == 101155170)) {
+		if ((version == 101354134) || (version == 101354172)) {
+			// YouTube 10.13.54
+			return 10;
+		} else if ((version == 101253134) || (version == 101253172)) {
+			// YouTube 10.12.53
+			return 9;
+		} else if ((version == 101155130) || (version == 101155170)) {
 			// YouTube 10.11.55
 			return 8;
 		} else if ((version == 101052130) || (version == 101052170)) {
