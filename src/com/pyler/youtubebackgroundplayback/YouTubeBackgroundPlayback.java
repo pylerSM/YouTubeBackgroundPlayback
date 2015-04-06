@@ -33,6 +33,14 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		if (!YOUTUBE_PACKAGE.equals(lpparam.packageName)) {
 			return;
 		}
+		Object activityThread = XposedHelpers.callStaticMethod(
+				XposedHelpers.findClass("android.app.ActivityThread", null),
+				"currentActivityThread");
+		Context context = (Context) XposedHelpers.callMethod(activityThread,
+				"getSystemContext");
+		int versionCode = context.getPackageManager().getPackageInfo(
+				lpparam.packageName, 0).versionCode;
+		id = getVersionIndex(versionCode);
 		XC_MethodHook restartPlayback = new XC_MethodHook() {
 			@Override
 			protected void afterHookedMethod(MethodHookParam param)
@@ -76,14 +84,6 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 				}
 			}
 		};
-		Object activityThread = XposedHelpers.callStaticMethod(
-				XposedHelpers.findClass("android.app.ActivityThread", null),
-				"currentActivityThread");
-		Context context = (Context) XposedHelpers.callMethod(activityThread,
-				"getSystemContext");
-		int versionCode = context.getPackageManager().getPackageInfo(
-				lpparam.packageName, 0).versionCode;
-		id = getVersionIndex(versionCode);
 		if (id != -1) {
 			XposedHelpers.findAndHookMethod(
 					CLASS_ENABLE_BACKGROUND_PLAYBACK[id], lpparam.classLoader,
