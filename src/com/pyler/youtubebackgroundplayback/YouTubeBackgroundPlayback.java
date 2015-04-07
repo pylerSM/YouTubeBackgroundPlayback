@@ -16,8 +16,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			"cyb" };
 	public static final String[] METHOD_ENABLE_BACKGROUND_PLAYBACK = { "u",
 			"u", "u", "u", "u", "u", "u", "u", "v", "v", "x" };
-	public static final String[] FIELD_PLAYBACK_CONTROL = { "i", "i", "i", "i",
-			"i", "i", "i", "i", "i", "i", "h" };
+	public static final String FIELD_PLAYBACK_CONTROL = "i";
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
 			"k", "k", "j", "j", "j", "j", "j", "j" };
 	public static final String FIELD_ENABLE_NOTIFICATION = "e";
@@ -46,7 +45,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			protected void afterHookedMethod(MethodHookParam param)
 					throws Throwable {
 				Object playbackControl = (Object) XposedHelpers.getObjectField(
-						param.thisObject, FIELD_PLAYBACK_CONTROL[id]);
+						param.thisObject, FIELD_PLAYBACK_CONTROL);
 				XposedHelpers.callMethod(playbackControl,
 						METHOD_RESTART_PLAYBACK[id]);
 
@@ -74,7 +73,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 						advanceSent = true;
 						Object playbackControl = (Object) XposedHelpers
 								.getObjectField(param.thisObject,
-										FIELD_PLAYBACK_CONTROL[id]);
+										FIELD_PLAYBACK_CONTROL);
 						XposedHelpers.callMethod(playbackControl,
 								METHOD_NEXT_TRACK);
 					}
