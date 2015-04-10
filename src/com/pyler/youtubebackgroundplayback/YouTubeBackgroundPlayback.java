@@ -102,41 +102,42 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		}
 	}
 
-	public int getVersionIndex(int version) {
-		if ((version == 101354134) || (version == 101354172)) {
+	public int getVersionIndex(int build) {
+		int version = build / 100000;
+		if (version == 1013) {
 			// YouTube 10.13.54
 			return 10;
-		} else if ((version == 101253134) || (version == 101253172)) {
+		} else if (version == 1012) {
 			// YouTube 10.12.53
 			return 9;
-		} else if ((version == 101155130) || (version == 101155170)) {
+		} else if (version == 1011) {
 			// YouTube 10.11.55
 			return 8;
-		} else if ((version == 101052130) || (version == 101052170)) {
+		} else if (version == 1010) {
 			// YouTube 10.10.52
 			return 7;
-		} else if ((version == 100956130) || (version == 100956170)) {
+		} else if (version == 1009) {
 			// YouTube 10.09.56
 			return 6;
-		} else if ((version == 100853130) || (version == 100853170)) {
+		} else if (version == 1008) {
 			// YouTube 10.08.53
 			return 5;
-		} else if ((version == 100852130) || (version == 100852170)) {
+		} else if (version == 1007) {
 			// YouTube 10.08.52
 			return 5;
-		} else if ((version == 100603130) || (version == 100603170)) {
+		} else if (version == 1006) {
 			// YouTube 10.06.3
 			return 4;
-		} else if ((version == 100506130) || (version == 100506170)) {
+		} else if (version == 1005) {
 			// YouTube 10.05.6
 			return 3;
-		} else if ((version == 100405130) || (version == 100405170)) {
+		} else if (version == 1004) {
 			// YouTube 10.04.5
 			return 2;
-		} else if ((version == 100305130) || (version == 100305170)) {
+		} else if (version == 1003) {
 			// YouTube 10.03.5
 			return 1;
-		} else if ((version == 100203130) || (version == 100203170)) {
+		} else if (version == 1002) {
 			// YouTube 10.02.3
 			return 0;
 		} else {
