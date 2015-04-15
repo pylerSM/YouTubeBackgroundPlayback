@@ -13,12 +13,12 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String BACKGROUND_PLAYER_SERVICE = "com.google.android.apps.youtube.core.player.BackgroundPlayerService";
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
 			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym", "cyc",
-			"cyb" };
+			"cyb", "cxa" };
 	public static final String[] METHOD_ENABLE_BACKGROUND_PLAYBACK = { "u",
-			"u", "u", "u", "u", "u", "u", "u", "v", "v", "x" };
+			"u", "u", "u", "u", "u", "u", "u", "v", "v", "x", "x" };
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
-			"k", "k", "j", "j", "j", "j", "j", "j" };
+			"k", "k", "j", "j", "j", "j", "j", "j", "j" };
 	public static final String FIELD_ENABLE_NOTIFICATION = "e";
 	public static final String METHOD_NEXT_TRACK = "d";
 	public static final String FIELD_TIME_MILLS = "a";
@@ -104,7 +104,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public int getVersionIndex(int build) {
 		int version = build / 100000;
-		if (version == 1013) {
+		if (version == 1014) {
+			// YouTube 10.14.56
+			return 11;
+		} else if (version == 1013) {
 			// YouTube 10.13.54
 			return 10;
 		} else if (version == 1012) {
