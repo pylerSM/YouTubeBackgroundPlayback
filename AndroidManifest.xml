@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pyler.youtubebackgroundplayback"
-    android:versionCode="141"
-    android:versionName="1.4.1" >
+    android:versionCode="142"
+    android:versionName="1.4.2" >
 
     <uses-sdk
         android:minSdkVersion="15"
