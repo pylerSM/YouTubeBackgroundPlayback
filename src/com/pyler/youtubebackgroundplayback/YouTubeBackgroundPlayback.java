@@ -13,12 +13,12 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String BACKGROUND_PLAYER_SERVICE = "com.google.android.apps.youtube.core.player.BackgroundPlayerService";
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
 			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym", "cyc",
-			"cyb", "cxa", "cxx", "cxw", "cxy" };
+			"cyb", "cxa", "cxx", "cxw", "cxy", "dao", "dag", "dap", "dbq", "dcf" };
 	public static final String[] METHOD_ENABLE_BACKGROUND_PLAYBACK = { "u",
-			"u", "u", "u", "u", "u", "u", "u", "v", "v", "x", "x", "x", "x", "x" };
+			"u", "u", "u", "u", "u", "u", "u", "v", "v", "x", "x", "x", "x", "x", "y", "z", "A", "A", "A" };
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k",
-			"k", "k", "j", "j", "j", "j", "j", "j", "j", "j", "j", "j" };
+			"k", "k", "j", "j", "j", "j", "j", "j", "j", "j", "j", "j", "j", "j", "j", "j", "j" };
 	public static final String FIELD_ENABLE_NOTIFICATION = "e";
 	public static final String METHOD_NEXT_TRACK = "d";
 	public static final String FIELD_TIME_MILLS = "a";
@@ -104,53 +104,47 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public int getVersionIndex(int build) {
 		int version = build / 100000;
-		if (version == 1018) {
-			// YouTube 10.18.55
+		if (version == 1025) {
+			return 19;
+		} else if (version == 1024) {
+			return 18;
+		} else if (version == 1021) {
+			return 17;
+		} else if (version == 1020) {
+			return 16;
+		} else if (version == 1019) {
+			return 15;
+		} else if (version == 1018) {
 			return 14;
-                } else if (version == 1016) {
-			// YouTube 10.16.53
+		} else if (version == 1016) {
 			return 13;
-                } else if (version == 1015) {
-			// YouTube 10.15.54
+		} else if (version == 1015) {
 			return 12;
 		} else if (version == 1014) {
-			// YouTube 10.14.56
 			return 11;
 		} else if (version == 1013) {
-			// YouTube 10.13.54
 			return 10;
 		} else if (version == 1012) {
-			// YouTube 10.12.53
 			return 9;
 		} else if (version == 1011) {
-			// YouTube 10.11.55
 			return 8;
 		} else if (version == 1010) {
-			// YouTube 10.10.52
 			return 7;
 		} else if (version == 1009) {
-			// YouTube 10.09.56
 			return 6;
 		} else if (version == 1008) {
-			// YouTube 10.08.53
 			return 5;
 		} else if (version == 1007) {
-			// YouTube 10.08.52
 			return 5;
 		} else if (version == 1006) {
-			// YouTube 10.06.3
 			return 4;
 		} else if (version == 1005) {
-			// YouTube 10.05.6
 			return 3;
 		} else if (version == 1004) {
-			// YouTube 10.04.5
 			return 2;
 		} else if (version == 1003) {
-			// YouTube 10.03.5
 			return 1;
 		} else if (version == 1002) {
-			// YouTube 10.02.3
 			return 0;
 		} else {
 			// Unsupported version
