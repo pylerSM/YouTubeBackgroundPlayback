@@ -13,7 +13,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String BACKGROUND_PLAYER_SERVICE = "com.google.android.apps.youtube.core.player.BackgroundPlayerService";
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti",
 			"ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym", "cyc",
-			"cyb", "cxa", "cxx", "cxw", "cxy", "dao", "dag", "dap", "dbq", "dcf" };
+			"cyb", "cxa", "cxx", "cxw", "cxy", "dao", "dag", "dap", "dbq", "dcq" };
 	public static final String[] METHOD_ENABLE_BACKGROUND_PLAYBACK = { "u",
 			"u", "u", "u", "u", "u", "u", "u", "v", "v", "x", "x", "x", "x", "x", "y", "z", "A", "A", "A" };
 	public static final String FIELD_PLAYBACK_CONTROL = "i";
