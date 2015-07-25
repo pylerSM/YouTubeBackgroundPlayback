@@ -10,6 +10,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String YOUTUBE_PACKAGE = "com.google.android.youtube";
+	public static final int[] YOUTUBE_VERSION = { 1002, 1003, 1004, 1005, 1006, 1008, 1009, 1010,
+		1011, 1012, 1013, 1014, 1015, 1016, 1018, 1019, 1020, 1021, 1024, 1025, 1028, 1029 };
 	public static final String BACKGROUND_PLAYER_SERVICE = "com.google.android.apps.youtube.core.player.BackgroundPlayerService";
 public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti", "ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym",
 		"cyc", "cyb", "cxa", "cxx", "cxw", "cxy", "dao", "dag", "dap", "dbq", "dcq", "dcg", "dbs" };
@@ -101,58 +103,11 @@ public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti", "ctz", 
 			XposedBridge.log("This YouTube version is not supported yet.");
 		}
 	}
-
 	public int getVersionIndex(int build) {
 		int version = build / 100000;
-		if (version == 1029) {
-			return 21;
-		} else if (version == 1028) {
-			return 20;
-		} else if (version == 1025) {
-			return 19;
-		} else if (version == 1024) {
-			return 18;
-		} else if (version == 1021) {
-			return 17;
-		} else if (version == 1020) {
-			return 16;
-		} else if (version == 1019) {
-			return 15;
-		} else if (version == 1018) {
-			return 14;
-		} else if (version == 1016) {
-			return 13;
-		} else if (version == 1015) {
-			return 12;
-		} else if (version == 1014) {
-			return 11;
-		} else if (version == 1013) {
-			return 10;
-		} else if (version == 1012) {
-			return 9;
-		} else if (version == 1011) {
-			return 8;
-		} else if (version == 1010) {
-			return 7;
-		} else if (version == 1009) {
-			return 6;
-		} else if (version == 1008) {
-			return 5;
-		} else if (version == 1007) {
-			return 5;
-		} else if (version == 1006) {
-			return 4;
-		} else if (version == 1005) {
-			return 3;
-		} else if (version == 1004) {
-			return 2;
-		} else if (version == 1003) {
-			return 1;
-		} else if (version == 1002) {
-			return 0;
-		} else {
-			// Unsupported version
-			return -1;
+		for (int i = 0; i < YOUTUBE_VERSION.length; i++) {
+			if ( version == YOUTUBE_VERSION[i] ) return i;
 		}
+		return -1;
 	}
 }
