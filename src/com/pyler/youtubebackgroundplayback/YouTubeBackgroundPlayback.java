@@ -51,8 +51,15 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			@Override
 			protected void afterHookedMethod(MethodHookParam param)
 					throws Throwable {
-				XposedHelpers.setBooleanField(param.thisObject,
+				if (id < 1037 /*TODO*/) {
+					XposedHelpers.setBooleanField(param.thisObject,
 						FIELD_ENABLE_NOTIFICATION[id], true);
+				} else {
+			            // reminder for contributors
+			            // "e", "e" is for 1037
+				    // Object o = (Object) XposedHelpers.getObjectField(param.thisObject, "e");
+				    // XposedHelpers.setBooleanField(o, "e", true); 
+				}
 			}
 		};
 		XC_MethodHook advanceNextTrack = new XC_MethodHook() {
