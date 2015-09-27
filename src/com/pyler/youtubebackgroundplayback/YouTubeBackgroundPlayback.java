@@ -16,7 +16,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String[] CLASS_ENABLE_BACKGROUND_PLAYBACK = { "cti", "ctz", "cyj", "cyy", "cyk", "cyl", "cza", "cyj", "cym",
 		"cyc", "cyb", "cxa", "cxx", "cxw", "cxy", "dao", "dag", "dap", "dbq", "dcq", "dcg", "dbs", "ddh", "den", "dfb", ,"kfj", "kgd", "knb" "koj"};
 	public static final String[] METHOD_ENABLE_BACKGROUND_PLAYBACK = { "u", "u", "u", "u", "u", "u", "u", "u", "v", "v", "x", "x",
-		"x", "x", "x", "y", "z", "A", "A", "A", "z", "z", "z", "C", "E", "B", "B, "B", "B", "D"};
+		"x", "x", "x", "y", "z", "A", "A", "A", "z", "z", "z", "C", "E", "B", "B", "B", "B", "D"};
 	public static final String[] FIELD_PLAYBACK_CONTROL = { "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i",
 		"i", "i", "i", "i", "i", "i", "i", "i", "i", "f", "f", "f", "f", "f", "f", "f", "f" };
 	public static final String[] METHOD_RESTART_PLAYBACK = { "k", "k", "k", "k", "k", "j", "j", "j", "j", "j", "j", "j", "j", "j",
