@@ -51,7 +51,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			@Override
 			protected void afterHookedMethod(MethodHookParam param)
 					throws Throwable {
-				if (id < 1037 /*TODO*/) {
+				if (id < 29 /*TODO*/) {
 					XposedHelpers.setBooleanField(param.thisObject,
 						FIELD_ENABLE_NOTIFICATION[id], true);
 				} else {
@@ -100,7 +100,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 					METHOD_ENABLE_BACKGROUND_PLAYBACK[id],
 					XC_MethodReplacement.returnConstant(true));
 			XposedBridge.hookAllMethods(XposedHelpers.findClass(
-					id < 1034 ? CLASS_BACKGROUND_PLAYER_SERVICE[0] : CLASS_BACKGROUND_PLAYER_SERVICE[1], lpparam.classLoader),
+					id < 29 ? CLASS_BACKGROUND_PLAYER_SERVICE[0] : CLASS_BACKGROUND_PLAYER_SERVICE[1], lpparam.classLoader),
 					"handlePlaybackServiceException", restartPlayback);
 			XposedBridge.hookAllConstructors(XposedHelpers.findClass(
 					BACKGROUND_PLAYER_SERVICE, lpparam.classLoader),
