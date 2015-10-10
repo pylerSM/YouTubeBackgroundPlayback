@@ -11,14 +11,14 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public static final String YOUTUBE_PACKAGE = "com.google.android.youtube";
-	public static final int[] YOUTUBE_VERSION = { 1076, 1077 };
-	public static final String[] CLASS_1 = { "knb", "koj" };
-	public static final String[] METHOD_1_1 = { "J", "K" };
-	public static final String[] FIELD_1_1 = { "f", "e" };
-	public static final String[] FIELD_1_2 = { "d", "e" };
-	public static final String[] CLASS_2 = { "iha", "ihy" };
-	public static final String[] METHOD_2_1 = { "a", "a" };
-	public static final String[] FIELD_2_1 = { "c", "c" };
+	public static final int[] YOUTUBE_VERSION = { 1076, 1077, 1078, 1079, 1080 };
+	public static final String[] CLASS_1 = { "knb", "koj", "kqp", "kul", "kys" };
+	public static final String[] METHOD_1_1 = { "J", "K", "O", "P", "P" };
+	public static final String[] FIELD_1_1 = { "f", "e", "e", "e", "e" };
+	public static final String[] FIELD_1_2 = { "d", "e", "e", "e", "e" };
+	public static final String[] CLASS_2 = { "iha", "ihy", "ijx", "ink", "iqq" };
+	public static final String[] METHOD_2_1 = { "a", "a", "a", "a", "a" };
+	public static final String[] FIELD_2_1 = { "c", "c", "c", "c", "c" };
 	public int id;
 
 	@Override
