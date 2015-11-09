@@ -11,16 +11,16 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public static final String YOUTUBE_PACKAGE = "com.google.android.youtube";
-	public static final int[] YOUTUBE_VERSION = { 1080, 1083 };
-	public static final String[] CLASS_1 = { "kyr", "lco" };
-	public static final String[] METHOD_1_1 = { "P", "a" };
-	public static final String[] FIELD_1_1 = { "e", "d" };
-	public static final String[] FIELD_1_2 = { "e", "e" };
-	public static final String[] CLASS_2 = { "iqp", "iur" };
-	public static final String[] METHOD_2_1 = { "a", "a" };
-	public static final String[] FIELD_2_1 = { "c", "c" };
-	public static final String[] CLASS_3 = { "azq", "azl" };
-	public static final String[] METHOD_3_1 = { "c", "d" };
+	public static final int[] YOUTUBE_VERSION = { 108058, 108358, 108360, 108362 };
+	public static final String[] CLASS_1 = { "kyr", "lco", "lco", "lzb" };
+	public static final String[] METHOD_1_1 = { "P", "a", "a", "a" };
+	public static final String[] FIELD_1_1 = { "e", "d", "d", "d" };
+	public static final String[] FIELD_1_2 = { "e", "e", "e", "e" };
+	public static final String[] CLASS_2 = { "iqp", "iur", "iur", "jmo" };
+	public static final String[] METHOD_2_1 = { "a", "a", "a", "a" };
+	public static final String[] FIELD_2_1 = { "c", "c", "c", "c" };
+	public static final String[] CLASS_3 = { "azq", "azl", "azl", "azw" };
+	public static final String[] METHOD_3_1 = { "c", "d", "d", "d" };
 	public int id;
 
 	@Override
@@ -35,7 +35,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		Context context = (Context) XposedHelpers.callMethod(activityThread,
 			"getSystemContext");
 		int versionCode = context.getPackageManager().getPackageInfo(
-			lpparam.packageName, 0).versionCode / 100000;
+			lpparam.packageName, 0).versionCode / 1000;
 		id = getVersionIndex(versionCode);
 		
 		if (id != -1 ) {
@@ -44,6 +44,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 					@Override
 					protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
 						super.beforeHookedMethod(param);
+//						XposedHelpers.callMethod(param.thisObject, METHOD_1_2[id]);
 						Object o = XposedHelpers.getObjectField(param.thisObject, FIELD_1_1[id]);
 						XposedHelpers.setBooleanField(o, FIELD_1_2[id], true);
 					}
@@ -71,4 +72,3 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		return -1;
 	}
 }
-
