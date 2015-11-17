@@ -19,16 +19,16 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
     public static final int[] APP_VERSIONS =   { 108058, 108358, 108360, 108362 };
 
-    public static final String[] CLASS_1 =     { "kyr", "lco", "lco", "lzb" };
+    public static final String[] CLASS_1 =     { "kyr", "lco", "lha", "lzb" };
     public static final String[] METHOD_1 =    { "P", "a", "a", "a" };
     public static final String[] FIELD_1 =     { "e", "d", "d", "d" };
     public static final String[] SUBFIELD_1 =  { "e", "e", "e", "e" };
 
-    public static final String[] CLASS_2 =     { "iqp", "iur", "iur", "jmo" };
+    public static final String[] CLASS_2 =     { "iqp", "iur", "izd", "jmo" };
     public static final String[] METHOD_2 =    { "a", "a", "a", "a" };
     public static final String[] FIELD_2 =     { "c", "c", "c", "c" };
 
-    public static final String[] CLASS_3 =     { "azq", "azl", "azl", "azw" };
+    public static final String[] CLASS_3 =     { "azq", "azl", "bdx", "azw" };
     public static final String[] METHOD_3 =    { "c", "d", "d", "d" };
 
     @Override
