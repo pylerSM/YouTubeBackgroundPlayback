@@ -17,6 +17,8 @@ import static de.robv.android.xposed.XposedHelpers.setBooleanField;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
+    public static final String APP_PACKAGE =   "com.google.android.youtube"
+
     public static final int[] APP_VERSIONS =   { 108058, 108358, 108360, 108362 };
 
     public static final String[] CLASS_1 =     { "kyr", "lco", "lha", "lzb" };
@@ -33,13 +35,13 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
-        if (!lpparam.packageName.equals("com.google.android.youtube")) return;
+        if (!lpparam.packageName.equals(APP_PACKAGE)) return;
 
         final Object activityThread = callStaticMethod(
                 findClass("android.app.ActivityThread", null), "currentActivityThread");
         final Context context = (Context) callMethod(activityThread, "getSystemContext");
         final int i = getVersionIndex(context.getPackageManager()
-                .getPackageInfo("com.google.android.youtube", 0).versionCode / 1000);
+                .getPackageInfo(APP_PACKAGE, 0).versionCode / 1000);
 
         if (i == -1) {
             log("Your version of the YouTube app is not yet supported.");
