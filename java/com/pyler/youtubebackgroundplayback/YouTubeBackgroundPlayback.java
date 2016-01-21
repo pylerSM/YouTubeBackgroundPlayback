@@ -17,21 +17,22 @@ import static de.robv.android.xposed.XposedHelpers.setBooleanField;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
-    public static final String APP_PACKAGE =   "com.google.android.youtube"
+	public static final String APP_PACKAGE =   "com.google.android.youtube";
+	
+	public static final int[] APP_VERSIONS =   { 108058, 108358, 108360, 108362, 108656, 108752, 108754, 108755, 108957, 108958, 108959, 110153 };
 
-    public static final int[] APP_VERSIONS =   { 108058, 108358, 108360, 108362, 108656, 108752 };
+	public static final String[] CLASS_1 =     { "kyr", "lco", "lha", "lzb", "moc", "mtp", "mtp", "mtq", "myb", "myb", "myb", "com.google.android.libraries.youtube.player.background.BackgroundTransitioner" };
+	public static final String[] METHOD_1 =    { "P", "a", "a", "a", "d", "d", "d", "d", "d", "d", "d", "updateBackgroundService" };
+	public static final String[] FIELD_1 =     { "e", "d", "d", "d", "e", "e", "e", "e", "e", "e", "e", "playbackModality" };
+	public static final String[] SUBFIELD_1 =  { "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "isInBackground" };
 
-    public static final String[] CLASS_1 =     { "kyr", "lco", "lha", "lzb", "moc", "mtp" };
-    public static final String[] METHOD_1 =    { "P", "a", "a", "a", "d", "d" };
-    public static final String[] FIELD_1 =     { "e", "d", "d", "d", "e", "e" };
-    public static final String[] SUBFIELD_1 =  { "e", "e", "e", "e", "e", "e" };
+	public static final String[] CLASS_2 =     { "iqp", "iur", "izd", "jmo", "kam", "kft", "kft", "kft", "kin", "kin", "kin", "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel" };
+	public static final String[] METHOD_2 =    { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "isPlayable" };
+	public static final String[] FIELD_2 =     { "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "isBackgroundable" };
 
-    public static final String[] CLASS_2 =     { "iqp", "iur", "izd", "jmo", "kam", "kft" };
-    public static final String[] METHOD_2 =    { "a", "a", "a", "a", "a", "a" };
-    public static final String[] FIELD_2 =     { "c", "c", "c", "c", "c", "c" };
-
-    public static final String[] CLASS_3 =     { "azq", "azl", "bdx", "azw", "bhj", "biz" };
-    public static final String[] METHOD_3 =    { "c", "d", "d", "d", "d", "d" };
+	public static final String[] CLASS_3 =     { "azq", "azl", "bdx", "azw", "bhj", "biz", "biz", "biz", "biv", "biv", "biv", "com.google.android.apps.youtube.app.background.BackgroundSettings" };
+	public static final String[] METHOD_3 =    { "c", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "getBackgroundAudioSetting" };
+//version 110153 from apkmirror: ndr, d, e, f, klp, a, c, bji, d
 
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
