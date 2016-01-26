@@ -37,6 +37,8 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
        	if (!lpparam.packageName.equals(APP_PACKAGE)) return;
 		
 	final ClassLoader loader = lpparam.classLoader;
+	
+	// check if deobfuscated class name is present
 	boolean isClassFound = true;
 	try {
 		loader.loadClass(CLASS_1[0]);
@@ -47,6 +49,8 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	final Object activityThread = callStaticMethod(
 		findClass("android.app.ActivityThread", null), "currentActivityThread");
 	final Context context = (Context) callMethod(activityThread, "getSystemContext");
+	
+	// get classes/methods/fields names index
 	final int i = getVersionIndex(context.getPackageManager()
 		.getPackageInfo(APP_PACKAGE, 0).versionCode / 1000, isClassFound );
 	if (i == -1) {
@@ -54,6 +58,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		return;
 	}
 
+	// hooks
         findAndHookMethod(CLASS_1[i], loader, METHOD_1[i], new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(final MethodHookParam param) throws Throwable {
@@ -71,6 +76,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
         findAndHookMethod(CLASS_3[i], loader, METHOD_3[i], returnConstant("on"));
     }
 
+	// returns 0 for deobfuscated code and positive integer for obfuscated
 	private int getVersionIndex(final int versionCode, final boolean isDeobfuscated ) {
 		if (isDeobfuscated == true) {
 			return 0;
