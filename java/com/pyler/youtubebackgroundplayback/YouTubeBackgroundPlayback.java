@@ -16,40 +16,43 @@ import static de.robv.android.xposed.XposedHelpers.getObjectField;
 import static de.robv.android.xposed.XposedHelpers.setBooleanField;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
-
 	public static final String APP_PACKAGE =   "com.google.android.youtube";
 	
-	public static final int[] APP_VERSIONS =   { 108058, 108358, 108360, 108362, 108656, 108752, 108754, 108755, 108957, 108958, 108959, 110153 };
+	public static final int[] APP_VERSIONS =   { 0, 108058, 108358, 108360, 108362, 108656, 108752, 108754, 108755, 108957, 108958, 108959, 110153, 110155 };
 
-	public static final String[] CLASS_1 =     { "kyr", "lco", "lha", "lzb", "moc", "mtp", "mtp", "mtq", "myb", "myb", "myb", "com.google.android.libraries.youtube.player.background.BackgroundTransitioner" };
-	public static final String[] METHOD_1 =    { "P", "a", "a", "a", "d", "d", "d", "d", "d", "d", "d", "updateBackgroundService" };
-	public static final String[] FIELD_1 =     { "e", "d", "d", "d", "e", "e", "e", "e", "e", "e", "e", "playbackModality" };
-	public static final String[] SUBFIELD_1 =  { "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "isInBackground" };
+	public static final String[] CLASS_1 =     { "com.google.android.libraries.youtube.player.background.BackgroundTransitioner", "kyr", "lco", "lha", "lzb", "moc", "mtp", "mtp", "mtq", "myb", "myb", "myb", "ndr", "nds" };
+	public static final String[] METHOD_1 =    { "updateBackgroundService", "P", "a", "a", "a", "d", "d", "d", "d", "d", "d", "d", "d", "d" };
+	public static final String[] FIELD_1 =     { "playbackModality", "e", "d", "d", "d", "e", "e", "e", "e", "e", "e", "e", "e", "e" };
+	public static final String[] SUBFIELD_1 =  { "isInBackground", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "f", "f" };
 
-	public static final String[] CLASS_2 =     { "iqp", "iur", "izd", "jmo", "kam", "kft", "kft", "kft", "kin", "kin", "kin", "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel" };
-	public static final String[] METHOD_2 =    { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "isPlayable" };
-	public static final String[] FIELD_2 =     { "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "isBackgroundable" };
+	public static final String[] CLASS_2 =     { "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel", "iqp", "iur", "izd", "jmo", "kam", "kft", "kft", "kft", "kin", "kin", "kin", "klp", "klq" };
+	public static final String[] METHOD_2 =    { "isPlayable", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a" };
+	public static final String[] FIELD_2 =     { "isBackgroundable", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c" };
 
-	public static final String[] CLASS_3 =     { "azq", "azl", "bdx", "azw", "bhj", "biz", "biz", "biz", "biv", "biv", "biv", "com.google.android.apps.youtube.app.background.BackgroundSettings" };
-	public static final String[] METHOD_3 =    { "c", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "getBackgroundAudioSetting" };
-//version 110153 from apkmirror: ndr, d, e, f, klp, a, c, bji, d
-
+	public static final String[] CLASS_3 =     { "com.google.android.apps.youtube.app.background.BackgroundSettings", "azq", "azl", "bdx", "azw", "bhj", "biz", "biz", "biz", "biv", "biv", "biv", "bji", "bji" };
+	public static final String[] METHOD_3 =    { "getBackgroundAudioSetting", "c", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d" };
+	
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
-        if (!lpparam.packageName.equals(APP_PACKAGE)) return;
-
-        final Object activityThread = callStaticMethod(
-                findClass("android.app.ActivityThread", null), "currentActivityThread");
-        final Context context = (Context) callMethod(activityThread, "getSystemContext");
-        final int i = getVersionIndex(context.getPackageManager()
-                .getPackageInfo(APP_PACKAGE, 0).versionCode / 1000);
-
-        if (i == -1) {
-            log("Your version of the YouTube app is not yet supported.");
-            return;
-        }
-
-        final ClassLoader loader = lpparam.classLoader;
+       	if (!lpparam.packageName.equals(APP_PACKAGE)) return;
+		
+	final ClassLoader loader = lpparam.classLoader;
+	boolean isClassFound = true;
+	try {
+		loader.loadClass(CLASS_1[0]);
+	} catch( ClassNotFoundException e ) {
+		isClassFound = false;
+	}
+	
+	final Object activityThread = callStaticMethod(
+		findClass("android.app.ActivityThread", null), "currentActivityThread");
+	final Context context = (Context) callMethod(activityThread, "getSystemContext");
+	final int i = getVersionIndex(context.getPackageManager()
+		.getPackageInfo(APP_PACKAGE, 0).versionCode / 1000, isClassFound );
+	if (i == -1) {
+		log("Your version of the YouTube app is not yet supported.");
+		return;
+	}
 
         findAndHookMethod(CLASS_1[i], loader, METHOD_1[i], new XC_MethodHook() {
             @Override
@@ -68,11 +71,17 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
         findAndHookMethod(CLASS_3[i], loader, METHOD_3[i], returnConstant("on"));
     }
 
-    private int getVersionIndex(final int versionCode) {
-        for (int i = 0; i < APP_VERSIONS.length; i++)
-            if (APP_VERSIONS[i] == versionCode)
-                return i;
-        return -1;
-    }
+	private int getVersionIndex(final int versionCode, final boolean isDeobfuscated ) {
+		if (isDeobfuscated == true) {
+			return 0;
+		} else {
+			for (int i = 1; i < APP_VERSIONS.length; i++) {
+				if (APP_VERSIONS[i] == versionCode) {
+					return i;
+				}
+			}
+			return -1;
+		}
+	}
 
 }
