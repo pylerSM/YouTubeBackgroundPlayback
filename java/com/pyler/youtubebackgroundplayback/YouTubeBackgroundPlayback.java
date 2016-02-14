@@ -33,6 +33,9 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String[] METHOD_3 =    { "getBackgroundAudioSetting", "c", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d" };
 	public static final String[] METHOD_4 =    { "shouldShowBackgroundAudioSettingsDialog" };
 
+	public static final String[] CLASS_4 =    { "com.google.android.libraries.youtube.common.util.PackageUtil" };	
+	public static final String[] METHOD_5 =    { "isDogfoodOrDevBuild" };
+
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
        	if (!lpparam.packageName.equals(APP_PACKAGE)) return;
@@ -78,7 +81,8 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
         
         // Support only for deobfuscated releases
         if (!isObfuscatedCode) {
-	    findAndHookMethod(CLASS_3[i], loader, METHOD_4[0] /*normal method name*/, returnConstant(true));	
+	    findAndHookMethod(CLASS_3[0], loader, METHOD_4[0] /*normal method name*/, returnConstant(true));
+	    findAndHookMethod(CLASS_4[0], loader, METHOD_5[0] /*normal method name*/, returnConstant(true));
 	}
 	
     }
