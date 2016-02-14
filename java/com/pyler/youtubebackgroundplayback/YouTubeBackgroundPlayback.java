@@ -31,7 +31,8 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public static final String[] CLASS_3 =     { "com.google.android.apps.youtube.app.background.BackgroundSettings", "azq", "azl", "bdx", "azw", "bhj", "biz", "biz", "biz", "biv", "biv", "biv", "bji", "bji" };
 	public static final String[] METHOD_3 =    { "getBackgroundAudioSetting", "c", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d" };
-	
+	public static final String[] METHOD_4 =    { "shouldShowBackgroundAudioSettingsDialog" };
+
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
        	if (!lpparam.packageName.equals(APP_PACKAGE)) return;
@@ -39,11 +40,11 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	final ClassLoader loader = lpparam.classLoader;
 	
 	// check if deobfuscated class name is present
-	boolean isClassFound = true;
+	boolean isObfuscatedCode = false;
 	try {
 		loader.loadClass(CLASS_1[0]);
-	} catch( ClassNotFoundException e ) {
-		isClassFound = false;
+	} catch (Exception e) {
+		isObfuscatedCode = true;
 	}
 	
 	final Object activityThread = callStaticMethod(
@@ -52,7 +53,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	
 	// get classes/methods/fields names index
 	final int i = getVersionIndex(context.getPackageManager()
-		.getPackageInfo(APP_PACKAGE, 0).versionCode / 1000, isClassFound );
+		.getPackageInfo(APP_PACKAGE, 0).versionCode / 1000, isObfuscatedCode);
 	if (i == -1) {
 		log("Your version of the YouTube app is not yet supported.");
 		return;
@@ -74,6 +75,12 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
         });
 
         findAndHookMethod(CLASS_3[i], loader, METHOD_3[i], returnConstant("on"));
+        
+        // Support only for deobfuscated releases
+        if (!isObfuscatedCode) {
+	    findAndHookMethod(CLASS_3[i], loader, METHOD_4[0] /*normal method name*/, returnConstant(true));	
+	}
+	
     }
 
 	// returns 0 for deobfuscated code and positive integer for obfuscated
