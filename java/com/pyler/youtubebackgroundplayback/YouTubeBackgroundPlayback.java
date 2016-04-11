@@ -33,9 +33,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final String[] CLASS_3 =     { "com.google.android.apps.youtube.app.background.BackgroundSettings", "azq", "azl", "bdx", "azw", "bhj", "biz", "biz", "biz", "biv", "biv", "biv", "bji", "bji", "bji", "bze", "cad", "cbo", "ccl", "btf", "btf", "btf" };
 	public static final String[] METHOD_3 =    { "getBackgroundAudioSetting", "c", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d" };
 
+	public static final String[] CLASS_4 =     { "com.google.android.apps.youtube.app.background.BackgroundSettings" };
 	public static final String[] METHOD_4 =    { "shouldShowBackgroundAudioSettingsDialog" };
-	public static final String[] CLASS_4 =     { "com.google.android.libraries.youtube.common.util.PackageUtil" };
 
+	public static final String[] CLASS_5 =     { "com.google.android.libraries.youtube.common.util.PackageUtil" };
 	public static final String[] METHOD_5 =    { "isDogfoodOrDevBuild" };
 
 	@Override
@@ -81,10 +82,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 		findAndHookMethod(CLASS_3[i], loader, METHOD_3[i], returnConstant("on"));
 
-		// Support only for deobfuscated releases
 		if (!isObfuscatedCode) {
-			findAndHookMethod(CLASS_3[0], loader, METHOD_4[0] /*normal method name*/, returnConstant(true));
-			findAndHookMethod(CLASS_4[0], loader, METHOD_5[0] /*normal method name*/, returnConstant(true));
+			// hooks for methods only for deobfuscated releases
+			findAndHookMethod(CLASS_4[0], loader, METHOD_4[0], returnConstant(true));
+			findAndHookMethod(CLASS_5[0], loader, METHOD_5[0], returnConstant(true));
 		}
 
 	}
