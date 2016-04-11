@@ -46,11 +46,11 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		final ClassLoader loader = lpparam.classLoader;
 
 		// check if deobfuscated class name is present
-		boolean isObfuscatedCode = false;
+		boolean isDeobfuscatedCode = true;
 		try {
 			loader.loadClass(CLASS_1[0]);
 		} catch (Exception e) {
-			isObfuscatedCode = true;
+			isDeobfuscatedCode = false;
 		}
 
 		final Object activityThread = callStaticMethod(
@@ -59,7 +59,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 		// get classes/methods/fields names index
 		final int i = getVersionIndex(context.getPackageManager()
-			.getPackageInfo(APP_PACKAGE, 0).versionCode / 1000, isObfuscatedCode);
+			.getPackageInfo(APP_PACKAGE, 0).versionCode / 1000, isDeobfuscatedCode);
 		if (i == -1) {
 			log("Your version of the YouTube app is not yet supported.");
 			return;
@@ -82,7 +82,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 		findAndHookMethod(CLASS_3[i], loader, METHOD_3[i], returnConstant("on"));
 
-		if (!isObfuscatedCode) {
+		if (isDeobfuscatedCode) {
 			// hooks for methods only for deobfuscated releases
 			findAndHookMethod(CLASS_4[0], loader, METHOD_4[0], returnConstant(true));
 			findAndHookMethod(CLASS_5[0], loader, METHOD_5[0], returnConstant(true));
@@ -91,17 +91,18 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	}
 
 	// returns 0 for deobfuscated code and positive integer for obfuscated
-	private int getVersionIndex(final int versionCode, final boolean isDeobfuscated ) {
-		if (isDeobfuscated == true) {
+	private int getVersionIndex(final int versionCode, final boolean isDeobfuscatedCode) {
+		if (isDeobfuscatedCode) {
 			return 0;
-		} else {
-			for (int i = 1; i < APP_VERSIONS.length; i++) {
-				if (APP_VERSIONS[i] == versionCode) {
-					return i;
-				}
-			}
-			return -1;
 		}
+
+		for (int i = 1; i < APP_VERSIONS.length; i++) {
+			if (APP_VERSIONS[i] == versionCode) {
+				return i;
+			}
+		}
+
+		return -1;
 	}
 
 }
