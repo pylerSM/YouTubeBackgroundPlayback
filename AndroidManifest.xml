@@ -15,7 +15,7 @@
             android:value="@string/app_description" />
         <meta-data
             android:name="xposedminversion"
-            android:value="30" />
+            android:value="53" />
 
     </application>
 
