@@ -17,27 +17,77 @@ import static de.robv.android.xposed.XposedHelpers.setBooleanField;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
-	public static final String APP_PACKAGE =   "com.google.android.youtube";
+	public static final String APP_PACKAGE = "com.google.android.youtube";
 
-	public static final int[] APP_VERSIONS =   { 0, 108058, 108358, 108360, 108362, 108656, 108752, 108754, 108755, 108957, 108958, 108959, 110153, 110155, 110156, 110354, 110456, 110759, 110851, 111056, 111057, 111060 };
+	public static final int[] APP_VERSIONS = { 0,
+		108058, 108358, 108360, 108362, 108656,
+		108752, 108754, 108755, 108957, 108958,
+		108959, 110153, 110155, 110156, 110354,
+		110456, 110759, 110851, 111056, 111057,
+		111060 };
 
-	public static final String[] CLASS_1 =     { "com.google.android.libraries.youtube.player.background.BackgroundTransitioner", "kyr", "lco", "lha", "lzb", "moc", "mtp", "mtp", "mtq", "myb", "myb", "myb", "ndr", "nds", "nds", "nxu", "odu", "omt", "oom", "owe", "owe", "owe" };
-	public static final String[] METHOD_1 =    { "updateBackgroundService", "P", "a", "a", "a", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d" };
-	public static final String[] FIELD_1 =     { "playbackModality", "e", "d", "d", "d", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e","e", "e", "e", "e" };
-	public static final String[] SUBFIELD_1 =  { "isInBackground", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "f", "f", "f", "f", "f", "f", "f", "f", "f", "f" };
+	public static final String[] CLASS_1 = { "com.google.android.libraries.youtube.player.background.BackgroundTransitioner",
+		"kyr", "lco", "lha", "lzb", "moc",
+		"mtp", "mtp", "mtq", "myb", "myb",
+		"myb", "ndr", "nds", "nds", "nxu",
+		"odu", "omt", "oom", "owe", "owe",
+		"owe" };
+	public static final String[] METHOD_1 = { "updateBackgroundService",
+		"P", "a", "a", "a", "d",
+		"d", "d", "d", "d", "d",
+		"d", "d", "d", "d", "d",
+		"d", "d", "d", "d", "d",
+		"d" };
+	public static final String[] FIELD_1 = { "playbackModality",
+		"e", "d", "d", "d", "e",
+		"e", "e", "e", "e", "e",
+		"e", "e", "e", "e", "e",
+		"e", "e", "e", "e", "e",
+		"e" };
+	public static final String[] SUBFIELD_1 = { "isInBackground",
+		"e", "e", "e", "e", "e",
+		"e", "e", "e", "e", "e",
+		"e", "f", "f", "f", "f",
+		"f", "f", "f", "f", "f",
+		"f" };
 
-	public static final String[] CLASS_2 =     { "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel", "iqp", "iur", "izd", "jmo", "kam", "kft", "kft", "kft", "kin", "kin", "kin", "klp", "klq", "klq", "lcl", "lhu", "lpf", "lqa", "lwt", "lwt", "lwt" };
-	public static final String[] METHOD_2 =    { "isPlayable", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a" };
-	public static final String[] FIELD_2 =     { "isBackgroundable", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c" };
+	public static final String[] CLASS_2 = { "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel",
+		"iqp", "iur", "izd", "jmo", "kam",
+		"kft", "kft", "kft", "kin", "kin",
+		"kin", "klp", "klq", "klq", "lcl",
+		"lhu", "lpf", "lqa", "lwt", "lwt",
+		"lwt" };
+	public static final String[] METHOD_2 = { "isPlayable",
+		"a", "a", "a", "a", "a",
+		"a", "a", "a", "a", "a",
+		"a", "a", "a", "a", "a",
+		"a", "a", "a", "a", "a",
+		"a" };
+	public static final String[] FIELD_2 = { "isBackgroundable",
+		"c", "c", "c", "c", "c",
+		"c", "c", "c", "c", "c",
+		"c", "c", "c", "c", "c",
+		"c", "c", "c", "c", "c",
+		"c" };
 
-	public static final String[] CLASS_3 =     { "com.google.android.apps.youtube.app.background.BackgroundSettings", "azq", "azl", "bdx", "azw", "bhj", "biz", "biz", "biz", "biv", "biv", "biv", "bji", "bji", "bji", "bze", "cad", "cbo", "ccl", "btf", "btf", "btf" };
-	public static final String[] METHOD_3 =    { "getBackgroundAudioSetting", "c", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "d" };
+	public static final String[] CLASS_3 = { "com.google.android.apps.youtube.app.background.BackgroundSettings",
+		"azq", "azl", "bdx", "azw", "bhj",
+		"biz", "biz", "biz", "biv", "biv",
+		"biv", "bji", "bji", "bji", "bze",
+		"cad", "cbo", "ccl", "btf", "btf",
+		"btf" };
+	public static final String[] METHOD_3 = { "getBackgroundAudioSetting",
+		"c", "d", "d", "d", "d",
+		"d", "d", "d", "d", "d",
+		"d", "d", "d", "d", "d",
+		"d", "d", "d", "d", "d",
+		"d" };
 
-	public static final String[] CLASS_4 =     { "com.google.android.apps.youtube.app.background.BackgroundSettings" };
-	public static final String[] METHOD_4 =    { "shouldShowBackgroundAudioSettingsDialog" };
+	public static final String[] CLASS_4 = { "com.google.android.apps.youtube.app.background.BackgroundSettings" };
+	public static final String[] METHOD_4 = { "shouldShowBackgroundAudioSettingsDialog" };
 
-	public static final String[] CLASS_5 =     { "com.google.android.libraries.youtube.common.util.PackageUtil" };
-	public static final String[] METHOD_5 =    { "isDogfoodOrDevBuild" };
+	public static final String[] CLASS_5 = { "com.google.android.libraries.youtube.common.util.PackageUtil" };
+	public static final String[] METHOD_5 = { "isDogfoodOrDevBuild" };
 
 	@Override
 	public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
