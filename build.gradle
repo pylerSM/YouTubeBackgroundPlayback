@@ -4,8 +4,12 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:2.0.0'
     }
+}
+
+repositories {
+    jcenter();
 }
 
 apply plugin: 'com.android.application'
@@ -16,10 +20,10 @@ android {
 
     defaultConfig {
         applicationId 'com.pyler.youtubebackgroundplayback'
-        minSdkVersion 15
+        minSdkVersion 1
         targetSdkVersion 23
         versionCode 150
-        versionName '1.5.0'
+        versionName '1.5.0-develop'
     }
 
     sourceSets {
@@ -40,5 +44,5 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: [ '*.jar' ])
+    provided 'de.robv.android.xposed:api:82'
 }
