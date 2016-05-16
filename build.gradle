@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         applicationId 'com.pyler.youtubebackgroundplayback'
-        minSdkVersion 1
+        minSdkVersion 4
         targetSdkVersion 23
         versionCode 150
         versionName '1.5.0-develop'
@@ -40,6 +40,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
