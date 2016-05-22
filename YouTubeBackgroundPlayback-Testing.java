@@ -98,19 +98,21 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 		loader = lpparam.classLoader;
 
-        // Thank you to KeepChat For the Following Code Snippet
-        // http://git.io/JJZPaw
-        Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
-        nContext = (Context) callMethod(activityThread, "getSystemContext");
+        	// Thank you to KeepChat For the Following Code Snippet
+        	// http://git.io/JJZPaw
+        	Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
+        	nContext = (Context) callMethod(activityThread, "getSystemContext");
 
-        version = String.valueOf(nContext.getPackageManager().getPackageInfo(lpparam.packageName, 0).versionCode);
-        //End Snippet
+        	version = String.valueOf(nContext.getPackageManager().getPackageInfo(lpparam.packageName, 0).versionCode);
+        	//End Snippet
 
-        checkVersion = getVersionIndex(loader);
+		//Add Check To See If We Have Latest Hooks (XSharedPreferences)
 
-        if (checkVersion == 1) {
-            new getHooks().execute();
-        }
+        	checkVersion = getVersionIndex(loader);
+
+        	if (checkVersion == 1) {
+            	new getHooks().execute();
+        	}	
 	}
 
     	void hooksYoutube () {
