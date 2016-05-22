@@ -111,7 +111,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
         	checkVersion = getVersionIndex(loader);
 
         	if (checkVersion == 1) {
-            	new getHooks().execute();
+            	new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/master/youtube_hooks.json");
         	}	
 	}
 
