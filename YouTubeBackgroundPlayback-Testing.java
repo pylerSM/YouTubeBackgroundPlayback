@@ -54,10 +54,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static String METHOD_5;
 
 
-    int checkVersion;
+    	int checkVersion;
 
-    ClassLoader loader;
-    Context nContext;
+    	ClassLoader loader;
+    	Context nContext;
 	String version;
 
 	class getHooks extends AsyncTask<String, String, String> {
@@ -75,11 +75,11 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 				responseString = convertStreamToString(inputStream);
 
-                JSONObject jsonObject = new JSONObject(responseString);
-                //Need To Get Versions From JSON To Compare To Version Installed
+                		JSONObject jsonObject = new JSONObject(responseString);
+                		//Need To Get Versions From JSON To Compare To Version Installed
 
 			} catch (Exception e) {
-                XposedBridge.log("Hook Fetching Error: " +e);
+                		XposedBridge.log("Hook Fetching Error: " +e);
 			}
 
 			return responseString;
@@ -88,8 +88,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
-
-            hooksYoutube();
+            		hooksYoutube();
 		}
 	}
 
@@ -114,35 +113,33 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
         }
 	}
 
-    void hooksYoutube () {
-        try {
-            // hooks
-            findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
+    	void hooksYoutube () {
+        	try {
+            	// hooks
+            	findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
                 @Override
                 protected void beforeHookedMethod(final MethodHookParam param) {
                     setBooleanField(getObjectField(param.thisObject, FIELD_1), SUBFIELD_1, true);
                 }
-            });
+	        });
 
-            findAndHookMethod(CLASS_2, loader, METHOD_2, new XC_MethodHook() {
+            	findAndHookMethod(CLASS_2, loader, METHOD_2, new XC_MethodHook() {
                 @Override
                 protected void beforeHookedMethod(final MethodHookParam param) {
                     setBooleanField(param.thisObject, FIELD_2, true);
                 }
-            });
+            	});
 
-            findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
+            	findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
 
-            if (checkVersion == 1) {
-                // hook specific methods for unobfuscated releases
-                findAndHookMethod(CLASS_4, loader, METHOD_4, returnConstant(true));
-
-                findAndHookMethod(CLASS_5, loader, METHOD_5, returnConstant(true));
-            }
-        } catch (Exception e) {
-
-        }
-    }
+            	if (checkVersion == 1) {
+                	// hook specific methods for unobfuscated releases
+                	findAndHookMethod(CLASS_4, loader, METHOD_4, returnConstant(true));
+                	findAndHookMethod(CLASS_5, loader, METHOD_5, returnConstant(true));
+            	}
+        	} catch (Exception e) {
+        	}
+    	}
 
 	// returns 0 for unobfuscated code and positive integer for obfuscated
 	private int getVersionIndex(final ClassLoader loader) throws PackageManager.NameNotFoundException {
@@ -155,24 +152,24 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		}
 	}
 
-    static String convertStreamToString(InputStream is) throws UnsupportedEncodingException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    	static String convertStreamToString(InputStream is) throws UnsupportedEncodingException {
+        	BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+        	StringBuilder sb = new StringBuilder();
+        	String line = null;
+        	try {
+        	 while ((line = reader.readLine()) != null) {
+                	sb.append(line + "\n");
+            	}
+        	} catch (IOException e) {
+            		e.printStackTrace();
+        	} finally {
+            	try {
+                	is.close();
+            	} catch (IOException e) {
+                	e.printStackTrace();
+            	}
         }
-        return sb.toString();
-    }
+        	return sb.toString();
+    	}
 
 }
