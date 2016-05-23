@@ -55,10 +55,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 
     	int checkVersion;
-
     	ClassLoader loader;
     	Context nContext;
 	String version;
+	static XSharedPreferences mPreferences;
 
 	class getHooks extends AsyncTask<String, String, String> {
 
@@ -193,8 +193,13 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
                 	} catch (Exception e) {
                     		XposedBridge.log("YTBP Fifth Hooks - " +e);
                 	}
-            }
-    }
+            	}
+    	}
+
+	@Override
+	public void initZygote(StartupParam startupParam) throws Throwable {
+		mPreferences = new XSharedPreferences("com.pyler.youtubebackgroundplayback", "Hooks");
+	}
 
 	// returns 0 for unobfuscated code and positive integer for obfuscated
 	private int getVersionIndex(final ClassLoader loader) throws PackageManager.NameNotFoundException {
@@ -207,24 +212,24 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		}
 	}
 
-    static String convertStreamToString(InputStream is) throws UnsupportedEncodingException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return sb.toString();
-    }
+	static String convertStreamToString(InputStream is) throws UnsupportedEncodingException {
+        	BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+        	StringBuilder sb = new StringBuilder();
+        	String line = null;
+        	try {
+            		while ((line = reader.readLine()) != null) {
+                		sb.append(line + "\n");
+            		}		
+        	} catch (IOException e) {
+            	e.printStackTrace();
+	        } finally {
+            		try {
+                		is.close();
+            		} catch (IOException e) {
+                		e.printStackTrace();
+            		}
+        	}
+        	return sb.toString();
+    	}
 
 }
