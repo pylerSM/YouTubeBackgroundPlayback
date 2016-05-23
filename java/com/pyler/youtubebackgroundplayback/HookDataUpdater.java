@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 public class HookDataUpdater extends BroadcastReceiver {
    @Override
    public void onReceive(Context context, Intent intent) {
@@ -12,8 +14,13 @@ public class HookDataUpdater extends BroadcastReceiver {
       
       String hooks = intent.getExtras().getString("Hooks");
       
-      JSONObject jsonObject = new JSONObject(hooks);
+      try {
+         JSONObject jsonObject = new JSONObject(hooks);
+      } catch (Exception e) {
+         
+      }
    
       //Save To Shared Preferences
    }
 }
+
