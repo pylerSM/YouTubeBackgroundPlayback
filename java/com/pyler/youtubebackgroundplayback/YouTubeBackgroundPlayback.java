@@ -81,7 +81,6 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXpose
 
                 		while (keys.hasNext()) {
                     			String key = (String) keys.next();
-                    			System.out.println("Info: " +key);
                     			if (key.equals(version) && hookFound.equals("No")) {
                         			JSONObject hooksObject = jsonObject.getJSONObject(key);
                         			CLASS_1 = hooksObject.getString("CLASS_1");
@@ -96,12 +95,13 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXpose
                         			FIELD_2 = hooksObject.getString("FIELD_1");
 
                         			SUBFIELD_1 = hooksObject.getString("SUBFIELD_1");
-                        
-                        			//Need To Double Check This Method!
-                        			Intent intent=new Intent();
-									intent.setAction("com.pyler.youtubebackgroundplayback.HOOKS");
-									intent.putExtra("Hooks", hooksObject.toString());
-									nContext.sendBroadcast(intent);
+
+                                    		String hooks = version + ";" + CLASS_1 + ";" + CLASS_2 + ";" + CLASS_3 + ";" + METHOD_1 + ";" + METHOD_2 + ";" + METHOD_3 + ";" + FIELD_1 + ";" + FIELD_2 + ";" + SUBFIELD_1 + ";";
+
+                        			Intent intent = new Intent();
+						intent.setAction("com.pyler.youtubebackgroundplayback.HOOKS");
+						intent.putExtra("Hooks", hooks);
+						nContext.startService(intent);
                         
                         			hookFound = "Yes";
                     			} else if (!keys.hasNext() && hookFound.equals("No")) {
@@ -141,14 +141,31 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXpose
         	//End Snippet
 
 		mPreferences.makeWorldReadable();
-		
+
         	try {
-        		if (mPreferences.getString("CLASS_1", null) != null); {
-        			//Assign hooks to hooks saved 
-        			hookYoutube();
-        		}
-        	} catch (Exception e) {
-        		//Update!
+        		if (!mPreferences.getString("Hooks", "Nope").equals("Nope")) {
+                    		String[] splitHooks = mPreferences.getString("Hooks", "Nope").split(";");
+                    		if (version.equals(splitHooks[0])) {
+                        		CLASS_1 = splitHooks[1];
+                        		CLASS_2 = splitHooks[2];
+                        		CLASS_3 = splitHooks[3];
+
+                        		METHOD_1 = splitHooks[4];
+                        		METHOD_2 = splitHooks[5];
+                        		METHOD_3 = splitHooks[6];
+
+                        		FIELD_1 = splitHooks[7];
+                        		FIELD_2 = splitHooks[8];
+
+                        		SUBFIELD_1 = splitHooks[9];
+                        		hookYoutube();
+                    		} else {
+                        		checkVersion();
+                    		}
+        		} else {
+                    		checkVersion();
+                	}
+        	} catch (Throwable t) {
         		checkVersion();
         	}
 	}
@@ -156,15 +173,16 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXpose
 	void checkVersion() {
 		try {
 			checkVersion = getVersionIndex(loader);
-
 			if (checkVersion == 1) {
-				new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
-			}
-		} catch (Exception e) {
+                		new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
+            		} else if (checkVersion == 0) {
+                		hookYoutube();
+            		}
+		} catch (Throwable t) {
 		}
-		}
+    }
 
-    	void hookYoutube () {
+    void hookYoutube () {
             	// hooks
        	    	try {
                 	findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
@@ -174,8 +192,8 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXpose
                         	setBooleanField(getObjectField(param.thisObject, FIELD_1), SUBFIELD_1, true);
                     	}
                 	});
-            	} catch (Exception e) {
-                	XposedBridge.log("YTBP First Hook - " +e);
+            	} catch (Throwable t) {
+                	XposedBridge.log("YTBP First Hook - " +t);
             	}
 
             	try {
@@ -183,30 +201,30 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXpose
                 	@Override
                 	protected void beforeHookedMethod(final MethodHookParam param) {
                 	    setBooleanField(param.thisObject, FIELD_2, true);
-                	}
+                    	}
             		});
-            	} catch (Exception e) {
-                XposedBridge.log("YTBP Second Hook - " +e);
+            	} catch (Throwable t) {
+                XposedBridge.log("YTBP Second Hook - " +t);
             	}
 
             	try {
             		findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
-            	} catch (Exception e) {
-                	XposedBridge.log("YTBP Third Hook - " +e);
+            	} catch (Throwable t) {
+                	XposedBridge.log("YTBP Third Hook - " +t);
             	}
 
             	if (checkVersion == 0) {
                 	// hook specific methods for unobfuscated releases
                 	try {
                 		findAndHookMethod(CLASS_3, loader, METHOD_4, returnConstant(true));
-                	} catch (Exception e) {
-                		XposedBridge.log("YTBP Forth Hooks - " +e);
+                	} catch (Throwable t) {
+                		XposedBridge.log("YTBP Forth Hooks - " +t);
                 	}
 
                 	try {
                 	findAndHookMethod(CLASS_4, loader, METHOD_5, returnConstant(true));
-                	} catch (Exception e) {
-                    		XposedBridge.log("YTBP Fifth Hooks - " +e);
+                	} catch (Throwable t) {
+                    		XposedBridge.log("YTBP Fifth Hooks - " +t);
                 	}
             	}
     	}
