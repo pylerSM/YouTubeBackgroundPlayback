@@ -10,15 +10,12 @@ import org.json.JSONObject;
 public class HookDataUpdater extends BroadcastReceiver {
    @Override
    public void onReceive(Context context, Intent intent) {
-      Toast.makeText(context, "Saving Hooks!", Toast.LENGTH_LONG).show();
-      
       String hooks = intent.getExtras().getString("Hooks");
-      
-      try {
-         JSONObject jsonObject = new JSONObject(hooks);
-         //Save To Shared Preferences
-      } catch (Exception e) {
-      }
+
+      SharedPreferences preferences = getSharedPreferences("Hooks", MODE_PRIVATE);
+      SharedPreferences.Editor editor = preferences.edit();
+      editor.putString("Hooks",hooks);
+      editor.apply();
    }
 }
 
