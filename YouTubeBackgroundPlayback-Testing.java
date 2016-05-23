@@ -1,11 +1,10 @@
 package com.pyler.youtubebackgroundplayback;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -15,7 +14,11 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -23,7 +26,6 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 import static de.robv.android.xposed.XC_MethodReplacement.returnConstant;
-import static de.robv.android.xposed.XposedBridge.log;
 import static de.robv.android.xposed.XposedHelpers.callMethod;
 import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
@@ -46,18 +48,16 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public static String CLASS_3 = "com.google.android.apps.youtube.app.background.BackgroundSettings";
 	public static String METHOD_3 = "getBackgroundAudioSetting";
+	public static String METHOD_4 = "shouldShowBackgroundAudioSettingsDialog";
 
-	public static String CLASS_4;
-	public static String METHOD_4;
-
-	public static String CLASS_5;
-	public static String METHOD_5;
+	public static String CLASS_4 = "com.google.android.libraries.youtube.common.util.PackageUtil";
+	public static String METHOD_5 = "isDogfoodOrDevBuild";
 
 
-    	int checkVersion;
+    int checkVersion;
 
-    	ClassLoader loader;
-    	Context nContext;
+    ClassLoader loader;
+    Context nContext;
 	String version;
 
 	class getHooks extends AsyncTask<String, String, String> {
@@ -75,11 +75,41 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 				responseString = convertStreamToString(inputStream);
 
-                		JSONObject jsonObject = new JSONObject(responseString);
-                		//Need To Get Versions From JSON To Compare To Version Installed
+                JSONObject jsonObject = new JSONObject(responseString);
 
+                Iterator<?> keys = jsonObject.keys();
+
+                String hookFound = "No";
+
+                while (keys.hasNext()) {
+                    String key = (String) keys.next();
+                    System.out.println("Info: " +key);
+                    if (key.equals(version) && hookFound.equals("No")) {
+                        JSONObject hooksObject = jsonObject.getJSONObject(key);
+                        CLASS_1 = hooksObject.getString("CLASS_1");
+                        CLASS_2 = hooksObject.getString("CLASS_2");
+                        CLASS_3 = hooksObject.getString("CLASS_3");
+
+                        METHOD_1 = hooksObject.getString("METHOD_1");
+                        METHOD_2 = hooksObject.getString("METHOD_1");
+                        METHOD_3 = hooksObject.getString("METHOD_1");
+
+                        FIELD_1 = hooksObject.getString("FIELD_1");
+                        FIELD_2 = hooksObject.getString("FIELD_1");
+
+                        SUBFIELD_1 = hooksObject.getString("SUBFIELD_1");
+                        
+                        //Need Method To Save Hooks
+                        
+                        hookFound = "Yes";
+                    } else if (!keys.hasNext() && hookFound.equals("No")) {
+                        CLASS_1 = "Nope";
+                        XposedBridge.log("Could not enable background playback for the YouTube app. Your installed version of it is not supported. Attempting to use latest hooks.");
+                    }
+                }
 			} catch (Exception e) {
-                		XposedBridge.log("Hook Fetching Error: " +e);
+                XposedBridge.log("Hook Fetching Error: " +e);
+                CLASS_1 = "Nope";
 			}
 
 			return responseString;
@@ -88,7 +118,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
-            		hooksYoutube();
+
+            if (!CLASS_1.equals("Nope")) {
+                hookYoutube();
+            }
 		}
 	}
 
@@ -98,50 +131,71 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 		loader = lpparam.classLoader;
 
-        	// Thank you to KeepChat For the Following Code Snippet
-        	// http://git.io/JJZPaw
-        	Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
-        	nContext = (Context) callMethod(activityThread, "getSystemContext");
+        // Thank you to KeepChat For the Following Code Snippet
+        // http://git.io/JJZPaw
+        Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
+        nContext = (Context) callMethod(activityThread, "getSystemContext");
 
-        	version = String.valueOf(nContext.getPackageManager().getPackageInfo(lpparam.packageName, 0).versionCode);
-        	//End Snippet
+        version = String.valueOf(nContext.getPackageManager().getPackageInfo(lpparam.packageName, 0).versionCode / 1000);
+        //End Snippet
 
-		//Add Check To See If We Have Latest Hooks (XSharedPreferences)
+        checkVersion = getVersionIndex(loader);
 
-        	checkVersion = getVersionIndex(loader);
-
-        	if (checkVersion == 1) {
-            	new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/master/youtube_hooks.json");
-        	}	
+        if (checkVersion == 1) {
+            new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
+        }
 	}
 
-    	void hooksYoutube () {
-        	try {
-            	// hooks
-            	findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
-                @Override
-                protected void beforeHookedMethod(final MethodHookParam param) {
-                    setBooleanField(getObjectField(param.thisObject, FIELD_1), SUBFIELD_1, true);
-                }
-	        });
+    void hookYoutube () {
+        try {
+            // hooks
+            try {
+                findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
+                    @Override
+                    protected void beforeHookedMethod(final MethodHookParam param) {
+                        XposedBridge.log("Hooked!");
+                        setBooleanField(getObjectField(param.thisObject, FIELD_1), SUBFIELD_1, true);
+                    }
+                });
+            } catch (Exception e) {
+                XposedBridge.log("YTBP First Hook - " +e);
+            }
 
-            	findAndHookMethod(CLASS_2, loader, METHOD_2, new XC_MethodHook() {
+            try {
+            findAndHookMethod(CLASS_2, loader, METHOD_2, new XC_MethodHook() {
                 @Override
                 protected void beforeHookedMethod(final MethodHookParam param) {
                     setBooleanField(param.thisObject, FIELD_2, true);
                 }
-            	});
+            });
+            } catch (Exception e) {
+                XposedBridge.log("YTBP Second Hook - " +e);
+            }
 
-            	findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
+            try {
+            findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
+            } catch (Exception e) {
+                XposedBridge.log("YTBP Third Hook - " +e);
+            }
 
-            	if (checkVersion == 1) {
-                	// hook specific methods for unobfuscated releases
-                	findAndHookMethod(CLASS_4, loader, METHOD_4, returnConstant(true));
-                	findAndHookMethod(CLASS_5, loader, METHOD_5, returnConstant(true));
-            	}
-        	} catch (Exception e) {
-        	}
-    	}
+            if (checkVersion == 0) {
+                // hook specific methods for unobfuscated releases
+                try {
+                findAndHookMethod(CLASS_3, loader, METHOD_4, returnConstant(true));
+                } catch (Exception e) {
+                    XposedBridge.log("YTBP Forth Hooks - " +e);
+                }
+
+                try {
+                findAndHookMethod(CLASS_4, loader, METHOD_5, returnConstant(true));
+                } catch (Exception e) {
+                    XposedBridge.log("YTBP Fifth Hooks - " +e);
+                }
+            }
+        } catch (Exception e) {
+            XposedBridge.log("Exception: " +e);
+        }
+    }
 
 	// returns 0 for unobfuscated code and positive integer for obfuscated
 	private int getVersionIndex(final ClassLoader loader) throws PackageManager.NameNotFoundException {
@@ -154,24 +208,24 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		}
 	}
 
-    	static String convertStreamToString(InputStream is) throws UnsupportedEncodingException {
-        	BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-        	StringBuilder sb = new StringBuilder();
-        	String line = null;
-        	try {
-        	 while ((line = reader.readLine()) != null) {
-                	sb.append(line + "\n");
-            	}
-        	} catch (IOException e) {
-            		e.printStackTrace();
-        	} finally {
-            	try {
-                	is.close();
-            	} catch (IOException e) {
-                	e.printStackTrace();
-            	}
+    static String convertStreamToString(InputStream is) throws UnsupportedEncodingException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        	return sb.toString();
-    	}
+        return sb.toString();
+    }
 
 }
