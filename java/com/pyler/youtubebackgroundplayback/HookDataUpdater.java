@@ -9,5 +9,11 @@ public class HookDataUpdater extends BroadcastReceiver {
    @Override
    public void onReceive(Context context, Intent intent) {
       Toast.makeText(context, "We should update hooks now", Toast.LENGTH_LONG).show();
+      
+      String hooks = intent.getExtras().getString("Hooks");
+      
+      JSONObject jsonObject = new JSONObject(hooks);
+   
+      //Save To Shared Preferences
    }
 }
