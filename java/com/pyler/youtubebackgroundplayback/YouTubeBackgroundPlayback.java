@@ -1,10 +1,10 @@
 package com.pyler.youtubebackgroundplayback;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -15,13 +15,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
+import de.robv.android.xposed.IXposedHookZygoteInit;
 import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
@@ -33,7 +31,7 @@ import static de.robv.android.xposed.XposedHelpers.findClass;
 import static de.robv.android.xposed.XposedHelpers.getObjectField;
 import static de.robv.android.xposed.XposedHelpers.setBooleanField;
 
-public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
+public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
 	public static final String APP_PACKAGE = "com.google.android.youtube";
 
@@ -101,9 +99,9 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
                         
                         			//Need To Double Check This Method!
                         			Intent intent=new Intent();
-						intent.setAction("com.pyler.youtubebackgroundplayback.HOOKS");
-						intent.putExtra("Hooks", hooksObject.toString());
-						nContext.sendBroadcast(intent);
+									intent.setAction("com.pyler.youtubebackgroundplayback.HOOKS");
+									intent.putExtra("Hooks", hooksObject.toString());
+									nContext.sendBroadcast(intent);
                         
                         			hookFound = "Yes";
                     			} else if (!keys.hasNext() && hookFound.equals("No")) {
@@ -145,7 +143,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		mPreferences.makeWorldReadable();
 		
         	try {
-        		if (mPreferences.getString("CLASS_1", null); {
+        		if (mPreferences.getString("CLASS_1", null) != null); {
         			//Assign hooks to hooks saved 
         			hookYoutube();
         		}
@@ -156,12 +154,15 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	}
 
 	void checkVersion() {
-		checkVersion = getVersionIndex(loader);
+		try {
+			checkVersion = getVersionIndex(loader);
 
-        	if (checkVersion == 1) {
-        		new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
-        	}
-	}
+			if (checkVersion == 1) {
+				new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
+			}
+		} catch (Exception e) {
+		}
+		}
 
     	void hookYoutube () {
             	// hooks
@@ -211,7 +212,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
     	}
 
 	@Override
-	public void initZygote(StartupParam startupParam) throws Throwable {
+	public void initZygote(IXposedHookZygoteInit.StartupParam startupParam) throws Throwable {
 		mPreferences = new XSharedPreferences("com.pyler.youtubebackgroundplayback", "Hooks");
 	}
 
