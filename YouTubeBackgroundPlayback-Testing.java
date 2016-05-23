@@ -54,10 +54,10 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static String METHOD_5 = "isDogfoodOrDevBuild";
 
 
-    int checkVersion;
+    	int checkVersion;
 
-    ClassLoader loader;
-    Context nContext;
+    	ClassLoader loader;
+    	Context nContext;
 	String version;
 
 	class getHooks extends AsyncTask<String, String, String> {
@@ -75,43 +75,42 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 				responseString = convertStreamToString(inputStream);
 
-                JSONObject jsonObject = new JSONObject(responseString);
+                		JSONObject jsonObject = new JSONObject(responseString);
 
-                Iterator<?> keys = jsonObject.keys();
+                		Iterator<?> keys = jsonObject.keys();
 
-                String hookFound = "No";
+                		String hookFound = "No";
 
-                while (keys.hasNext()) {
-                    String key = (String) keys.next();
-                    System.out.println("Info: " +key);
-                    if (key.equals(version) && hookFound.equals("No")) {
-                        JSONObject hooksObject = jsonObject.getJSONObject(key);
-                        CLASS_1 = hooksObject.getString("CLASS_1");
-                        CLASS_2 = hooksObject.getString("CLASS_2");
-                        CLASS_3 = hooksObject.getString("CLASS_3");
+                		while (keys.hasNext()) {
+                    			String key = (String) keys.next();
+                    			System.out.println("Info: " +key);
+                    			if (key.equals(version) && hookFound.equals("No")) {
+                        			JSONObject hooksObject = jsonObject.getJSONObject(key);
+                        			CLASS_1 = hooksObject.getString("CLASS_1");
+                        			CLASS_2 = hooksObject.getString("CLASS_2");
+                        			CLASS_3 = hooksObject.getString("CLASS_3");
 
-                        METHOD_1 = hooksObject.getString("METHOD_1");
-                        METHOD_2 = hooksObject.getString("METHOD_1");
-                        METHOD_3 = hooksObject.getString("METHOD_1");
+                        			METHOD_1 = hooksObject.getString("METHOD_1");
+                        			METHOD_2 = hooksObject.getString("METHOD_1");
+                        			METHOD_3 = hooksObject.getString("METHOD_1");
 
-                        FIELD_1 = hooksObject.getString("FIELD_1");
-                        FIELD_2 = hooksObject.getString("FIELD_1");
+                        			FIELD_1 = hooksObject.getString("FIELD_1");
+                        			FIELD_2 = hooksObject.getString("FIELD_1");
 
-                        SUBFIELD_1 = hooksObject.getString("SUBFIELD_1");
+                        			SUBFIELD_1 = hooksObject.getString("SUBFIELD_1");
                         
-                        //Need Method To Save Hooks
+                        			//Need Method To Save Hooks
                         
-                        hookFound = "Yes";
-                    } else if (!keys.hasNext() && hookFound.equals("No")) {
-                        CLASS_1 = "Nope";
-                        XposedBridge.log("Could not enable background playback for the YouTube app. Your installed version of it is not supported. Attempting to use latest hooks.");
-                    }
-                }
+                        			hookFound = "Yes";
+                    			} else if (!keys.hasNext() && hookFound.equals("No")) {
+                        			CLASS_1 = "Nope";
+                        			XposedBridge.log("Could not enable background playback for the YouTube app. Your installed version of it is not supported. Attempting to use latest hooks.");
+                    			}
+        	 		}
 			} catch (Exception e) {
-                XposedBridge.log("Hook Fetching Error: " +e);
-                CLASS_1 = "Nope";
+                		XposedBridge.log("Hook Fetching Error: " +e);
+                		CLASS_1 = "Nope";
 			}
-
 			return responseString;
 		}
 
@@ -119,9 +118,9 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
 
-            if (!CLASS_1.equals("Nope")) {
-                hookYoutube();
-            }
+            		if (!CLASS_1.equals("Nope")) {
+                		hookYoutube();
+            		}
 		}
 	}
 
@@ -131,70 +130,66 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 		loader = lpparam.classLoader;
 
-        // Thank you to KeepChat For the Following Code Snippet
-        // http://git.io/JJZPaw
-        Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
-        nContext = (Context) callMethod(activityThread, "getSystemContext");
+        	// Thank you to KeepChat For the Following Code Snippet
+        	// http://git.io/JJZPaw
+        	Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
+        	nContext = (Context) callMethod(activityThread, "getSystemContext");
 
-        version = String.valueOf(nContext.getPackageManager().getPackageInfo(lpparam.packageName, 0).versionCode / 1000);
-        //End Snippet
+        	version = String.valueOf(nContext.getPackageManager().getPackageInfo(lpparam.packageName, 0).versionCode / 1000);
+        	//End Snippet
 
-        checkVersion = getVersionIndex(loader);
+        	checkVersion = getVersionIndex(loader);
 
-        if (checkVersion == 1) {
-            new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
-        }
+        	if (checkVersion == 1) {
+        	new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
+        	}
 	}
 
-    void hookYoutube () {
-        try {
-            // hooks
-            try {
-                findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
-                    @Override
-                    protected void beforeHookedMethod(final MethodHookParam param) {
-                        XposedBridge.log("Hooked!");
-                        setBooleanField(getObjectField(param.thisObject, FIELD_1), SUBFIELD_1, true);
-                    }
-                });
-            } catch (Exception e) {
-                XposedBridge.log("YTBP First Hook - " +e);
-            }
+    	void hookYoutube () {
+            	// hooks
+       	    	try {
+                	findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
+                    	@Override
+                    	protected void beforeHookedMethod(final MethodHookParam param) {
+                        	XposedBridge.log("Hooked!");
+                        	setBooleanField(getObjectField(param.thisObject, FIELD_1), SUBFIELD_1, true);
+                    	}
+                	});
+            	} catch (Exception e) {
+                	XposedBridge.log("YTBP First Hook - " +e);
+            	}
 
-            try {
-            findAndHookMethod(CLASS_2, loader, METHOD_2, new XC_MethodHook() {
-                @Override
-                protected void beforeHookedMethod(final MethodHookParam param) {
-                    setBooleanField(param.thisObject, FIELD_2, true);
-                }
-            });
-            } catch (Exception e) {
+            	try {
+            		findAndHookMethod(CLASS_2, loader, METHOD_2, new XC_MethodHook() {
+                	@Override
+                	protected void beforeHookedMethod(final MethodHookParam param) {
+                	    setBooleanField(param.thisObject, FIELD_2, true);
+                	}
+            		});
+            	} catch (Exception e) {
                 XposedBridge.log("YTBP Second Hook - " +e);
-            }
+            	}
 
-            try {
-            findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
-            } catch (Exception e) {
-                XposedBridge.log("YTBP Third Hook - " +e);
-            }
+            	try {
+            		findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
+            	} catch (Exception e) {
+                	XposedBridge.log("YTBP Third Hook - " +e);
+            	}
 
-            if (checkVersion == 0) {
-                // hook specific methods for unobfuscated releases
-                try {
-                findAndHookMethod(CLASS_3, loader, METHOD_4, returnConstant(true));
-                } catch (Exception e) {
-                    XposedBridge.log("YTBP Forth Hooks - " +e);
-                }
+            	if (checkVersion == 0) {
+                	// hook specific methods for unobfuscated releases
+                	try {
+                		findAndHookMethod(CLASS_3, loader, METHOD_4, returnConstant(true));
+                	} catch (Exception e) {
+                		XposedBridge.log("YTBP Forth Hooks - " +e);
+                	}
 
-                try {
-                findAndHookMethod(CLASS_4, loader, METHOD_5, returnConstant(true));
-                } catch (Exception e) {
-                    XposedBridge.log("YTBP Fifth Hooks - " +e);
-                }
+                	try {
+                	findAndHookMethod(CLASS_4, loader, METHOD_5, returnConstant(true));
+                	} catch (Exception e) {
+                    		XposedBridge.log("YTBP Fifth Hooks - " +e);
+                	}
             }
-        } catch (Exception e) {
-            XposedBridge.log("Exception: " +e);
-        }
     }
 
 	// returns 0 for unobfuscated code and positive integer for obfuscated
