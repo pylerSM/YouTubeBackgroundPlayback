@@ -1,15 +1,31 @@
 package com.pyler.youtubebackgroundplayback;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 import static de.robv.android.xposed.XC_MethodReplacement.returnConstant;
-import static de.robv.android.xposed.XposedBridge.log;
 import static de.robv.android.xposed.XposedHelpers.callMethod;
 import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
@@ -21,156 +37,194 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public static final String APP_PACKAGE = "com.google.android.youtube";
 
-	public static final int[] APP_VERSIONS = { 0,
-		108058, 108358, 108360, 108362, 108656,
-		108752, 108754, 108755, 108957, 108958,
-		108959, 110153, 110155, 110156, 110354,
-		110456, 110759, 110851, 111056, 111057,
-		111060, 111157, 111257, 111355, 111356,
-                111555, 111662, 111752, 111852, 111956 };
+	public static String CLASS_1 = "com.google.android.libraries.youtube.player.background.BackgroundTransitioner";
+	public static String METHOD_1 = "updateBackgroundService";
+	public static String FIELD_1 = "playbackModality";
+	public static String SUBFIELD_1 = "isInBackground";
 
-	public static final String[] CLASS_1 = { "com.google.android.libraries.youtube.player.background.BackgroundTransitioner",
-		"kyr", "lco", "lha", "lzb", "moc",
-		"mtp", "mtp", "mtq", "myb", "myb",
-		"myb", "ndr", "nds", "nds", "nxu",
-		"odu", "omt", "oom", "owe", "owe",
-		"owe", "ozp", "pez", "pih", "phr",
-		"pvk", "qec", "qgh", "qit", "qcn" };
-	public static final String[] METHOD_1 = { "updateBackgroundService",
-		"P", "a", "a", "a", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d" };
-	public static final String[] FIELD_1 = { "playbackModality",
-		"e", "d", "d", "d", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e" };
-	public static final String[] SUBFIELD_1 = { "isInBackground",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f" };
+	public static String CLASS_2 = "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel";
+	public static String METHOD_2 = "isPlayable";
+	public static String FIELD_2 = "isBackgroundable" ;
 
-	public static final String[] CLASS_2 = { "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel",
-		"iqp", "iur", "izd", "jmo", "kam",
-		"kft", "kft", "kft", "kin", "kin",
-		"kin", "klp", "klq", "klq", "lcl",
-		"lhu", "lpf", "lqa", "lwt", "lwt",
-		"lwt", "lzg", "mep", "mht", "mhd",
-		"mtk", "nbi", "ncm", "ndv", "mvl" };
-	public static final String[] METHOD_2 = { "isPlayable",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a" };
-	public static final String[] FIELD_2 = { "isBackgroundable",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c" };
+	public static String CLASS_3 = "com.google.android.apps.youtube.app.background.BackgroundSettings";
+	public static String METHOD_3 = "getBackgroundAudioSetting";
+	public static String METHOD_4 = "shouldShowBackgroundAudioSettingsDialog";
 
-	public static final String[] CLASS_3 = { "com.google.android.apps.youtube.app.background.BackgroundSettings",
-		"azq", "azl", "bdx", "azw", "bhj",
-		"biz", "biz", "biz", "biv", "biv",
-		"biv", "bji", "bji", "bji", "bze",
-		"cad", "cbo", "ccl", "btf", "btf",
-		"btf", "bsv", "bsu", "btr", "btq",
-		"bzy", "cam", "cas", "cba", "cbr" };
-	public static final String[] METHOD_3 = { "getBackgroundAudioSetting",
-		"c", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d" };
+	public static String CLASS_4 = "com.google.android.libraries.youtube.common.util.PackageUtil";
+	public static String METHOD_5 = "isDogfoodOrDevBuild";
 
-	public static final String[] CLASS_4 = { "com.google.android.apps.youtube.app.background.BackgroundSettings" };
-	public static final String[] METHOD_4 = { "shouldShowBackgroundAudioSettingsDialog" };
 
-	public static final String[] CLASS_5 = { "com.google.android.libraries.youtube.common.util.PackageUtil" };
-	public static final String[] METHOD_5 = { "isDogfoodOrDevBuild" };
+    	int checkVersion;
+
+    	ClassLoader loader;
+    	Context nContext;
+	String version;
+
+	class getHooks extends AsyncTask<String, String, String> {
+
+		@Override
+		protected String doInBackground(String... uri) {
+			String responseString = "Nope";
+
+			try {
+				URL u = new URL(uri[0]);
+				URLConnection c = u.openConnection();
+				c.connect();
+
+				InputStream inputStream = c.getInputStream();
+
+				responseString = convertStreamToString(inputStream);
+
+                		JSONObject jsonObject = new JSONObject(responseString);
+
+                		Iterator<?> keys = jsonObject.keys();
+
+                		String hookFound = "No";
+
+                		while (keys.hasNext()) {
+                    			String key = (String) keys.next();
+                    			System.out.println("Info: " +key);
+                    			if (key.equals(version) && hookFound.equals("No")) {
+                        			JSONObject hooksObject = jsonObject.getJSONObject(key);
+                        			CLASS_1 = hooksObject.getString("CLASS_1");
+                        			CLASS_2 = hooksObject.getString("CLASS_2");
+                        			CLASS_3 = hooksObject.getString("CLASS_3");
+
+                        			METHOD_1 = hooksObject.getString("METHOD_1");
+                        			METHOD_2 = hooksObject.getString("METHOD_1");
+                        			METHOD_3 = hooksObject.getString("METHOD_1");
+
+                        			FIELD_1 = hooksObject.getString("FIELD_1");
+                        			FIELD_2 = hooksObject.getString("FIELD_1");
+
+                        			SUBFIELD_1 = hooksObject.getString("SUBFIELD_1");
+                        
+                        			//Need To Double Check This Method!
+                        			Intent intent=new Intent();
+						intent.setAction("com.pyler.youtubebackgroundplayback.HOOKS");
+						intent.putExtra("Hooks", hooksObject.toString());
+						nContext.sendBroadcast(intent);
+                        
+                        			hookFound = "Yes";
+                    			} else if (!keys.hasNext() && hookFound.equals("No")) {
+                        			CLASS_1 = "Nope";
+                        			XposedBridge.log("Could not enable background playback for the YouTube app. Your installed version of it is not supported. Attempting to use latest hooks.");
+                    			}
+        	 		}
+			} catch (Exception e) {
+                		XposedBridge.log("Hook Fetching Error: " +e);
+                		CLASS_1 = "Nope";
+			}
+			return responseString;
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
+
+            		if (!CLASS_1.equals("Nope")) {
+                		hookYoutube();
+            		}
+		}
+	}
 
 	@Override
 	public void handleLoadPackage(final LoadPackageParam lpparam) throws PackageManager.NameNotFoundException {
 		if (!lpparam.packageName.equals(APP_PACKAGE)) return;
 
-		final ClassLoader loader = lpparam.classLoader;
-		final Context context = getSystemContext();
+		loader = lpparam.classLoader;
 
-		// get classes/methods/fields names index
-		final int i = getVersionIndex(loader, context);
-		if (i == -1) {
-			log("Could not enable background playback for the YouTube app. Your installed version of it is not supported.");
-			return;
-		}
-		
-		// update youtube hooks
-		updateYouTubeHooks(context);
+        	// Thank you to KeepChat For the Following Code Snippet
+        	// http://git.io/JJZPaw
+        	Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
+        	nContext = (Context) callMethod(activityThread, "getSystemContext");
 
-		// hooks
-		findAndHookMethod(CLASS_1[i], loader, METHOD_1[i], new XC_MethodHook() {
-			@Override
-			protected void beforeHookedMethod(final MethodHookParam param) {
-				setBooleanField(getObjectField(param.thisObject, FIELD_1[i]), SUBFIELD_1[i], true);
-			}
-		});
+        	version = String.valueOf(nContext.getPackageManager().getPackageInfo(lpparam.packageName, 0).versionCode / 1000);
+        	//End Snippet
 
-		findAndHookMethod(CLASS_2[i], loader, METHOD_2[i], new XC_MethodHook() {
-			@Override
-			protected void beforeHookedMethod(final MethodHookParam param) {
-				setBooleanField(param.thisObject, FIELD_2[i], true);
-			}
-		});
+        	checkVersion = getVersionIndex(loader);
 
-		findAndHookMethod(CLASS_3[i], loader, METHOD_3[i], returnConstant("on"));
-
-		if (i == 0) {
-			// hook specific methods for unobfuscated releases
-			findAndHookMethod(CLASS_4[0], loader, METHOD_4[0], returnConstant(true));
-
-			findAndHookMethod(CLASS_5[0], loader, METHOD_5[0], returnConstant(true));
-		}
+        	if (checkVersion == 1) {
+        		new getHooks().execute("https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/1e2f97422afc09eea4a67c615870480a9bc54ec7/youtube_hooks.json");
+        	}
 	}
-	
-	private Context getSystemContext() {
-		final Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
-		final Context context = (Context) callMethod(activityThread, "getSystemContext");
-		return context;
-			
-	}
-	
-	void updateYouTubeHooks(final Context context) {
-		Intent updateYTHooks = new Intent("com.pyler.youtubebackgroundplayback.UPDATE_YOUTUBE_HOOKS"); //externalize
-		context.sendBroadcast(updateYTHooks);
-	}
+
+    	void hookYoutube () {
+            	// hooks
+       	    	try {
+                	findAndHookMethod(CLASS_1, loader, METHOD_1, new XC_MethodHook() {
+                    	@Override
+                    	protected void beforeHookedMethod(final MethodHookParam param) {
+                        	XposedBridge.log("Hooked!");
+                        	setBooleanField(getObjectField(param.thisObject, FIELD_1), SUBFIELD_1, true);
+                    	}
+                	});
+            	} catch (Exception e) {
+                	XposedBridge.log("YTBP First Hook - " +e);
+            	}
+
+            	try {
+            		findAndHookMethod(CLASS_2, loader, METHOD_2, new XC_MethodHook() {
+                	@Override
+                	protected void beforeHookedMethod(final MethodHookParam param) {
+                	    setBooleanField(param.thisObject, FIELD_2, true);
+                	}
+            		});
+            	} catch (Exception e) {
+                XposedBridge.log("YTBP Second Hook - " +e);
+            	}
+
+            	try {
+            		findAndHookMethod(CLASS_3, loader, METHOD_3, returnConstant("on"));
+            	} catch (Exception e) {
+                	XposedBridge.log("YTBP Third Hook - " +e);
+            	}
+
+            	if (checkVersion == 0) {
+                	// hook specific methods for unobfuscated releases
+                	try {
+                		findAndHookMethod(CLASS_3, loader, METHOD_4, returnConstant(true));
+                	} catch (Exception e) {
+                		XposedBridge.log("YTBP Forth Hooks - " +e);
+                	}
+
+                	try {
+                	findAndHookMethod(CLASS_4, loader, METHOD_5, returnConstant(true));
+                	} catch (Exception e) {
+                    		XposedBridge.log("YTBP Fifth Hooks - " +e);
+                	}
+            }
+    }
 
 	// returns 0 for unobfuscated code and positive integer for obfuscated
-	private int getVersionIndex(final ClassLoader loader, final Context context) throws PackageManager.NameNotFoundException {
+	private int getVersionIndex(final ClassLoader loader) throws PackageManager.NameNotFoundException {
 		try {
 			// check if the app is unobfuscated
-			loader.loadClass(CLASS_1[0]);
+			loader.loadClass(CLASS_1);
 			return 0;
 		} catch (Exception e) {
-			// look through all the known app versions
-			final int versionCode = context.getPackageManager().getPackageInfo(APP_PACKAGE, 0).versionCode / 1000;
-			for (int i = 1; i < APP_VERSIONS.length; i++) {
-				if (APP_VERSIONS[i] == versionCode) {
-					return i;
-				}
-			}
-			return -1;
+			return 1;
 		}
 	}
+
+    static String convertStreamToString(InputStream is) throws UnsupportedEncodingException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
 
 }
