@@ -16,11 +16,9 @@ public class HookDataUpdater extends BroadcastReceiver {
       
       try {
          JSONObject jsonObject = new JSONObject(hooks);
+         //Save To Shared Preferences
       } catch (Exception e) {
-         
       }
-   
-      //Save To Shared Preferences
    }
 }
 
