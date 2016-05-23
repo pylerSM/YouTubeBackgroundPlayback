@@ -20,6 +20,14 @@
         <meta-data
             android:name="xposedminversion"
             android:value="53" />
+            
+        <receiver android:name=".HookDataUpdater" android:exported="true">
+            <intent-filter>
+                <action android:name= "com.pyler.youtubebackgroundplayback.HOOKS">
+                    <category android:name = "android.intent.category.DEFAULT" />
+                </action>
+            </intent-filter>
+        </receiver>
 
     </application>
 
