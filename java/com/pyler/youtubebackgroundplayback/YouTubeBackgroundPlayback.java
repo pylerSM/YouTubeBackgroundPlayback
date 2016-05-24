@@ -88,11 +88,11 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage, IXpose
                         			CLASS_3 = hooksObject.getString("CLASS_3");
 
                         			METHOD_1 = hooksObject.getString("METHOD_1");
-                        			METHOD_2 = hooksObject.getString("METHOD_1");
-                        			METHOD_3 = hooksObject.getString("METHOD_1");
+                        			METHOD_2 = hooksObject.getString("METHOD_2");
+                        			METHOD_3 = hooksObject.getString("METHOD_3");
 
                         			FIELD_1 = hooksObject.getString("FIELD_1");
-                        			FIELD_2 = hooksObject.getString("FIELD_1");
+                        			FIELD_2 = hooksObject.getString("FIELD_2");
 
                         			SUBFIELD_1 = hooksObject.getString("SUBFIELD_1");
 
