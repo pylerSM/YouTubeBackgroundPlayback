@@ -44,7 +44,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"d", "d", "d", "d", "d",
 		"d", "d", "d", "d", "d",
 		"d", "d", "d", "d", "d",
-		"f" };
+		"e" };
 	public static final String[] FIELD_1 = { "playbackModality",
 		"e", "d", "d", "d", "e",
 		"e", "e", "e", "e", "e",
