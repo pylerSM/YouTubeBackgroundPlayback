@@ -340,5 +340,16 @@
         "FIELD_2": "c",
         "CLASS_3": "cbr",
         "METHOD_3": "d"
+    },
+    "112054": {
+        "CLASS_1": "qfe",
+        "METHOD_1": "e",
+        "FIELD_1": "g",
+        "SUBFIELD_1": "f",
+        "CLASS_2": "mvs",
+        "METHOD_2": "a",
+        "FIELD_2": "c",
+        "CLASS_3": "ccb",
+        "METHOD_3": "d"
     }
 }
