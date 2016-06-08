@@ -351,5 +351,16 @@
         "FIELD_2": "c",
         "CLASS_3": "ccb",
         "METHOD_3": "d"
+    },
+    "112153": {
+        "CLASS_1": "qkl",
+        "METHOD_1": "e",
+        "FIELD_1": "g",
+        "SUBFIELD_1": "f",
+        "CLASS_2": "nbp",
+        "METHOD_2": "a",
+        "FIELD_2": "c",
+        "CLASS_3": "ccw",
+        "METHOD_3": "d"
     }
 }
