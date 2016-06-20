@@ -384,5 +384,16 @@
         "FIELD_2": "c",
         "CLASS_3": "ccv",
         "METHOD_3": "d"
+    },
+    "112356": {
+        "CLASS_1": "qmo",
+        "METHOD_1": "e",
+        "FIELD_1": "i",
+        "SUBFIELD_1": "f",
+        "CLASS_2": "nec",
+        "METHOD_2": "a",
+        "FIELD_2": "c",
+        "CLASS_3": "ccs",
+        "METHOD_3": "d"
     }
 }
