@@ -38,7 +38,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"owe", "ozp", "pez", "pih", "phr",
 		"pvk", "qec", "qgh", "qit", "qcn",
 		"qfe", "qkl", "qly", "qly", "qmo",
-		"qrg", "qrg", "qts", "sie"};
+		"qrg", "qrg", "qts", "rgs"};
 	public static final String[] METHOD_1 = { "updateBackgroundService",
 		"P", "a", "a", "a", "d",
 		"d", "d", "d", "d", "d",
@@ -47,7 +47,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"d", "d", "d", "d", "d",
 		"d", "d", "d", "d", "d",
 		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e"};
+		"e", "e", "e", "c"};
 	public static final String[] FIELD_1 = { "playbackModality",
 		"e", "d", "d", "d", "e",
 		"e", "e", "e", "e", "e",
@@ -56,7 +56,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"e", "e", "e", "e", "e",
 		"e", "e", "e", "e", "e",
 		"g", "g", "i", "i", "i",
-		"i", "i", "i", "i"};
+		"i", "i", "i", "a"};
 	public static final String[] SUBFIELD_1 = { "isInBackground",
 		"e", "e", "e", "e", "e",
 		"e", "e", "e", "e", "e",
