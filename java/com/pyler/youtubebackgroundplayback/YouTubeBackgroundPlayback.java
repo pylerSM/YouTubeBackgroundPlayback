@@ -29,7 +29,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		111555, 111662, 111752, 111852, 111956,
 		112054, 112153, 112254, 112256, 112356,
 		112555, 112559, 112753, 112953, 112954,
-		112955, 113253};
+		112955, 113253, 113355};
 
 	public static final String[] CLASS_1 = { "com.google.android.libraries.youtube.player.background.BackgroundTransitioner",
 		"kyr", "lco", "lha", "lzb", "moc",
@@ -40,7 +40,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"pvk", "qec", "qgh", "qit", "qcn",
 		"qfe", "qkl", "qly", "qly", "qmo",
 		"qrg", "qrg", "qts", "rgs", "rew",
-		"rew", "rpw"};
+		"rew", "rpw", "rrg"};
 	public static final String[] METHOD_1 = { "updateBackgroundService",
 		"P", "a", "a", "a", "d",
 		"d", "d", "d", "d", "d",
@@ -50,7 +50,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"d", "d", "d", "d", "d",
 		"e", "e", "e", "e", "e",
 		"e", "e", "e", "c", "c",
-		"c", "c"};
+		"c", "c", "c"};
 	public static final String[] FIELD_1 = { "playbackModality",
 		"e", "d", "d", "d", "e",
 		"e", "e", "e", "e", "e",
@@ -60,7 +60,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"e", "e", "e", "e", "e",
 		"g", "g", "i", "i", "i",
 		"i", "i", "i", "a", "a",
-		"a", "a"};
+		"a", "a", "a"};
 	public static final String[] SUBFIELD_1 = { "isInBackground",
 		"e", "e", "e", "e", "e",
 		"e", "e", "e", "e", "e",
@@ -70,7 +70,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"f", "f", "f", "f", "f",
 		"f", "f", "f", "f", "f",
 		"f", "f", "f", "f", "f",
-		"f", "f"};
+		"f", "f", "f"};
 
 	public static final String[] CLASS_2 = { "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel",
 		"iqp", "iur", "izd", "jmo", "kam",
@@ -113,7 +113,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"bzy", "cam", "cas", "cba", "cbr",
 		"ccb", "ccw", "ccv", "ccv", "ccs",
 		"ceh", "ceh", "cen", "cgf", "cej",
-		"cej", "chf"};
+		"cej", "chf", "cgs"};
 	public static final String[] METHOD_3 = { "getBackgroundAudioSetting",
 		"c", "d", "d", "d", "d",
 		"d", "d", "d", "d", "d",
@@ -123,7 +123,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"d", "d", "d", "d", "d",
 		"d", "d", "d", "d", "d",
 		"d", "d", "d", "d", "d",
-		"d", "d"};
+		"d", "d", "d"};
 
 	public static final String[] CLASS_4 = { "com.google.android.apps.youtube.app.background.BackgroundSettings" };
 	public static final String[] METHOD_4 = { "shouldShowBackgroundAudioSettingsDialog" };
@@ -138,15 +138,15 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 	public static final int INDEX_SWITCH_TO_PlayabilityStatusHelper = 42;
 
 	public static final String[] CLASS_PlayabilityStatus = {
-		"vla"
+		"vla", "voa"
 	};
 
 	public static final String[] CLASS_PlayabilityStatusHelper = {
-		"shz"
+		"shz", "sjp"
 	};
 
 	public static final String[] METHOD_PlayabilityStatusHelper_isBackgroundable = {
-		"d"
+		"d", "d"
 	};
 
 	@Override
