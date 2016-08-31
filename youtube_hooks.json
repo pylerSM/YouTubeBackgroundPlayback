@@ -461,5 +461,29 @@
         "FIELD_2": "c",
         "CLASS_3": "cej",
         "METHOD_3": "d"
+    },
+    "113253": {
+        "CLASS_1": "rpw",
+        "METHOD_1": "c",
+        "FIELD_1": "a",
+        "SUBFIELD_1": "f",
+        "CLASS_3": "chf",
+        "METHOD_3": "d"
+    },
+    "113355": {
+        "CLASS_1": "rrg",
+        "METHOD_1": "c",
+        "FIELD_1": "a",
+        "SUBFIELD_1": "f",
+        "CLASS_3": "cgs",
+        "METHOD_3": "d"
+    },
+    "113358": {
+        "CLASS_1": "rrg",
+        "METHOD_1": "c",
+        "FIELD_1": "a",
+        "SUBFIELD_1": "f",
+        "CLASS_3": "cgs",
+        "METHOD_3": "d"
     }
 }
