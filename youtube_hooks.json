@@ -485,5 +485,13 @@
         "SUBFIELD_1": "f",
         "CLASS_3": "cgs",
         "METHOD_3": "d"
+    },
+    "113560": {
+        "CLASS_1": "ryi",
+        "METHOD_1": "c",
+        "FIELD_1": "a",
+        "SUBFIELD_1": "f",
+        "CLASS_3": "cgy",
+        "METHOD_3": "d"
     }
 }
