@@ -77,7 +77,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"f", "f", "f", "f", "f",
 		"f", "f", "f", "f", "f",
 		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f"
+		"f", "f", "f", "f", "f",
 		"f"};
 
 	public static final String[] CLASS_2 = { "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel",
