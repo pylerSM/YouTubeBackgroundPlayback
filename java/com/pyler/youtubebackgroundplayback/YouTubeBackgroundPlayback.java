@@ -30,7 +30,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		112054, 112153, 112254, 112256, 112356,
 		112555, 112559, 112753, 112953, 112954,
 		112955, 113253, 113355, 113358, 113560,
-		113854, 113954;
+		113854, 113954};
 
 	public static final String[] CLASS_1 = { "com.google.android.libraries.youtube.player.background.BackgroundTransitioner",
 		"kyr", "lco", "lha", "lzb", "moc",
