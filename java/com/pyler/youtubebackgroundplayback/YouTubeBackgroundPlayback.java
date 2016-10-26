@@ -45,7 +45,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		"rew", "rpw", "rrg", "rrg", "ryi",
 		"rxg", "ryq", "ryq", "sen", "sen"
 	};
-
+		
 	public static final String[] METHOD_1 = { "updateBackgroundService",
 		"P", "a", "a", "a", "d",
 		"d", "d", "d", "d", "d",
