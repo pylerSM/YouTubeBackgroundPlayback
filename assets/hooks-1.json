@@ -1,0 +1,527 @@
+{
+    "version_multiplier": 1000,
+    "fallback": [
+        { "class_name": "com.google.android.libraries.youtube.player.background.BackgroundTransitioner", "method_name": "updateBackgroundService", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "playbackModality.isInBackground", "value": true }
+        ] },
+        { "class_name": "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel", "method_name": "isPlayable", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "isBackgroundable", "value": true }
+        ] },
+        { "class_name": "com.google.android.apps.youtube.app.background.BackgroundSettings", "method_name": "getBackgroundAudioSetting", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "com.google.android.apps.youtube.app.background.BackgroundSettings", "method_name": "shouldShowBackgroundAudioSettingsDialog", "actions": [
+            { "name": "return_boolean", "value": true }
+        ] },
+        { "class_name": "com.google.android.libraries.youtube.common.util.PackageUtil", "method_name": "isDogfoodOrDevBuild", "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "108058": [
+        { "class_name": "kyr", "method_name": "P", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "iqp", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "azq", "method_name": "c", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108358": [
+        { "class_name": "lco", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "d.e", "value": true }
+        ] },
+        { "class_name": "iur", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "azl", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108360": [
+        { "class_name": "lha", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "d.e", "value": true }
+        ] },
+        { "class_name": "izd", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bdx", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108362": [
+        { "class_name": "lzb", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "d.e", "value": true }
+        ] },
+        { "class_name": "jmo", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "azw", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108656": [
+        { "class_name": "moc", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "kam", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bhj", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108752": [
+        { "class_name": "mtp", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "kft", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "biz", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108754": [
+        { "class_name": "mtp", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "kft", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "biz", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108755": [
+        { "class_name": "mtq", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "kft", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "biz", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108957": [
+        { "class_name": "myb", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "kin", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "biv", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108958": [
+        { "class_name": "myb", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "kin", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "biv", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "108959": [
+        { "class_name": "myb", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.e", "value": true }
+        ] },
+        { "class_name": "kin", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "biv", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "110153": [
+        { "class_name": "ndr", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "klp", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bji", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "110155": [
+        { "class_name": "nds", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "klq", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bji", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "110156": [
+        { "class_name": "nds", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "klq", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bji", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "110354": [
+        { "class_name": "nxu", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lcl", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bze", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "110456": [
+        { "class_name": "odu", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lhu", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cad", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "110759": [
+        { "class_name": "omt", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lpf", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cbo", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "110851": [
+        { "class_name": "oom", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lqa", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ccl", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111056": [
+        { "class_name": "owe", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lwt", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "btf", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111057": [
+        { "class_name": "owe", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lwt", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "btf", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111060": [
+        { "class_name": "owe", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lwt", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "btf", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111157": [
+        { "class_name": "ozp", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "lzg", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bsv", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111257": [
+        { "class_name": "pez", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "mep", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bsu", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111355": [
+        { "class_name": "pih", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "mht", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "btr", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111356": [
+        { "class_name": "phr", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "mhd", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "btq", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111555": [
+        { "class_name": "pvk", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "mtk", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "bzy", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111662": [
+        { "class_name": "qec", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "nbi", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cam", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111752": [
+        { "class_name": "qgh", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "ncm", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cas", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111852": [
+        { "class_name": "qit", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "ndv", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cba", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "111956": [
+        { "class_name": "qcn", "method_name": "d", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "e.f", "value": true }
+        ] },
+        { "class_name": "mvl", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cbr", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112054": [
+        { "class_name": "qfe", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "g.f", "value": true }
+        ] },
+        { "class_name": "mvs", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ccb", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112153": [
+        { "class_name": "qkl", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "g.f", "value": true }
+        ] },
+        { "class_name": "nbp", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ccw", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112254": [
+        { "class_name": "qly", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "i.f", "value": true }
+        ] },
+        { "class_name": "ndz", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ccv", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112256": [
+        { "class_name": "qly", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "i.f", "value": true }
+        ] },
+        { "class_name": "ndz", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ccv", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112356": [
+        { "class_name": "qmo", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "i.f", "value": true }
+        ] },
+        { "class_name": "nec", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ccs", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112555": [
+        { "class_name": "qrg", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "i.f", "value": true }
+        ] },
+        { "class_name": "nhe", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ceh", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112559": [
+        { "class_name": "qrg", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "i.f", "value": true }
+        ] },
+        { "class_name": "nhe", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "ceh", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112753": [
+        { "class_name": "qts", "method_name": "e", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "i.f", "value": true }
+        ] },
+        { "class_name": "niw", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cen", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112953": [
+        { "class_name": "rgs", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "niy", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cgf", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112954": [
+        { "class_name": "rew", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "nhc", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cej", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "112955": [
+        { "class_name": "rew", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "nhc", "method_name": "a", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "c", "value": true }
+        ] },
+        { "class_name": "cej", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "113253": [
+        { "class_name": "rpw", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "chf", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "113355": [
+        { "class_name": "rrg", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgs", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "113358": [
+        { "class_name": "rrg", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgs", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "113560": [
+        { "class_name": "ryi", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgy", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "113854": [
+        { "class_name": "rxg", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgx", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "113954": [
+        { "class_name": "ryq", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgw", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ],
+    "113956": [
+        { "class_name": "ryq", "method_name": "c", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgw", "method_name": "d", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] }
+    ]
+}
