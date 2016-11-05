@@ -469,59 +469,113 @@
         ] }
     ],
     "113253": [
-        { "class_name": "rpw", "method_name": "c", "actions": [
+        { "class_name": "rpw", "method_name": "c", "parameterTypes": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
-        { "class_name": "chf", "method_name": "d", "actions": [
+        { "class_name": "chf", "method_name": "d", "parameterTypes": [], "actions": [
             { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "shz", "method_name": "d", "parameterTypes": [ "vla" ], "actions": [
+            { "name": "return_boolean", "value": true }
         ] }
     ],
     "113355": [
-        { "class_name": "rrg", "method_name": "c", "actions": [
+        { "class_name": "rrg", "method_name": "c", "parameterTypes": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
-        { "class_name": "cgs", "method_name": "d", "actions": [
+        { "class_name": "cgs", "method_name": "d", "parameterTypes": [], "actions": [
             { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "sjp", "method_name": "d", "parameterTypes": [ "voa" ], "actions": [
+            { "name": "return_boolean", "value": true }
         ] }
     ],
     "113358": [
-        { "class_name": "rrg", "method_name": "c", "actions": [
+        { "class_name": "rrg", "method_name": "c", "parameterTypes": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
-        { "class_name": "cgs", "method_name": "d", "actions": [
+        { "class_name": "cgs", "method_name": "d", "parameterTypes": [], "actions": [
             { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "sjp", "method_name": "d", "parameterTypes": [ "voa" ], "actions": [
+            { "name": "return_boolean", "value": true }
         ] }
     ],
     "113560": [
-        { "class_name": "ryi", "method_name": "c", "actions": [
+        { "class_name": "ryi", "method_name": "c", "parameterTypes": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
-        { "class_name": "cgy", "method_name": "d", "actions": [
+        { "class_name": "cgy", "method_name": "d", "parameterTypes": [], "actions": [
             { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "srb", "method_name": "d", "parameterTypes": [ "vyi" ], "actions": [
+            { "name": "return_boolean", "value": true }
         ] }
     ],
     "113854": [
-        { "class_name": "rxg", "method_name": "c", "actions": [
+        { "class_name": "rxg", "method_name": "c", "parameterTypes": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
-        { "class_name": "cgx", "method_name": "d", "actions": [
+        { "class_name": "cgx", "method_name": "d", "parameterTypes": [], "actions": [
             { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "spu", "method_name": "d", "parameterTypes": [ "vxs" ], "actions": [
+            { "name": "return_boolean", "value": true }
         ] }
     ],
     "113954": [
-        { "class_name": "ryq", "method_name": "c", "actions": [
+        { "class_name": "ryq", "method_name": "c", "parameterTypes": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
-        { "class_name": "cgw", "method_name": "d", "actions": [
+        { "class_name": "cgw", "method_name": "d", "parameterTypes": [], "actions": [
             { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "srf", "method_name": "d", "parameterTypes": [ "vzn" ], "actions": [
+            { "name": "return_boolean", "value": true }
         ] }
     ],
     "113956": [
-        { "class_name": "ryq", "method_name": "c", "actions": [
+        { "class_name": "ryq", "method_name": "c", "parameterTypes": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
-        { "class_name": "cgw", "method_name": "d", "actions": [
+        { "class_name": "cgw", "method_name": "d", "parameterTypes": [], "actions": [
             { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "srf", "method_name": "d", "parameterTypes": [ "vzn" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "114154": [
+        { "class_name": "sen", "method_name": "c", "parameterTypes": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgx", "method_name": "d", "parameterTypes": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "sxc", "method_name": "d", "parameterTypes": [ "wib" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "114156": [
+        { "class_name": "sen", "method_name": "c", "parameterTypes": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cgx", "method_name": "d", "parameterTypes": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "sxc", "method_name": "d", "parameterTypes": [ "wib" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "114352": [
+        { "class_name": "sjq", "method_name": "c", "parameterTypes": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cej", "method_name": "d", "parameterTypes": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "tcy", "method_name": "d", "parameterTypes": [ "was" ], "actions": [
+            { "name": "return_boolean", "value": true }
         ] }
     ]
 }
