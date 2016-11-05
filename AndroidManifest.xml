@@ -4,6 +4,9 @@
     package="com.pyler.youtubebackgroundplayback"
     android:installLocation="internalOnly" >
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         tools:ignore="GoogleAppIndexingWarning"
         android:allowBackup="true"
