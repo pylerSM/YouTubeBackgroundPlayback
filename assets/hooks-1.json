@@ -568,7 +568,7 @@
         ] }
     ],
     "114352": [
-        { "class_name": "sjq", "method_name": "c", "parameter_types": [], "actions": [
+        { "class_name": "tnw", "method_name": "c", "parameter_types": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
         ] },
         { "class_name": "cej", "method_name": "d", "parameter_types": [], "actions": [
