@@ -38,7 +38,7 @@ import static de.robv.android.xposed.XposedHelpers.setObjectField;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
-	public static final String LOG_TAG = "YouTubeBackgroundPlayback";
+	public static final String LOG_TAG = "YTBackgroundPlayback";
 
 	public static final String APP_PACKAGE = "com.google.android.youtube";
 
