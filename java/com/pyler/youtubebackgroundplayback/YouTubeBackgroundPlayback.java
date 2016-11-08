@@ -31,7 +31,6 @@ import static de.robv.android.xposed.XposedHelpers.callMethod;
 import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
 import static de.robv.android.xposed.XposedHelpers.findClass;
-import static de.robv.android.xposed.XposedHelpers.findClassIfExists;
 import static de.robv.android.xposed.XposedHelpers.getObjectField;
 import static de.robv.android.xposed.XposedHelpers.setBooleanField;
 import static de.robv.android.xposed.XposedHelpers.setObjectField;
@@ -105,16 +104,27 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 				final ArrayList<Object> parameterTypesAndCallback = new ArrayList<>();
 
 				if (parameterTypes != null) {
+					boolean gotAllTypes = true;
 					for (int iParameterType = 0; iParameterType < parameterTypes.length(); iParameterType++) {
-						final String parameterType = parameterTypes.optString(iParameterType, "");
-						if (parameterType.length() == 0) {
-							continue;
+						try {
+							final String parameterType = parameterTypes.optString(iParameterType, "");
+							if (parameterType.length() == 0) {
+								continue;
+							}
+							final Class<?> resolvedParameterType = findClass(parameterType, loader);
+							if (resolvedParameterType == null) {
+								continue;
+							}
+							parameterTypesAndCallback.add(resolvedParameterType);
+						} catch (XposedHelpers.ClassNotFoundError e) {
+							String em = e.getMessage();
+							Log.w(LOG_TAG, "One of the hooks could not be applied: " + (em == null ? "Unknown error" : em));
+							gotAllTypes = false;
+							break;
 						}
-						final Class<?> resolvedParameterType = findClassIfExists(parameterType, loader);
-						if (resolvedParameterType == null) {
-							continue;
-						}
-						parameterTypesAndCallback.add(resolvedParameterType);
+					}
+					if (!gotAllTypes) {
+						continue;
 					}
 				}
 
