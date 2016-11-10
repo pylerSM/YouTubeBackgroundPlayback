@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="app_name">YouTube Arka Plan Oynatıcısı</string>
     <string name="app_description">YouTube\'da arka planda oynatmayı etkinleştir.</string>
 
 </resources>
