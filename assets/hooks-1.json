@@ -599,5 +599,16 @@
         { "class_name": "tkp", "method_name": "d", "parameter_types": [ "wkj" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "114558": [
+        { "class_name": "srj", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cew", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "tkr", "method_name": "d", "parameter_types": [ "wkl" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
