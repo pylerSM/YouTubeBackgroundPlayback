@@ -621,5 +621,16 @@
         { "class_name": "tku", "method_name": "d", "parameter_types": [ "wko" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "114755": [
+        { "class_name": "ugf", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cfj", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "tvj", "method_name": "d", "parameter_types": [ "wwy" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
