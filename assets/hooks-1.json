@@ -654,5 +654,16 @@
         { "class_name": "tvf", "method_name": "d", "parameter_types": [ "wwu" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "114955": [
+        { "class_name": "uib", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cfv", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "twt", "method_name": "d", "parameter_types": [ "wzj" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
