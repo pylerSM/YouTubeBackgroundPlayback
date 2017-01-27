@@ -687,5 +687,16 @@
         { "class_name": "trm", "method_name": "d", "parameter_types": [ "wuk" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "120356": [
+        { "class_name": "ueq", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cfx", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ttq", "method_name": "d", "parameter_types": [ "wxf" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
