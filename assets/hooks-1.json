@@ -709,5 +709,16 @@
         { "class_name": "ttq", "method_name": "d", "parameter_types": [ "wxf" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "120553": [
+        { "class_name": "til", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "chl", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ubu", "method_name": "d", "parameter_types": [ "xhk" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
