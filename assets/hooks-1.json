@@ -764,5 +764,16 @@
         { "class_name": "ujs", "method_name": "d", "parameter_types": [ "xrc" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "120763": [
+        { "class_name": "tqa", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cip", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ujs", "method_name": "d", "parameter_types": [ "xrc" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
