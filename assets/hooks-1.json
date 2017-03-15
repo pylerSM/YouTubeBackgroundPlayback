@@ -786,5 +786,16 @@
         { "class_name": "utc", "method_name": "d", "parameter_types": [ "yby" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "120958": [
+        { "class_name": "vef", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "clq", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "utc", "method_name": "d", "parameter_types": [ "yby" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
