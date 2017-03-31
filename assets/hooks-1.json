@@ -841,5 +841,16 @@
         { "class_name": "uzp", "method_name": "d", "parameter_types": [ "ykj" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "121253": [
+        { "class_name": "vnq", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "ckq", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "vbw", "method_name": "d", "parameter_types": [ "ymv" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
