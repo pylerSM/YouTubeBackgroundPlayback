@@ -874,5 +874,16 @@
         { "class_name": "uuf", "method_name": "d", "parameter_types": [ "yfy" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "121554": [
+        { "class_name": "vkh", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
+        ] },
+        { "class_name": "cld", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "uyf", "method_name": "d", "parameter_types": [ "yki" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
