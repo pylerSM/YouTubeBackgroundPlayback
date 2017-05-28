@@ -2,247 +2,291 @@ package com.pyler.youtubebackgroundplayback;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
+import android.util.Log;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
-import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
+import de.robv.android.xposed.XposedHelpers;
+import de.robv.android.xposed.callbacks.XC_LoadPackage;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.HttpsURLConnection;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static de.robv.android.xposed.XC_MethodReplacement.returnConstant;
-import static de.robv.android.xposed.XposedBridge.log;
 import static de.robv.android.xposed.XposedHelpers.callMethod;
 import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
 import static de.robv.android.xposed.XposedHelpers.findClass;
 import static de.robv.android.xposed.XposedHelpers.getObjectField;
 import static de.robv.android.xposed.XposedHelpers.setBooleanField;
+import static de.robv.android.xposed.XposedHelpers.setObjectField;
 
 public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
+	public static final String LOG_TAG = "YTBackgroundPlayback";
+
 	public static final String APP_PACKAGE = "com.google.android.youtube";
 
-	public static final int[] APP_VERSIONS = { 0,
-		108058, 108358, 108360, 108362, 108656,
-		108752, 108754, 108755, 108957, 108958,
-		108959, 110153, 110155, 110156, 110354,
-		110456, 110759, 110851, 111056, 111057,
-		111060, 111157, 111257, 111355, 111356,
-		111555, 111662, 111752, 111852, 111956,
-		112054, 112153, 112254, 112256, 112356,
-		112555, 112559, 112753, 112953, 112954,
-		112955, 113253, 113355, 113358, 113560,
-		113854, 113954, 113956, 114154, 114156,
-		114352
-	};
-
-	public static final String[] CLASS_1 = { "com.google.android.libraries.youtube.player.background.BackgroundTransitioner",
-		"kyr", "lco", "lha", "lzb", "moc",
-		"mtp", "mtp", "mtq", "myb", "myb",
-		"myb", "ndr", "nds", "nds", "nxu",
-		"odu", "omt", "oom", "owe", "owe",
-		"owe", "ozp", "pez", "pih", "phr",
-		"pvk", "qec", "qgh", "qit", "qcn",
-		"qfe", "qkl", "qly", "qly", "qmo",
-		"qrg", "qrg", "qts", "sie", "sgh",
-		"sgh", "srf", "ssz", "ssz", "tar",
-		"szi", "tat", "tat", "thc", "thc",
-		"tnw"
-	};
-		
-	public static final String[] METHOD_1 = { "updateBackgroundService",
-		"P", "a", "a", "a", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"f", "f", "f", "f", "f",
-		"e", "f", "f", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c"
-	};
-
-	public static final String[] FIELD_1 = { "playbackModality",
-		"e", "d", "d", "d", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"g", "g", "i", "i", "i",
-		"i", "i", "i", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a"
-	};
-
-	public static final String[] SUBFIELD_1 = { "isInBackground",
-		"e", "e", "e", "e", "e",
-		"e", "e", "e", "e", "e",
-		"e", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f", "f", "f", "f", "f",
-		"f"
-	};
-
-	public static final String[] CLASS_2 = { "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel",
-		"iqp", "iur", "izd", "jmo", "kam",
-		"kft", "kft", "kft", "kin", "kin",
-		"kin", "klp", "klq", "klq", "lcl",
-		"lhu", "lpf", "lqa", "lwt", "lwt",
-		"lwt", "lzg", "mep", "mht", "mhd",
-		"mtk", "nbi", "ncm", "ndv", "mvl",
-		"mvs", "nbp", "ndz", "ndz", "nec",
-		"nhe", "nhe", "niw", "niy", "nhc",
-		"nhc"
-	};
-
-	public static final String[] METHOD_2 = { "isPlayable",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a", "a", "a", "a", "a",
-		"a"
-	};
-
-	public static final String[] FIELD_2 = { "isBackgroundable",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c", "c", "c", "c", "c",
-		"c"
-	};
-
-	public static final String[] CLASS_3 = { "com.google.android.apps.youtube.app.background.BackgroundSettings",
-		"azq", "azl", "bdx", "azw", "bhj",
-		"biz", "biz", "biz", "biv", "biv",
-		"biv", "bji", "bji", "bji", "bze",
-		"cad", "cbo", "ccl", "btf", "btf",
-		"btf", "bsv", "bsu", "btr", "btq",
-		"bzy", "cam", "cas", "cba", "cbr",
-		"ccb", "ccw", "ccv", "ccv", "ccs",
-		"ceh", "ceh", "cen", "cgf", "cej",
-		"cej", "chf", "cgs", "cgs", "cgy",
-		"cgx", "cgw", "cgw", "cgx", "cgx",
-		"cej"
-	};
-
-	public static final String[] METHOD_3 = { "getBackgroundAudioSetting",
-		"c", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d",
-		"d"
-	};
-
-	public static final String[] CLASS_4 = { "com.google.android.apps.youtube.app.background.BackgroundSettings" };
-	public static final String[] METHOD_4 = { "shouldShowBackgroundAudioSettingsDialog" };
-
-	public static final String[] CLASS_5 = { "com.google.android.libraries.youtube.common.util.PackageUtil" };
-	public static final String[] METHOD_5 = { "isDogfoodOrDevBuild" };
-
-	/*
-	PlayablilityStatusModel was transformed into a helper class with static methods.
-	The property isBackgroundable is obtained through the method PlayabilityStatusHelper.isBackgroundable(PlayabilityStatus).
-	 */
-	public static final int INDEX_SWITCH_TO_PlayabilityStatusHelper = 42;
-
-	public static final String[] CLASS_PlayabilityStatus = {
-		"vla", "voa", "voa", "vyi", "vxs",
-		"vzn", "vzn", "wib", "wib", "was"
-	};
-
-	public static final String[] CLASS_PlayabilityStatusHelper = {
-		"shz", "sjp", "sjp", "srb", "spu",
-		"srf", "srf", "sxc", "sxc", "tcy"
-	};
-
-	public static final String[] METHOD_PlayabilityStatusHelper_isBackgroundable = {
-		"d", "d", "d", "d", "d",
-		"d", "d", "d", "d", "d"
-	};
 
 	@Override
-	public void handleLoadPackage(final LoadPackageParam lpparam) throws PackageManager.NameNotFoundException {
+	public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) {
 		if (!lpparam.packageName.equals(APP_PACKAGE)) return;
+		loader = lpparam.classLoader;
+		new HooksDownloadTask(this).execute();
+	}
 
-		final ClassLoader loader = lpparam.classLoader;
-
-		// get classes/methods/fields names index
-		final int i = getVersionIndex(loader);
-		if (i == -1) {
-			log("Could not enable background playback for the YouTube app. Your installed version of it is not supported.");
+	public void hook(JSONObject hooksFile) throws PackageManager.NameNotFoundException {
+		if (hooksFile == null) {
 			return;
 		}
 
-		// hooks
-		findAndHookMethod(CLASS_1[i], loader, METHOD_1[i], new XC_MethodHook() {
-			@Override
-			protected void beforeHookedMethod(final MethodHookParam param) {
-				setBooleanField(getObjectField(param.thisObject, FIELD_1[i]), SUBFIELD_1[i], true);
+		final int versionMultiplier = hooksFile.optInt("version_multiplier", 1);
+		final Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
+		final Context context = (Context) callMethod(activityThread, "getSystemContext");
+		final int versionCode = context.getPackageManager().getPackageInfo(APP_PACKAGE, 0).versionCode;
+		final String version = Integer.toString(versionCode / (versionMultiplier < 1 ? 1 : versionMultiplier), 10);
+
+		JSONArray hooks = hooksFile.optJSONArray(version);
+		if (hooks == null) {
+			Log.i(LOG_TAG, "No hook details were found for the version of YouTube installed on your device. [vc:" + versionCode + "]");
+			hooks = hooksFile.optJSONArray("fallback");
+			if (hooks == null) {
+				Log.w(LOG_TAG, "No fall-back hook details for YouTube were found. Stopping.");
+				return;
 			}
-		});
+			Log.i(LOG_TAG, "Using the fall-back hook details for YouTube as a last resort.");
+		}
 
-		if(i < INDEX_SWITCH_TO_PlayabilityStatusHelper) {
-			findAndHookMethod(CLASS_2[i], loader, METHOD_2[i], new XC_MethodHook() {
-				@Override
-				protected void beforeHookedMethod(final MethodHookParam param) {
-					setBooleanField(param.thisObject, FIELD_2[i], true);
+		for (int iHook = 0; iHook < hooks.length(); iHook++) {
+			final JSONObject hook = hooks.optJSONObject(iHook);
+			if (hook == null) {
+				continue;
+			}
+
+			final String className = hook.optString("class_name", "");
+			final String methodName = hook.optString("method_name", "");
+			final JSONArray parameterTypes = hook.optJSONArray("parameter_types");
+			final JSONArray actions = hook.optJSONArray("actions");
+
+			if (className.length() == 0 || methodName.length() == 0 || actions == null) {
+				Log.w(LOG_TAG, "Ignoring an incomplete hook detail for YouTube in the list. [vc:" + versionCode + "]");
+				continue;
+			}
+
+			for (int iAction = 0; iAction < actions.length(); iAction++) {
+				final JSONObject action = actions.optJSONObject(iAction);
+				if (action == null) {
+					continue;
 				}
-			});
-		} else {
-			int ir = i - INDEX_SWITCH_TO_PlayabilityStatusHelper;
-			findAndHookMethod(CLASS_PlayabilityStatusHelper[ir], loader, METHOD_PlayabilityStatusHelper_isBackgroundable[ir],
-					findClass(CLASS_PlayabilityStatus[ir], loader), returnConstant(true));
+
+				final String actionName = action.optString("name", "");
+				final ArrayList<Object> parameterTypesAndCallback = new ArrayList<>();
+
+				if (parameterTypes != null) {
+					boolean gotAllTypes = true;
+					for (int iParameterType = 0; iParameterType < parameterTypes.length(); iParameterType++) {
+						try {
+							final String parameterType = parameterTypes.optString(iParameterType, "");
+							if (parameterType.length() == 0) {
+								continue;
+							}
+							final Class<?> resolvedParameterType = findClass(parameterType, loader);
+							if (resolvedParameterType == null) {
+								continue;
+							}
+							parameterTypesAndCallback.add(resolvedParameterType);
+						} catch (XposedHelpers.ClassNotFoundError e) {
+							String em = e.getMessage();
+							Log.w(LOG_TAG, "One of the hooks could not be applied: " + (em == null ? "Unknown error" : em));
+							gotAllTypes = false;
+							break;
+						}
+					}
+					if (!gotAllTypes) {
+						continue;
+					}
+				}
+
+				XC_MethodHook callback = null;
+				if (actionName.equals("return_boolean")) {
+					callback = returnConstant(action.optBoolean("value"));
+				} else if (actionName.equals("return_string")) {
+					callback = returnConstant(action.optString("value"));
+				} else if (actionName.equals("set_field_boolean_before_method")) {
+					final String fieldName = action.optString("field_name");
+					final boolean value = action.optBoolean("value");
+					if (fieldName.length() > 0) {
+						callback = new XC_MethodHook() {
+							@Override
+							protected void beforeHookedMethod(final MethodHookParam param) {
+								final String[] fieldParts = fieldName.split("\\.");
+								Object thisObject = param.thisObject;
+								for (int iPart = 0; iPart < fieldParts.length - 1; iPart++) {
+									thisObject = getObjectField(thisObject, fieldParts[iPart]);
+								}
+								setBooleanField(thisObject, fieldParts[fieldParts.length - 1], value);
+							}
+						};
+					}
+				} else if (actionName.equals("set_field_string_before_method")) {
+					final String fieldName = action.optString("field_name");
+					final boolean value = action.optBoolean("value");
+					if (fieldName.length() > 0) {
+						callback = new XC_MethodHook() {
+							@Override
+							protected void beforeHookedMethod(final MethodHookParam param) {
+								final String[] fieldParts = fieldName.split("\\.");
+								Object thisObject = param.thisObject;
+								for (int iPart = 0; iPart < fieldParts.length - 1; iPart++) {
+									thisObject = getObjectField(thisObject, fieldParts[iPart]);
+								}
+								setObjectField(thisObject, fieldParts[fieldParts.length - 1], value);
+							}
+						};
+					}
+				} else if (actionName.equals("set_field_boolean_after_method")) {
+					final String fieldName = action.optString("field_name");
+					final boolean value = action.optBoolean("value");
+					if (fieldName.length() > 0) {
+						callback = new XC_MethodHook() {
+							@Override
+							protected void afterHookedMethod(final MethodHookParam param) {
+								final String[] fieldParts = fieldName.split("\\.");
+								Object thisObject = param.thisObject;
+								for (int iPart = 0; iPart < fieldParts.length - 1; iPart++) {
+									thisObject = getObjectField(thisObject, fieldParts[iPart]);
+								}
+								setBooleanField(thisObject, fieldParts[fieldParts.length - 1], value);
+							}
+						};
+					}
+				} else if (actionName.equals("set_field_string_after_method")) {
+					final String fieldName = action.optString("field_name");
+					final boolean value = action.optBoolean("value");
+					if (fieldName.length() > 0) {
+						callback = new XC_MethodHook() {
+							@Override
+							protected void afterHookedMethod(final MethodHookParam param) {
+								final String[] fieldParts = fieldName.split("\\.");
+								Object thisObject = param.thisObject;
+								for (int iPart = 0; iPart < fieldParts.length - 1; iPart++) {
+									thisObject = getObjectField(thisObject, fieldParts[iPart]);
+								}
+								setObjectField(thisObject, fieldParts[fieldParts.length - 1], value);
+							}
+						};
+					}
+				} else {
+					Log.w(LOG_TAG, "Ignoring an unrecognized hook action for YouTube in the list. [a:" + actionName + ";vc:" + versionCode + "]");
+				}
+				if (callback == null) {
+					continue;
+				}
+				parameterTypesAndCallback.add(callback);
+
+				try {
+					findAndHookMethod(className, loader, methodName, parameterTypesAndCallback.toArray(new Object[parameterTypesAndCallback.size()]));
+				} catch (NoSuchMethodError | XposedHelpers.ClassNotFoundError e) {
+					String em = e.getMessage();
+					Log.w(LOG_TAG, "One of the hooks could not be applied: " + (em == null ? "Unknown error" : em));
+				}
+			}
 		}
 
-		findAndHookMethod(CLASS_3[i], loader, METHOD_3[i], returnConstant("on"));
-
-		if (i == 0) {
-			// hook specific methods for unobfuscated releases
-			findAndHookMethod(CLASS_4[0], loader, METHOD_4[0], returnConstant(true));
-
-			findAndHookMethod(CLASS_5[0], loader, METHOD_5[0], returnConstant(true));
-		}
+		Log.i(LOG_TAG, "Done applying the hooks. [vc:" + versionCode + "]");
 	}
 
-	// returns 0 for unobfuscated code and positive integer for obfuscated
-	private int getVersionIndex(final ClassLoader loader) throws PackageManager.NameNotFoundException {
-		try {
-			// check if the app is unobfuscated
-			loader.loadClass(CLASS_1[0]);
-			return 0;
-		} catch (Exception e) {
-			// look through all the known app versions
-			final Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
-			final Context context = (Context) callMethod(activityThread, "getSystemContext");
-			final int versionCode = context.getPackageManager().getPackageInfo(APP_PACKAGE, 0).versionCode / 1000;
-			for (int i = 1; i < APP_VERSIONS.length; i++) {
-				if (APP_VERSIONS[i] == versionCode) {
-					return i;
+	public class HooksDownloadTask extends AsyncTask<Void, Void, JSONObject> {
+
+		private final YouTubeBackgroundPlayback callback;
+
+		public HooksDownloadTask(YouTubeBackgroundPlayback callback) {
+			super();
+			this.callback = callback;
+		}
+
+		@Override
+		protected JSONObject doInBackground(Void... params) {
+			InputStream in = null;
+			try {
+				HttpsURLConnection conn = (HttpsURLConnection) new URL(HOOKS_DOWNLOAD_URL).openConnection();
+				conn.setChunkedStreamingMode(0);
+				conn.setConnectTimeout(40 * 1000 /* ms */);
+				conn.setDoInput(true);
+				conn.setDoOutput(false);
+				conn.setInstanceFollowRedirects(true);
+				conn.setReadTimeout(20 * 1000 /* ms */);
+				conn.setRequestMethod("GET");
+				conn.setUseCaches(true);
+
+				conn.connect();
+				in = conn.getInputStream();
+
+				BufferedReader inReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+				StringBuilder lineBuilder = new StringBuilder();
+
+				String line;
+				while ((line = inReader.readLine()) != null) {
+					lineBuilder.append(line);
+				}
+
+				return new JSONObject(lineBuilder.toString());
+			} catch (IOException | JSONException e) {
+				String em = e.getMessage();
+				Log.i(LOG_TAG, "The hook details could not be downloaded: " + (em == null ? "Unknown error" : em));
+				return null;
+			} finally {
+				if (in != null) {
+					try {
+						in.close();
+					} catch (IOException ignored) {
+						// no-op
+					}
 				}
 			}
-			return -1;
 		}
+
+		@Override
+		protected void onPostExecute(JSONObject result) {
+			if (result == null) {
+				secondsUntilReload *= 2;
+				if (secondsUntilReload >= 90) {
+					secondsUntilReload = 90;
+				}
+
+				WORKER.schedule(new Runnable() {
+					@Override
+					public void run() {
+						new HooksDownloadTask(callback).execute();
+					}
+				}, ((int) Math.floor(Math.random() * secondsUntilReload)) + 1, TimeUnit.SECONDS);
+			} else {
+				secondsUntilReload = 5;
+				if (callback != null) {
+					try {
+						callback.hook(result);
+					} catch (PackageManager.NameNotFoundException e) {
+						// if this happens, something has gone very very (very!) wrong.
+						throw new RuntimeException("YouTube package reportedly not found even though it was loaded", e);
+					}
+				}
+			}
+		}
+
 	}
 
 }

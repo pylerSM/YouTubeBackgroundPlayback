@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.pyler.youtubebackgroundplayback"
-    android:installLocation="internalOnly" >
+    android:installLocation="internalOnly">
 
     <application
         tools:ignore="GoogleAppIndexingWarning"
