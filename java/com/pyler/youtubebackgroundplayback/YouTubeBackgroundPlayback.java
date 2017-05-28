@@ -65,9 +65,15 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		final Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
 		final Context context = (Context) callMethod(activityThread, "getSystemContext");
 		final int versionCode = context.getPackageManager().getPackageInfo(APP_PACKAGE, 0).versionCode;
-		final String version = Integer.toString(versionCode / (versionMultiplier < 1 ? 1 : versionMultiplier), 10);
-
+		String version = Integer.toString(versionCode / (versionMultiplier < 1 ? 1 : versionMultiplier), 10);
 		JSONArray hooks = hooksFile.optJSONArray(version);
+		
+		if(hooks == null) {
+			version	= Integer.toString(versionCode).substring(0, 6);
+			hooks = hooksFile.optJSONArray(version);
+			if(hooks != null) Log.i(LOG_TAG, "Wrong version multiplier " + versionMultiplier + "? [vc:" + versionCode + "]");
+		}
+	
 		if (hooks == null) {
 			Log.i(LOG_TAG, "No hook details were found for the version of YouTube installed on your device. [vc:" + versionCode + "]");
 			hooks = hooksFile.optJSONArray("fallback");
