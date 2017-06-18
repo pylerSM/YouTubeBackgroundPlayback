@@ -18,7 +18,7 @@
         ] }
     ],
     "121956": [
-        { "class_name": "way", "method_name": "c", "parameter_types": [], "actions": [
+        { "class_name": "uuo", "method_name": "c", "parameter_types": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.g", "value": true }
         ] },
         { "class_name": "cni", "method_name": "d", "parameter_types": [], "actions": [
@@ -29,7 +29,7 @@
         ] }
     ],
     "122157": [
-        { "class_name": "whd", "method_name": "c", "parameter_types": [], "actions": [
+        { "class_name": "vas", "method_name": "c", "parameter_types": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.g", "value": true }
         ] },
         { "class_name": "cpt", "method_name": "d", "parameter_types": [], "actions": [
@@ -40,7 +40,7 @@
         ] }
     ],
     "122357": [
-        { "class_name": "wro", "method_name": "c", "parameter_types": [], "actions": [
+        { "class_name": "vkm", "method_name": "c", "parameter_types": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.g", "value": true }
         ] },
         { "class_name": "csc", "method_name": "d", "parameter_types": [], "actions": [
