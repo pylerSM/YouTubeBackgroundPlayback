@@ -16,6 +16,9 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -41,6 +44,14 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	public static final String APP_PACKAGE = "com.google.android.youtube";
 
+	public static final String HOOKS_DOWNLOAD_URL = "https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/master/assets/hooks-3.json";
+
+	private static final ScheduledExecutorService WORKER = Executors.newSingleThreadScheduledExecutor();
+
+	private ClassLoader loader = null;
+
+	private int secondsUntilReload = 5;
+
 
 	@Override
 	public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) {
@@ -54,13 +65,39 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 			return;
 		}
 
-		final int versionMultiplier = hooksFile.optInt("version_multiplier", 1);
 		final Object activityThread = callStaticMethod(findClass("android.app.ActivityThread", null), "currentActivityThread");
 		final Context context = (Context) callMethod(activityThread, "getSystemContext");
 		final int versionCode = context.getPackageManager().getPackageInfo(APP_PACKAGE, 0).versionCode;
-		final String version = Integer.toString(versionCode / (versionMultiplier < 1 ? 1 : versionMultiplier), 10);
 
-		JSONArray hooks = hooksFile.optJSONArray(version);
+		final ArrayList<Integer> versionMultipliers = new ArrayList<>();
+		final Iterator<String> keys = hooksFile.keys();
+		while (keys.hasNext()) {
+			String key = keys.next();
+			if (key.substring(0, 1).equals("x")) {
+				try {
+					versionMultipliers.add(Integer.parseInt(key.substring(1), 10));
+				} catch (NumberFormatException e) {
+					Log.i(LOG_TAG, "Bad hook multiplier key. [k:" + versionCode + "]");
+				}
+			}
+		}
+
+		Collections.sort(versionMultipliers, new Comparator<Integer>() {
+			@Override
+			public int compare(Integer first, Integer second) {
+				return (first == null || second == null) ? 0 : first < second ? 1 : first > second ? -1 : 0;
+			}
+		});
+
+		JSONArray hooks = null;
+		for (int versionMultiplier : versionMultipliers) {
+			final String version = Integer.toString(versionCode / (versionMultiplier < 1 ? 1 : versionMultiplier), 10);
+			hooks = hooksFile.optJSONArray(version);
+			if (hooks != null) {
+				break;
+			}
+		}
+
 		if (hooks == null) {
 			Log.i(LOG_TAG, "No hook details were found for the version of YouTube installed on your device. [vc:" + versionCode + "]");
 			hooks = hooksFile.optJSONArray("fallback");
