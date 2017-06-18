@@ -52,7 +52,6 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	private int secondsUntilReload = 5;
 
-
 	@Override
 	public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) {
 		if (!lpparam.packageName.equals(APP_PACKAGE)) return;
