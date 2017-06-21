@@ -964,6 +964,17 @@
             { "class_name": "wfm", "method_name": "d", "parameter_types": [ "zvy" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "122360": [
+            { "class_name": "vkm", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.g", "value": true }
+            ] },
+            { "class_name": "csc", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "wfm", "method_name": "d", "parameter_types": [ "zvy" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
