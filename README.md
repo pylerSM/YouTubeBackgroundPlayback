@@ -1,13 +1,5 @@
-# YouTube Background Playback
-
-Xposed module: Enable background playback in YouTube
-
 ## How to install
-
-Simply grab the module from [the Xposed Module Repository](http://repo.xposed.info/module/com.pyler.youtubebackgroundplayback).
 
 To build from source on your own device, feel free to clone this repository and use Gradle. You can read more about how to build locally on [Android Developers](https://developer.android.com/tools/building/building-cmdline.html) if you are interested.
 
-## TODO tasks
-
-- [ ] YouTube Music support
+## THIS FORK WILL REMAIN AS BACKUP TO ANYWONE WHO WANTS TO BUILD IT ON THEIR OWN
