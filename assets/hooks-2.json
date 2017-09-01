@@ -159,5 +159,16 @@
         { "class_name": "xqf", "method_name": "d", "parameter_types": [ "abll" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "123454": [
+        { "class_name": "yhy", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+        ] },
+        { "class_name": "coc", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "zdj", "method_name": "d", "parameter_types": [ "acxa" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
