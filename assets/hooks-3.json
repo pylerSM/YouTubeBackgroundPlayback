@@ -1096,6 +1096,17 @@
             { "class_name": "zdp", "method_name": "d", "parameter_types": [ "acxg" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "123655": [
+            { "class_name": "yhc", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "com", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "zdp", "method_name": "d", "parameter_types": [ "acxg" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
