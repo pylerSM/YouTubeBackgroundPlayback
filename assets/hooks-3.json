@@ -1104,7 +1104,7 @@
             { "class_name": "com", "method_name": "d", "parameter_types": [], "actions": [
                 { "name": "return_string", "value": "on" }
             ] },
-            { "class_name": "zdp", "method_name": "d", "parameter_types": [ "acxg" ], "actions": [
+            { "class_name": "zan", "method_name": "d", "parameter_types": [ "acwa" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
         ]
