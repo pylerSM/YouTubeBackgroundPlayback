@@ -1129,6 +1129,17 @@
             { "class_name": "zdd", "method_name": "d", "parameter_types": [ "acyz" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "123754": [
+            { "class_name": "yjs", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cqu", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "zdd", "method_name": "d", "parameter_types": [ "acyz" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
