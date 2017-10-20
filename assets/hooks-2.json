@@ -313,5 +313,16 @@
         { "class_name": "zln", "method_name": "d", "parameter_types": [ "adho" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "124153": [
+        { "class_name": "zam", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+        ] },
+        { "class_name": "cte", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "zvg", "method_name": "d", "parameter_types": [ "adrp" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
