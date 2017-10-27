@@ -335,5 +335,16 @@
         { "class_name": "zvh", "method_name": "d", "parameter_types": [ "adrq" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "124259": [
+        { "class_name": "zdl", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+        ] },
+        { "class_name": "crl", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "zxz", "method_name": "d", "parameter_types": [ "advf" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
