@@ -414,13 +414,13 @@
         ] }
     ],
     "124758": [
-        { "class_name": "aabx", "method_name": "c", "parameter_types": [], "actions": [
+        { "class_name": "aacm", "method_name": "c", "parameter_types": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
         ] },
-        { "class_name": "cns", "method_name": "d", "parameter_types": [], "actions": [
+        { "class_name": "cpy", "method_name": "d", "parameter_types": [], "actions": [
             { "name": "return_string", "value": "on" }
         ] },
-        { "class_name": "aaws", "method_name": "d", "parameter_types": [ "aewl" ], "actions": [
+        { "class_name": "aaxm", "method_name": "d", "parameter_types": [ "aexf" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
     ]
