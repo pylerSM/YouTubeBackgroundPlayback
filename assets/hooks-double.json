@@ -16,7 +16,7 @@
             { "name": "return_boolean", "value": true }
         ] }
     ],
-    "x100": {
+    "x1000": {
         "1247582": [
             { "class_name": "aabx", "method_name": "c", "parameter_types": [], "actions": [
                 { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
