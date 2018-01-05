@@ -1349,6 +1349,17 @@
             { "class_name": "aaws", "method_name": "d", "parameter_types": [ "aewl" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "124955": [
+            { "class_name": "aafo", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cmm", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abaq", "method_name": "d", "parameter_types": [ "afbp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
