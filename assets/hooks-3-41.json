@@ -72,14 +72,14 @@
                 { "name": "return_boolean", "value": true }
             ] }
         ],
-        "130258": [
-            { "class_name": "aalo", "method_name": "c", "parameter_types": [], "actions": [
+        "130356": [
+            { "class_name": "aalw", "method_name": "c", "parameter_types": [], "actions": [
                 { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
             ] },
-            { "class_name": "cnh", "method_name": "d", "parameter_types": [], "actions": [
+            { "class_name": "cnc", "method_name": "d", "parameter_types": [], "actions": [
                 { "name": "return_string", "value": "on" }
             ] },
-            { "class_name": "abhk", "method_name": "d", "parameter_types": [ "afiv" ], "actions": [
+            { "class_name": "abib", "method_name": "d", "parameter_types": [ "afjk" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
         ]
