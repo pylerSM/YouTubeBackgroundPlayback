@@ -533,5 +533,16 @@
         { "class_name": "acaj", "method_name": "d", "parameter_types": [ "agca" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "130755": [
+        { "class_name": "aboq", "method_name": "c", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+        ] },
+        { "class_name": "cxe", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "acnw", "method_name": "d", "parameter_types": [ "agpw" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
