@@ -1481,6 +1481,17 @@
             { "class_name": "acym", "method_name": "d", "parameter_types": [ "ahaz" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "130956": [
+            { "class_name": "abyx", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dae", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "acym", "method_name": "d", "parameter_types": [ "ahaz" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
