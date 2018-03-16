@@ -1503,6 +1503,17 @@
             { "class_name": "acym", "method_name": "d", "parameter_types": [ "ahaz" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "131055": [
+            { "class_name": "acdp", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dax", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "addf", "method_name": "d", "parameter_types": [ "ahgg" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
