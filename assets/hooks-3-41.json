@@ -170,6 +170,17 @@
             { "class_name": "acyv", "method_name": "d", "parameter_types": [ "ahbi" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "131055": [
+            { "class_name": "acdt", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "ddg", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "addo", "method_name": "d", "parameter_types": [ "ahgp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
