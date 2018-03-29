@@ -1,0 +1,219 @@
+{
+    "fallback": [
+        { "class_name": "com.google.android.libraries.youtube.player.background.BackgroundTransitioner", "method_name": "updateBackgroundService", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "playbackModality.isInBackground", "value": true }
+        ] },
+        { "class_name": "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel", "method_name": "isPlayable", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "isBackgroundable", "value": true }
+        ] },
+        { "class_name": "com.google.android.apps.youtube.app.background.BackgroundSettings", "method_name": "getBackgroundAudioSetting", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "com.google.android.apps.youtube.app.background.BackgroundSettings", "method_name": "shouldShowBackgroundAudioSettingsDialog", "actions": [
+            { "name": "return_boolean", "value": true }
+        ] },
+        { "class_name": "com.google.android.libraries.youtube.common.util.PackageUtil", "method_name": "isDogfoodOrDevBuild", "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "x10000": {
+        "124758": [
+            { "class_name": "aacm", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cpy", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aaxm", "method_name": "d", "parameter_types": [ "aexf" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "124955": [
+            { "class_name": "aagd", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cos", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abbk", "method_name": "d", "parameter_types": [ "afcj" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130152": [
+            { "class_name": "aaik", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cni", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abeg", "method_name": "d", "parameter_types": [ "affj" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130153": [
+            { "class_name": "aaik", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cni", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abeg", "method_name": "d", "parameter_types": [ "affj" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130255": [
+            { "class_name": "aalo", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cnh", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abhk", "method_name": "d", "parameter_types": [ "afiv" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130356": [
+            { "class_name": "aalw", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cnc", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abib", "method_name": "d", "parameter_types": [ "afjk" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130358": [
+            { "class_name": "aamf", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cnh", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abik", "method_name": "d", "parameter_types": [ "afjt" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130455": [
+            { "class_name": "aaqx", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cni", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abon", "method_name": "d", "parameter_types": [ "afpt" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130552": [
+            { "class_name": "aayw", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cpp", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "abwx", "method_name": "d", "parameter_types": [ "afyo" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130653": [
+            { "class_name": "abbe", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "cpb", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "acan", "method_name": "d", "parameter_types": [ "agce" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130755": [
+            { "class_name": "abor", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "czk", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "acoc", "method_name": "d", "parameter_types": [ "agqc" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130953": [
+            { "class_name": "abzb", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dcn", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "acyv", "method_name": "d", "parameter_types": [ "ahbi" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130956": [
+            { "class_name": "abzb", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dcn", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "acyv", "method_name": "d", "parameter_types": [ "ahbi" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "130957": [
+            { "class_name": "abzb", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dcn", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "acyv", "method_name": "d", "parameter_types": [ "ahbi" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "131055": [
+            { "class_name": "acdt", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "ddg", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "addo", "method_name": "d", "parameter_types": [ "ahgp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "131059": [
+            { "class_name": "acdt", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "ddg", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "addo", "method_name": "d", "parameter_types": [ "ahgp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "131156": [
+            { "class_name": "acha", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "ddk", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "adgy", "method_name": "d", "parameter_types": [ "ahkp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "131157": [
+            { "class_name": "acha", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "ddk", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "adgy", "method_name": "d", "parameter_types": [ "ahkp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ]
+    }
+}
