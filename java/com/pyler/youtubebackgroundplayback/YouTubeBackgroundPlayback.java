@@ -92,7 +92,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		for (int versionMultiplier : versionMultipliers) {
 			final String version = Integer.toString(versionCode / (versionMultiplier < 1 ? 1 : versionMultiplier), 10);
 			try {
-				      hooks = hooksFile.getJSONObject("x" + versionMultiplier).optJSONArray(version);
+				hooks = hooksFile.getJSONObject("x" + versionMultiplier).optJSONArray(version);
 			} catch (JSONException ignored) {
 				// no-op
 			}

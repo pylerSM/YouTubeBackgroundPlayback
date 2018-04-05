@@ -568,7 +568,7 @@
             ] }
         ],
         "114352": [
-            { "class_name": "sjq", "method_name": "c", "parameter_types": [], "actions": [
+            { "class_name": "tnw", "method_name": "c", "parameter_types": [], "actions": [
                 { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
             ] },
             { "class_name": "cej", "method_name": "d", "parameter_types": [], "actions": [
@@ -744,7 +744,7 @@
             ] }
         ],
         "120759": [
-            { "class_name": "tpx", "method_name": "c", "parameter_types": [], "actions": [
+            { "class_name": "ypx", "method_name": "c", "parameter_types": [], "actions": [
                 { "name": "set_field_boolean_before_method", "field_name": "a.f", "value": true }
             ] },
             { "class_name": "cip", "method_name": "d", "parameter_types": [], "actions": [
