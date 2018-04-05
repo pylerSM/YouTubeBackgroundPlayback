@@ -13,7 +13,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,8 +23,6 @@ import java.util.Iterator;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -284,15 +284,21 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 		protected JSONObject doInBackground(Void... params) {
 			InputStream in = null;
 			try {
-				HttpsURLConnection conn = (HttpsURLConnection) new URL(HOOKS_DOWNLOAD_URL).openConnection();
-				conn.setChunkedStreamingMode(0);
+				URLConnection conn = new URL(HOOKS_DOWNLOAD_URL).openConnection();
 				conn.setConnectTimeout(40 * 1000 /* ms */);
 				conn.setDoInput(true);
 				conn.setDoOutput(false);
-				conn.setInstanceFollowRedirects(true);
 				conn.setReadTimeout(20 * 1000 /* ms */);
-				conn.setRequestMethod("GET");
 				conn.setUseCaches(true);
+
+				if (conn instanceof HttpURLConnection) {
+					HttpURLConnection hConn = (HttpURLConnection) conn;
+					hConn.setChunkedStreamingMode(0);
+					hConn.setInstanceFollowRedirects(true);
+					hConn.setRequestMethod("GET");
+				} else {
+					Log.w(LOG_TAG, "Our connection is not java.net.HttpURLConnection but instead " + conn.getClass().getName());
+				}
 
 				conn.connect();
 				in = conn.getInputStream();
