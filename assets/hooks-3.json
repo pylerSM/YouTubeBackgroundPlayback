@@ -1591,6 +1591,17 @@
             { "class_name": "acyn", "method_name": "d", "parameter_types": [ "ahbt" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "131454": [
+            { "class_name": "acil", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dbp", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "adkh", "method_name": "d", "parameter_types": [ "ahov" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
