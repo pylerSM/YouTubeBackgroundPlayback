@@ -258,6 +258,28 @@
             { "class_name": "acyq", "method_name": "d", "parameter_types": [ "ahbw" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "131454": [
+            { "class_name": "acij", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "ddy", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "adkk", "method_name": "d", "parameter_types": [ "ahoy" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "131455": [
+            { "class_name": "acij", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "ddy", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "adkk", "method_name": "d", "parameter_types": [ "ahoy" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
