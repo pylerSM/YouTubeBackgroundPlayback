@@ -291,6 +291,17 @@
             { "class_name": "ados", "method_name": "d", "parameter_types": [ "ahtc" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "131655": [
+            { "class_name": "acpc", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dek", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "adrq", "method_name": "d", "parameter_types": [ "ahvu" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
