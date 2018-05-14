@@ -324,6 +324,17 @@
             { "class_name": "adwb", "method_name": "d", "parameter_types": [ "aiaq" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "131854": [
+            { "class_name": "acwv", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dfg", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aeai", "method_name": "d", "parameter_types": [ "aifj" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
