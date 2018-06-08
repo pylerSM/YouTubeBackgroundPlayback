@@ -1745,6 +1745,17 @@
             { "class_name": "aeio", "method_name": "d", "parameter_types": [ "aioe" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "132254": [
+            { "class_name": "adko", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dbx", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aeoj", "method_name": "d", "parameter_types": [ "aiug" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
