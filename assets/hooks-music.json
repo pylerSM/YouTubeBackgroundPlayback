@@ -1,0 +1,50 @@
+{
+    "fallback": [
+        { "class_name": "com.google.android.libraries.youtube.player.background.BackgroundTransitioner", "method_name": "updateBackgroundService", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "playbackModality.isInBackground", "value": true }
+        ] },
+        { "class_name": "com.google.android.libraries.youtube.innertube.model.PlayabilityStatusModel", "method_name": "isPlayable", "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "isBackgroundable", "value": true }
+        ] },
+        { "class_name": "com.google.android.apps.youtube.app.background.BackgroundSettings", "method_name": "getBackgroundAudioSetting", "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "com.google.android.apps.youtube.app.background.BackgroundSettings", "method_name": "shouldShowBackgroundAudioSettingsDialog", "actions": [
+            { "name": "return_boolean", "value": true }
+        ] },
+        { "class_name": "com.google.android.libraries.youtube.common.util.PackageUtil", "method_name": "isDogfoodOrDevBuild", "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "x1000": {
+        "23555": [
+            { "class_name": "qpw", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "rhp", "method_name": "d", "parameter_types": [ "ufy" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "23556": [
+            { "class_name": "qpy", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "rhr", "method_name": "d", "parameter_types": [ "uga" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ]
+    },
+    "x10000": {
+        "132359": [
+            { "class_name": "adoj", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dcf", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aesm", "method_name": "d", "parameter_types": [ "aiyn" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ]
+    }
+}
