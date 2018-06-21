@@ -10,4 +10,4 @@ To build from source on your own device, feel free to clone this repository and 
 
 ## TODO tasks
 
-- [ ] YouTube Music support
+- [X] YouTube Music support <- experimental... very experimental...
