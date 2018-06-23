@@ -1778,6 +1778,17 @@
             { "class_name": "aesm", "method_name": "d", "parameter_types": [ "aiyn" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "132457": [
+            { "class_name": "adwn", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dem", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afaz", "method_name": "d", "parameter_types": [ "ajfw" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
