@@ -464,7 +464,7 @@
             { "class_name": "dhd", "method_name": "f", "parameter_types": [], "actions": [
                 { "name": "return_string", "value": "on" }
             ] },
-            { "class_name": "afbe", "method_name": "d", "parameter_types": [ "aiys" ], "actions": [
+            { "class_name": "afbe", "method_name": "d", "parameter_types": [ "ajgb" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
         ],
