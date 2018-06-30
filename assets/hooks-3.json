@@ -1811,6 +1811,17 @@
             { "class_name": "afaz", "method_name": "d", "parameter_types": [ "ajfw" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "132556": [
+            { "class_name": "aedq", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "den", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afij", "method_name": "d", "parameter_types": [ "ajmw" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
