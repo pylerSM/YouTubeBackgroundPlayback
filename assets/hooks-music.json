@@ -32,6 +32,14 @@
             { "class_name": "rhr", "method_name": "d", "parameter_types": [ "uga" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "23953": [
+            { "class_name": "quk", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.g", "value": true }
+            ] },
+            { "class_name": "rmk", "method_name": "d", "parameter_types": [ "uld" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
