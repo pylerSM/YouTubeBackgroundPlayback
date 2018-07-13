@@ -478,6 +478,17 @@
             { "class_name": "afio", "method_name": "d", "parameter_types": [ "ajnb" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "132754": [
+            { "class_name": "aegn", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dho", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aflm", "method_name": "d", "parameter_types": [ "ajqj" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
