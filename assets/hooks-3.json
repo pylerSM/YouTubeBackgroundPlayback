@@ -1830,7 +1830,7 @@
             { "class_name": "dfh", "method_name": "f", "parameter_types": [], "actions": [
                 { "name": "return_string", "value": "on" }
             ] },
-            { "class_name": "aflr", "method_name": "d", "parameter_types": [ "ajgo" ], "actions": [
+            { "class_name": "aflr", "method_name": "d", "parameter_types": [ "ajqo" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
         ]
