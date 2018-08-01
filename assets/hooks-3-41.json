@@ -511,6 +511,17 @@
             { "class_name": "agge", "method_name": "d", "parameter_types": [ "akkr" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "132953": [
+            { "class_name": "afcc", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dir", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "agki", "method_name": "d", "parameter_types": [ "akom" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
