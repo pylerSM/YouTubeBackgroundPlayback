@@ -64,6 +64,14 @@
             { "class_name": "rnq", "method_name": "d", "parameter_types": [ "mbr" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "24356": [
+            { "class_name": "qzc", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.g", "value": true }
+            ] },
+            { "class_name": "rtc", "method_name": "d", "parameter_types": [ "uqx" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
