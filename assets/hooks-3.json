@@ -1866,6 +1866,17 @@
             { "class_name": "agkn", "method_name": "d", "parameter_types": [ "akor" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "133056": [
+            { "class_name": "afgi", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dgn", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "agon", "method_name": "d", "parameter_types": [ "aksc" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
