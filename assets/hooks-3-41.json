@@ -522,6 +522,17 @@
             { "class_name": "agki", "method_name": "d", "parameter_types": [ "akom" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "133056": [
+            { "class_name": "affy", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "diu", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "agoi", "method_name": "d", "parameter_types": [ "akrx" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
