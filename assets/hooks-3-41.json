@@ -555,6 +555,17 @@
             { "class_name": "agub", "method_name": "d", "parameter_types": [ "akru" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "133353": [
+            { "class_name": "acnv", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dfw", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "advm", "method_name": "d", "parameter_types": [ "ahrj" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
