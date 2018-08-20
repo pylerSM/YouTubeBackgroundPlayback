@@ -978,7 +978,7 @@
         { "class_name": "acoe", "method_name": "c", "parameter_types": [], "actions": [
             { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
         ] },
-        { "class_name": "ddo", "method_name": "f", "parameter_types": [], "actions": [
+        { "class_name": "ddo", "method_name": "c", "parameter_types": [], "actions": [
             { "name": "return_string", "value": "on" }
         ] },
         { "class_name": "advq", "method_name": "d", "parameter_types": [ "ahrn" ], "actions": [
