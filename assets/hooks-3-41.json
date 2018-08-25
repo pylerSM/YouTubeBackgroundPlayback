@@ -577,6 +577,17 @@
             { "class_name": "advm", "method_name": "d", "parameter_types": [ "ahrj" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "133450": [
+            { "class_name": "actb", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dgg", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aeas", "method_name": "d", "parameter_types": [ "ahwi" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
