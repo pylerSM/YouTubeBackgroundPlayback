@@ -88,6 +88,14 @@
             { "class_name": "skj", "method_name": "d", "parameter_types": [ "uzu" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "24952": [
+            { "class_name": "rmu", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.g", "value": true }
+            ] },
+            { "class_name": "sek", "method_name": "d", "parameter_types": [ "usk" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
