@@ -1954,6 +1954,17 @@
             { "class_name": "aehy", "method_name": "d", "parameter_types": [ "aicx" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "133752": [
+            { "class_name": "adgq", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.f", "value": true }
+            ] },
+            { "class_name": "dgf", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aeoc", "method_name": "d", "parameter_types": [ "aiip" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
