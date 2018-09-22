@@ -621,6 +621,17 @@
             { "class_name": "aeny", "method_name": "d", "parameter_types": [ "aiil" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "133850": [
+            { "class_name": "adgt", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.f", "value": true }
+            ] },
+            { "class_name": "dij", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aeok", "method_name": "d", "parameter_types": [ "aiiu" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
