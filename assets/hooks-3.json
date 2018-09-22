@@ -1965,6 +1965,17 @@
             { "class_name": "aeoc", "method_name": "d", "parameter_types": [ "aiip" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "133850": [
+            { "class_name": "adhc", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.f", "value": true }
+            ] },
+            { "class_name": "dgb", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aeoo", "method_name": "d", "parameter_types": [ "aiiy" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
