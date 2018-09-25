@@ -96,6 +96,30 @@
             { "class_name": "sek", "method_name": "d", "parameter_types": [ "usk" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "24956": [
+            { "class_name": "rmu", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.g", "value": true }
+            ] },
+            { "class_name": "sek", "method_name": "d", "parameter_types": [ "usk" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "24957": [
+            { "class_name": "rmu", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.g", "value": true }
+            ] },
+            { "class_name": "sek", "method_name": "d", "parameter_types": [ "usk" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "25156": [
+            { "class_name": "rop", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.e", "value": true }
+            ] },
+            { "class_name": "sgs", "method_name": "d", "parameter_types": [ "uub" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
