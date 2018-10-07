@@ -1987,6 +1987,17 @@
             { "class_name": "afam", "method_name": "d", "parameter_types": [ "aitp" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "134051": [
+            { "class_name": "advb", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "d.h", "value": true }
+            ] },
+            { "class_name": "dhh", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afci", "method_name": "d", "parameter_types": [ "aish" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
