@@ -665,6 +665,17 @@
             { "class_name": "afcf", "method_name": "d", "parameter_types": [ "aise" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "134054": [
+            { "class_name": "aduu", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "djp", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afcg", "method_name": "d", "parameter_types": [ "aisf" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
