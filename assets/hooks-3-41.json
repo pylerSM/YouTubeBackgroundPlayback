@@ -710,6 +710,17 @@
                 { "name": "return_boolean", "value": true }
             ] }
         ],
+        "134252": [
+            { "class_name": "aefi", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dpl", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afmn", "method_name": "d", "parameter_types": [ "aizr" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
         "134350": [
             { "class_name": "aehp", "method_name": "c", "parameter_types": [], "actions": [
                 { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
