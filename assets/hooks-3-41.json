@@ -742,6 +742,17 @@
             { "class_name": "afow", "method_name": "d", "parameter_types": [ "ajbw" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "134451": [
+            { "class_name": "aeex", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dpp", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afmb", "method_name": "d", "parameter_types": [ "aixp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
