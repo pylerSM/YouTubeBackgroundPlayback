@@ -2075,6 +2075,17 @@
             { "class_name": "afoz", "method_name": "d", "parameter_types": [ "ajbz" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "134451": [
+            { "class_name": "aefk", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "a.h", "value": true }
+            ] },
+            { "class_name": "dnm", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afmj", "method_name": "d", "parameter_types": [ "aixx" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
