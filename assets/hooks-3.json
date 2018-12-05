@@ -2108,6 +2108,17 @@
             { "class_name": "afso", "method_name": "d", "parameter_types": [ "aiyp" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "134851": [
+            { "class_name": "aeon", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "j.h", "value": true }
+            ] },
+            { "class_name": "dpf", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afvs", "method_name": "d", "parameter_types": [ "aiyv" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
