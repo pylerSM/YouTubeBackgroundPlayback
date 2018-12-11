@@ -136,6 +136,14 @@
             { "class_name": "shz", "method_name": "d", "parameter_types": [ "usx" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "26150": [
+            { "class_name": "txt", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "j.n", "value": true }
+            ] },
+            { "class_name": "urr", "method_name": "d", "parameter_types": [ "wsf" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
