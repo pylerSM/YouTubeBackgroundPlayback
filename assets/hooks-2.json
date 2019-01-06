@@ -1215,5 +1215,16 @@
         { "class_name": "agai", "method_name": "d", "parameter_types": [ "ajbu" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "140151": [
+        { "class_name": "aeqh", "method_name": "d", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "j.h", "value": true }
+        ] },
+        { "class_name": "dnf", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "afya", "method_name": "d", "parameter_types": [ "aiwo" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
