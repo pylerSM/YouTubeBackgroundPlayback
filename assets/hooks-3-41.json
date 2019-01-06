@@ -808,6 +808,17 @@
             { "class_name": "agab", "method_name": "d", "parameter_types": [ "ajbn" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "140151": [
+            { "class_name": "aeqf", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "j.h", "value": true }
+            ] },
+            { "class_name": "dpt", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "afyd", "method_name": "d", "parameter_types": [ "aiwr" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
