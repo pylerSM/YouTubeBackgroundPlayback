@@ -830,6 +830,17 @@
             { "class_name": "agay", "method_name": "d", "parameter_types": [ "aivn" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "140353": [
+            { "class_name": "aexw", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "h.l", "value": true }
+            ] },
+            { "class_name": "dqn", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aggk", "method_name": "d", "parameter_types": [ "aiyg" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
