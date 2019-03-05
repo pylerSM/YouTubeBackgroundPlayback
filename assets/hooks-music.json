@@ -152,6 +152,14 @@
             { "class_name": "voj", "method_name": "d", "parameter_types": [ "xgl" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "30554": [
+            { "class_name": "vau", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "h.l", "value": true }
+            ] },
+            { "class_name": "vwx", "method_name": "d", "parameter_types": [ "xmq" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
