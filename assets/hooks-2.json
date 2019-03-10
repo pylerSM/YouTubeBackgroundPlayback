@@ -1358,5 +1358,16 @@
         { "class_name": "ahgg", "method_name": "d", "parameter_types": [ "ajpr" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "141053": [
+        { "class_name": "agat", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "f.j", "value": true }
+        ] },
+        { "class_name": "drx", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ahkf", "method_name": "d", "parameter_types": [ "ajti" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
