@@ -176,6 +176,14 @@
             { "class_name": "wcy", "method_name": "d", "parameter_types": [ "xqu" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "31154": [
+            { "class_name": "vkq", "method_name": "i", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+            ] },
+            { "class_name": "wgt", "method_name": "d", "parameter_types": [ "xrd" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
