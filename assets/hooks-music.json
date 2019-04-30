@@ -184,6 +184,14 @@
             { "class_name": "wgt", "method_name": "d", "parameter_types": [ "xrd" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "31352": [
+            { "class_name": "vlt", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "q.m", "value": true }
+            ] },
+            { "class_name": "wif", "method_name": "d", "parameter_types": [ "abtr" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
