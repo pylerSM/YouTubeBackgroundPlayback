@@ -1039,6 +1039,17 @@
             { "class_name": "ahyl", "method_name": "d", "parameter_types": [ "ashk" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "141753": [
+            { "class_name": "agso", "method_name": "l", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "q.b", "value": true }
+            ] },
+            { "class_name": "dvn", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aich", "method_name": "d", "parameter_types": [ "aslu" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
