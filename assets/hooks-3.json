@@ -2383,6 +2383,17 @@
             { "class_name": "aijm", "method_name": "d", "parameter_types": [ "assy" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "141853": [
+            { "class_name": "aheb", "method_name": "l", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "q.b", "value": true }
+            ] },
+            { "class_name": "duc", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "ainu", "method_name": "d", "parameter_types": [ "asxa" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
