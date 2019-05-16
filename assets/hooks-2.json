@@ -1479,5 +1479,16 @@
         { "class_name": "ainu", "method_name": "d", "parameter_types": [ "asxa" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "141955": [
+        { "class_name": "ahhb", "method_name": "l", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "q.b", "value": true }
+        ] },
+        { "class_name": "dup", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "aiqy", "method_name": "d", "parameter_types": [ "atal" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
