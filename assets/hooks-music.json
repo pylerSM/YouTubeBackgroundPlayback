@@ -200,7 +200,7 @@
             { "class_name": "wnp", "method_name": "d", "parameter_types": [ "acbk" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
-         ],
+        ],
         "31758": [
             { "class_name": "vym", "method_name": "k", "parameter_types": [], "actions": [
                 { "name": "set_field_boolean_before_method", "field_name": "q.b", "value": true }
