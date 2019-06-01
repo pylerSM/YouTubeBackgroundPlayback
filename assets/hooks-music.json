@@ -208,6 +208,7 @@
             { "class_name": "wvc", "method_name": "d", "parameter_types": [ "acsp" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ]
     },
     "x10000": {
         "132359": [
