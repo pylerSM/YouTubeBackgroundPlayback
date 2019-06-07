@@ -1116,6 +1116,17 @@
             { "class_name": "aiqr", "method_name": "d", "parameter_types": [ "atdv" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "142254": [
+            { "class_name": "ahix", "method_name": "m", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+            ] },
+            { "class_name": "dxe", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aitb", "method_name": "d", "parameter_types": [ "atgk" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
