@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.android.tools.build:gradle:3.3.2'
     }
 }
 
@@ -22,11 +22,11 @@ android {
     compileSdkVersion 23
 
     defaultConfig {
-        applicationId 'com.pyler.youtubebackgroundplayback'
+        applicationId 'com.pyler.youtubemusicbackgroundplayback'
         minSdkVersion 4
         targetSdkVersion 23
-        versionCode 20500
-        versionName '2.0.5'
+        versionCode 31954
+        versionName '3.19.54'
     }
 
     sourceSets {

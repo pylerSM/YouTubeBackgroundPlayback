@@ -44,7 +44,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	private static final String APP_PACKAGE = "com.google.android.apps.youtube.music";
 
-	private static final String HOOKS_DOWNLOAD_URL = "https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/yt-music/assets/hooks-music.json";
+	private static final String HOOKS_DOWNLOAD_URL = "https://raw.githubusercontent.com/SammyTRK/YouTubeBackgroundPlayback/yt-music/assets/hooks-music.json";
 
 	private static final ScheduledExecutorService WORKER = Executors.newSingleThreadScheduledExecutor();
 

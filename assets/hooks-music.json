@@ -208,6 +208,14 @@
             { "class_name": "wvc", "method_name": "d", "parameter_types": [ "acsp" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "31954": [
+          { "class_name": "vvz", "method_name": "l", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "q.b", "value": true }
+          ] },
+          { "class_name": "wsp", "method_name": "d", "parameter_types": [ "acqs" ], "actions": [
+            { "name": "return_boolean", "value": true }
+          ] }
         ]
     },
     "x10000": {
