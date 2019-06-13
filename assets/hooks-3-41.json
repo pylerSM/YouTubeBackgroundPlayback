@@ -1124,7 +1124,7 @@
             { "class_name": "dwu", "method_name": "f", "parameter_types": [], "actions": [
                 { "name": "return_string", "value": "on" }
             ] },
-            { "class_name": "aiqr", "method_name": "d", "parameter_types": [ "atdv" ], "actions": [
+            { "class_name": "ajcv", "method_name": "d", "parameter_types": [ "atro" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
         ]
