@@ -1149,6 +1149,17 @@
             { "class_name": "ajlj", "method_name": "d", "parameter_types": [ "atyc" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "142553": [
+            { "class_name": "aidk", "method_name": "m", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+            ] },
+            { "class_name": "dzy", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aprg", "method_name": "d", "parameter_types": [ "aubo" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
