@@ -1157,7 +1157,7 @@
             { "class_name": "dzy", "method_name": "f", "parameter_types": [], "actions": [
                 { "name": "return_string", "value": "on" }
             ] },
-            { "class_name": "aprg", "method_name": "d", "parameter_types": [ "aubo" ], "actions": [
+            { "class_name": "ajok", "method_name": "d", "parameter_types": [ "aubo" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
         ]
