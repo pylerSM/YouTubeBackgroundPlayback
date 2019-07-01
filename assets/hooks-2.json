@@ -1589,5 +1589,16 @@
         { "class_name": "ajtq", "method_name": "d", "parameter_types": [ "augt" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "142558": [
+        { "class_name": "aiiq", "method_name": "m", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+        ] },
+        { "class_name": "dyj", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ajtq", "method_name": "d", "parameter_types": [ "augt" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
