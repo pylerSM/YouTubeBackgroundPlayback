@@ -1600,5 +1600,16 @@
         { "class_name": "ajtq", "method_name": "d", "parameter_types": [ "augt" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "142656": [
+        { "class_name": "aiqf", "method_name": "n", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+        ] },
+        { "class_name": "dys", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "akba", "method_name": "d", "parameter_types": [ "aupr" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
