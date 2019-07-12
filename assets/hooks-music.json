@@ -224,6 +224,14 @@
             { "class_name": "was", "method_name": "d", "parameter_types": [ "acyx" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "32352": [
+            { "class_name": "vkv", "method_name": "m", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "m.b", "value": true }
+            ] },
+            { "class_name": "whn", "method_name": "d", "parameter_types": [ "adju" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
