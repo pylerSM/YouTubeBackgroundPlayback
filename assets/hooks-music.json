@@ -232,6 +232,14 @@
             { "class_name": "whn", "method_name": "d", "parameter_types": [ "adju" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "32551": [
+            { "class_name": "wgc", "method_name": "m", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "m.b", "value": true }
+            ] },
+            { "class_name": "xda", "method_name": "d", "parameter_types": [ "aepe" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
