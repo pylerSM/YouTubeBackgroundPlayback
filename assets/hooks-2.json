@@ -1622,5 +1622,49 @@
         { "class_name": "akdg", "method_name": "d", "parameter_types": [ "auwd" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "142854": [
+        { "class_name": "aise", "method_name": "n", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+        ] },
+        { "class_name": "dwx", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "akdg", "method_name": "d", "parameter_types": [ "auwd" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "142855": [
+        { "class_name": "aise", "method_name": "n", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+        ] },
+        { "class_name": "dwx", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "akdg", "method_name": "d", "parameter_types": [ "auwd" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "142953": [
+        { "class_name": "aitk", "method_name": "n", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+        ] },
+        { "class_name": "dws", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "akek", "method_name": "d", "parameter_types": [ "auxv" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "142955": [
+        { "class_name": "aitk", "method_name": "n", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+        ] },
+        { "class_name": "dws", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "akek", "method_name": "d", "parameter_types": [ "auxv" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
