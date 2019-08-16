@@ -19,6 +19,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -42,9 +43,12 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	private static final String LOG_TAG = "YTBackgroundPlayback";
 
-	private static final String APP_PACKAGE = "com.google.android.youtube";
+	private static final HashMap<String, String> PACKAGE_HOOKS_MAP = new HashMap<String, String>() {{
+		put("com.google.android.youtube", "https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/master/assets/hooks-3.json");
+		put("com.google.android.apps.youtube.music", "https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/yt-music/assets/hooks-music.json");
+	}};
 
-	private static final String HOOKS_DOWNLOAD_URL = "https://raw.githubusercontent.com/pylerSM/YouTubeBackgroundPlayback/master/assets/hooks-3.json";
+	private String APP_PACKAGE;
 
 	private static final ScheduledExecutorService WORKER = Executors.newSingleThreadScheduledExecutor();
 
@@ -54,9 +58,11 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 	@Override
 	public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) {
-		if (!lpparam.packageName.equals(APP_PACKAGE)) return;
-		loader = lpparam.classLoader;
-		new HooksDownloadTask(this).execute();
+		if (PACKAGE_HOOKS_MAP.containsKey(lpparam.packageName)) {
+			APP_PACKAGE = lpparam.packageName;
+			loader = lpparam.classLoader;
+			new HooksDownloadTask(this, PACKAGE_HOOKS_MAP.get(lpparam.packageName)).execute();
+		}
 	}
 
 	private void hook(JSONObject hooksFile) throws PackageManager.NameNotFoundException {
@@ -275,16 +281,19 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 
 		private final YouTubeBackgroundPlayback callback;
 
-		private HooksDownloadTask(YouTubeBackgroundPlayback callback) {
+		private final String hooksDownloadUrl;
+
+		private HooksDownloadTask(YouTubeBackgroundPlayback callback, String hooksDownloadUrl) {
 			super();
 			this.callback = callback;
+			this.hooksDownloadUrl = hooksDownloadUrl;
 		}
 
 		@Override
 		protected JSONObject doInBackground(Void... params) {
 			InputStream in = null;
 			try {
-				URLConnection conn = new URL(HOOKS_DOWNLOAD_URL).openConnection();
+				URLConnection conn = new URL(hooksDownloadUrl).openConnection();
 				conn.setConnectTimeout(40 * 1000 /* ms */);
 				conn.setDoInput(true);
 				conn.setDoOutput(false);
@@ -338,7 +347,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 				WORKER.schedule(new Runnable() {
 					@Override
 					public void run() {
-						new HooksDownloadTask(callback).execute();
+						new HooksDownloadTask(callback, hooksDownloadUrl).execute();
 					}
 				}, ((int) Math.floor(Math.random() * callback.secondsUntilReload)) + 1, TimeUnit.SECONDS);
 			} else {
