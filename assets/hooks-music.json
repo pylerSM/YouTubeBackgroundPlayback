@@ -248,6 +248,14 @@
             { "class_name": "xly", "method_name": "d", "parameter_types": [ "aeyz" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "32952": [
+            { "class_name": "wum", "method_name": "m", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "m.b", "value": true }
+            ] },
+            { "class_name": "xrn", "method_name": "d", "parameter_types": [ "afiz" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
