@@ -256,6 +256,14 @@
             { "class_name": "xrn", "method_name": "d", "parameter_types": [ "afiz" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "33157": [
+            { "class_name": "wxt", "method_name": "m", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "m.b", "value": true }
+            ] },
+            { "class_name": "xuw", "method_name": "d", "parameter_types": [ "afnl" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
