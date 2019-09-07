@@ -1754,5 +1754,16 @@
         { "class_name": "akfh", "method_name": "d", "parameter_types": [ "avlz" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "143554": [
+        { "class_name": "ajbk", "method_name": "n", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+        ] },
+        { "class_name": "ego", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "akmg", "method_name": "d", "parameter_types": [ "avuc" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
