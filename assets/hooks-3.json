@@ -2691,6 +2691,17 @@
             { "class_name": "akmg", "method_name": "d", "parameter_types": [ "avuc" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "143657": [
+            { "class_name": "ajda", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+            ] },
+            { "class_name": "egh", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aknu", "method_name": "d", "parameter_types": [ "avwu" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
