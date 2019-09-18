@@ -264,6 +264,14 @@
             { "class_name": "xuw", "method_name": "d", "parameter_types": [ "afnl" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "33351": [
+            { "class_name": "wyp", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.a", "value": true }
+            ] },
+            { "class_name": "xvp", "method_name": "d", "parameter_types": [ "afow" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
