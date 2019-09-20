@@ -1358,6 +1358,17 @@
             { "class_name": "akic", "method_name": "d", "parameter_types": [ "avrf" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "143754": [
+            { "class_name": "aijc", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+            ] },
+            { "class_name": "ees", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "ajtk", "method_name": "d", "parameter_types": [ "avep" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
