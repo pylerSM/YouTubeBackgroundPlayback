@@ -1369,6 +1369,17 @@
             { "class_name": "ajtk", "method_name": "d", "parameter_types": [ "avep" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "143853": [
+            { "class_name": "aikb", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+            ] },
+            { "class_name": "efn", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "ajug", "method_name": "d", "parameter_types": [ "avhf" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
