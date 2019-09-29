@@ -272,6 +272,14 @@
             { "class_name": "xvp", "method_name": "d", "parameter_types": [ "afow" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "33551": [
+            { "class_name": "usd", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.a", "value": true }
+            ] },
+            { "class_name": "vnu", "method_name": "d", "parameter_types": [ "addy" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
