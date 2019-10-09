@@ -2735,6 +2735,17 @@
             { "class_name": "ajru", "method_name": "d", "parameter_types": [ "avet" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "144052": [
+            { "class_name": "aike", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+            ] },
+            { "class_name": "ebb", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "ajuk", "method_name": "d", "parameter_types": [ "avie" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
