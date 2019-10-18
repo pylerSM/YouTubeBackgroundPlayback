@@ -288,6 +288,14 @@
             { "class_name": "vmo", "method_name": "d", "parameter_types": [ "adik" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "33755": [
+            { "class_name": "urf", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.a", "value": true }
+            ] },
+            { "class_name": "vmq", "method_name": "d", "parameter_types": [ "adim" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
