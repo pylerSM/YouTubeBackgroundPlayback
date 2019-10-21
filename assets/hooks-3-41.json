@@ -1402,6 +1402,28 @@
             { "class_name": "ajon", "method_name": "d", "parameter_types": [ "avci" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "144152": [
+            { "class_name": "aiek", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+            ] },
+            { "class_name": "ecp", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "ajoq", "method_name": "d", "parameter_types": [ "avey" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "144252": [
+            { "class_name": "ahhm", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+            ] },
+            { "class_name": "eeg", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "airz", "method_name": "d", "parameter_types": [ "auha" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
