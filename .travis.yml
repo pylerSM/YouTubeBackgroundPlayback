@@ -1,0 +1,47 @@
+language: android
+dist: trusty
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    - tools
+    - platform-tools
+
+    # The BuildTools version used by your project
+    - build-tools-27.0.3
+
+    # The SDK version used to compile your project
+    - android-23
+    - extra
+
+notifications:
+  email: true
+
+before_deploy:
+      # Set up git user name and tag this commit
+      #- "echo 'Config user name and email'"
+      #- git config --local user.name "gavrilacatalin123"
+      #- git config --local user.email "gavrila.catalin.cg@gmail.com"
+      #- "echo 'Export variable TRAVIS_TAG'"
+      #- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}cata
+      #- "echo 'Setting GitHub TAG'"
+      #- git tag -a $TRAVIS_TAG -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag." 
+      #- "echo 'Push tag'"
+      #- git push origin --tags
+      #- "echo 'Fetch tag'"
+      #- git fetch origin
+      #- "echo 'Finished setting GitHub TAG'"
+      # -./set_tags.sh
+deploy:
+  provider: releases
+  api_key: $GITHUBKEY
+  file: 
+    - "./build/outputs/apk/yt-music-debug.apk"
+    - "./build/outputs/apk/debug/yt-music-debug.apk"
+  skip_cleanup: true
+  on:
+    branch: yt-music
+    repo: gavrilacatalin123/YouTubeBackgroundPlayback
+    tags: true
+script:
+- "./gradlew assembledebug -PdisablePreDex --stacktrace"
