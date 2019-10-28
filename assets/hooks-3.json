@@ -2771,7 +2771,7 @@
         ],
         "144254": [
             { "class_name": "ahnj", "method_name": "g", "parameter_types": [], "actions": [
-                { "name": "set_field_boolean_before_method", "field_name": "l.b", "value": true }
+                { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
             ] },
             { "class_name": "ect", "method_name": "f", "parameter_types": [], "actions": [
                 { "name": "return_string", "value": "on" }
