@@ -2768,6 +2768,17 @@
             { "class_name": "aixw", "method_name": "d", "parameter_types": [ "aumw" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "144254": [
+            { "class_name": "ahnj", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+            ] },
+            { "class_name": "ect", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aixw", "method_name": "d", "parameter_types": [ "aumu" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
