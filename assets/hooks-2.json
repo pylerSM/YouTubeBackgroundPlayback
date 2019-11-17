@@ -1897,5 +1897,27 @@
         { "class_name": "aisr", "method_name": "d", "parameter_types": [ "auec" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "144652": [
+        { "class_name": "ahpo", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+        ] },
+        { "class_name": "eft", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ajaa", "method_name": "d", "parameter_types": [ "aumu" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "144653": [
+        { "class_name": "ahpo", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+        ] },
+        { "class_name": "eft", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ajaa", "method_name": "d", "parameter_types": [ "aumu" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
