@@ -320,6 +320,14 @@
             { "class_name": "vsa", "method_name": "d", "parameter_types": [ "adqc" ], "actions": [
               { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "34554": [
+            { "class_name": "uzn", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.a", "value": true }
+            ] },
+            { "class_name": "vvg", "method_name": "c", "parameter_types": [ "aduw" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
