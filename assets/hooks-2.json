@@ -1941,5 +1941,27 @@
         { "class_name": "aiye", "method_name": "d", "parameter_types": [ "aumv" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "145052": [
+        { "class_name": "ahvh", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+        ] },
+        { "class_name": "ehr", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ajfu", "method_name": "d", "parameter_types": [ "auve" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
+    ],
+    "145053": [
+        { "class_name": "ahvh", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+        ] },
+        { "class_name": "ehr", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ajfu", "method_name": "d", "parameter_types": [ "auve" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
