@@ -328,6 +328,14 @@
             { "class_name": "vvg", "method_name": "c", "parameter_types": [ "aduw" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "34754": [
+            { "class_name": "vfx", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.a", "value": true }
+            ] },
+            { "class_name": "wbu", "method_name": "c", "parameter_types": [ "aedb" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
