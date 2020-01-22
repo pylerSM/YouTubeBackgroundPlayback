@@ -336,6 +336,14 @@
             { "class_name": "wbu", "method_name": "c", "parameter_types": [ "aedb" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "34953": [
+            { "class_name": "voa", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.a", "value": true }
+            ] },
+            { "class_name": "wju", "method_name": "c", "parameter_types": [ "aenc" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
