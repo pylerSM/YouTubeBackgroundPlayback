@@ -2900,6 +2900,17 @@
             { "class_name": "ajep", "method_name": "d", "parameter_types": [ "auwl" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "150356": [
+            { "class_name": "aigu", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+            ] },
+            { "class_name": "eip", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "ajqe", "method_name": "d", "parameter_types": [ "avka" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
