@@ -344,6 +344,14 @@
             { "class_name": "wju", "method_name": "c", "parameter_types": [ "aenc" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "35154": [
+            { "class_name": "usj", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "j.a", "value": true }
+            ] },
+            { "class_name": "vnj", "method_name": "c", "parameter_types": [ "adnn" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
