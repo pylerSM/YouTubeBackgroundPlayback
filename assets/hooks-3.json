@@ -2911,6 +2911,17 @@
             { "class_name": "ajqe", "method_name": "d", "parameter_types": [ "avka" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "150456": [
+            { "class_name": "ahfd", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "j.b", "value": true }
+            ] },
+            { "class_name": "efa", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "ainq", "method_name": "d", "parameter_types": [ "aufc" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
