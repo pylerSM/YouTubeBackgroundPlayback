@@ -1996,5 +1996,16 @@
         { "class_name": "ainq", "method_name": "d", "parameter_types": [ "aufc" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "150554": [
+        { "class_name": "ahgl", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "j.b", "value": true }
+        ] },
+        { "class_name": "efm", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "aipf", "method_name": "d", "parameter_types": [ "auhl" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
