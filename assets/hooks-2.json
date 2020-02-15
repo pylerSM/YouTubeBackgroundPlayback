@@ -2007,5 +2007,16 @@
         { "class_name": "aipf", "method_name": "d", "parameter_types": [ "auhl" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "150654": [
+        { "class_name": "ahkb", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+        ] },
+        { "class_name": "efk", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "aisx", "method_name": "d", "parameter_types": [ "aumh" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
