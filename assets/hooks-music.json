@@ -352,6 +352,14 @@
             { "class_name": "vnj", "method_name": "c", "parameter_types": [ "adnn" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "35351": [
+            { "class_name": "ute", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.a", "value": true }
+            ] },
+            { "class_name": "vog", "method_name": "c", "parameter_types": [ "adpe" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
