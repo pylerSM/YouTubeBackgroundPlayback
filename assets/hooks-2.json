@@ -2029,5 +2029,16 @@
         { "class_name": "aiuf", "method_name": "d", "parameter_types": [ "aurg" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "150852": [
+        { "class_name": "ahoh", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.b", "value": true }
+        ] },
+        { "class_name": "efl", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "aixm", "method_name": "d", "parameter_types": [ "auup" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
