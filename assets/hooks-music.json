@@ -366,6 +366,20 @@
             { "class_name": "djf", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "35555": [
+            { "class_name": "voj", "method_name": "c", "parameter_types": [ "adrq" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "djm", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "djm", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "djo", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
