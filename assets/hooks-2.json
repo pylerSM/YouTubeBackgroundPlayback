@@ -2051,5 +2051,16 @@
         { "class_name": "ajbh", "method_name": "d", "parameter_types": [ "auuk" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "151151": [
+        { "class_name": "aibx", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.l", "value": true }
+        ] },
+        { "class_name": "egi", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "ajlj", "method_name": "d", "parameter_types": [ "avdj" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
