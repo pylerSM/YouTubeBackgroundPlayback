@@ -2095,5 +2095,16 @@
         { "class_name": "akbf", "method_name": "d", "parameter_types": [ "avuo" ], "actions": [
             { "name": "return_boolean", "value": true }
         ] }
+    ],
+    "151204": [
+        { "class_name": "aixb", "method_name": "g", "parameter_types": [], "actions": [
+            { "name": "set_field_boolean_before_method", "field_name": "k.l", "value": true }
+        ] },
+        { "class_name": "elc", "method_name": "f", "parameter_types": [], "actions": [
+            { "name": "return_string", "value": "on" }
+        ] },
+        { "class_name": "akgs", "method_name": "d", "parameter_types": [ "awao" ], "actions": [
+            { "name": "return_boolean", "value": true }
+        ] }
     ]
 }
