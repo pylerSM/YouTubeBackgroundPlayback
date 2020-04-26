@@ -422,6 +422,20 @@
             { "class_name": "dlq", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "36353": [
+            { "class_name": "wed", "method_name": "c", "parameter_types": [ "aefq" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dmw", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dmw", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dmy", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
