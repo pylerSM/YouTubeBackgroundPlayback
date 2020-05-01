@@ -3043,6 +3043,17 @@
             { "class_name": "akko", "method_name": "d", "parameter_types": [ "awfh" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151230": [
+            { "class_name": "ajax", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.l", "value": true }
+            ] },
+            { "class_name": "ekt", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "akko", "method_name": "d", "parameter_types": [ "awfh" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
