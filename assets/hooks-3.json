@@ -3065,6 +3065,17 @@
             { "class_name": "akrh", "method_name": "d", "parameter_types": [ "awnx" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151256": [
+            { "class_name": "ajki", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.l", "value": true }
+            ] },
+            { "class_name": "eje", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "akuu", "method_name": "d", "parameter_types": [ "awso" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
