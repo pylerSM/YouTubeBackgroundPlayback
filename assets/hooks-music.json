@@ -492,6 +492,20 @@
             { "class_name": "dmk", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "37154": [
+            { "class_name": "wor", "method_name": "c", "parameter_types": [ "aevn" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dmy", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dmy", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dna", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
