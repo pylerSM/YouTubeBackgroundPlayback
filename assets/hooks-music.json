@@ -520,6 +520,20 @@
             { "class_name": "dna", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "37354": [
+            { "class_name": "xeu", "method_name": "c", "parameter_types": [ "afoo" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dnt", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dnt", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dnv", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
