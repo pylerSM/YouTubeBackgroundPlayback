@@ -534,6 +534,20 @@
             { "class_name": "dnv", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "37550": [
+            { "class_name": "xdl", "method_name": "c", "parameter_types": [ "afoi" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dop", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dop", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dor", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
