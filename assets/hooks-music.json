@@ -548,6 +548,20 @@
             { "class_name": "dor", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "37752": [
+            { "class_name": "xdp", "method_name": "c", "parameter_types": [ "afpx" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dop", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dop", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dor", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
