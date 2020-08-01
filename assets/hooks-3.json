@@ -3164,6 +3164,17 @@
             { "class_name": "anaf", "method_name": "d", "parameter_types": [ "azkh" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151400": [
+            { "class_name": "alsq", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.l", "value": true }
+            ] },
+            { "class_name": "enc", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "andp", "method_name": "d", "parameter_types": [ "azqj" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
