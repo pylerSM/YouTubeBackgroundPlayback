@@ -3186,6 +3186,17 @@
             { "class_name": "angd", "method_name": "d", "parameter_types": [ "aztt" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151426": [
+            { "class_name": "alyt", "method_name": "g", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.l", "value": true }
+            ] },
+            { "class_name": "enb", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "anju", "method_name": "d", "parameter_types": [ "azxs" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
