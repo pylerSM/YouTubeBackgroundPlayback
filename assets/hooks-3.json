@@ -3197,6 +3197,17 @@
             { "class_name": "anju", "method_name": "d", "parameter_types": [ "azxs" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151439": [
+            { "class_name": "amaw", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "k.l", "value": true }
+            ] },
+            { "class_name": "emv", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "anma", "method_name": "d", "parameter_types": [ "azzw" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
