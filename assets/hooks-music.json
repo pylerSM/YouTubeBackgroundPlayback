@@ -576,6 +576,20 @@
             { "class_name": "dot", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "38152": [
+            { "class_name": "xib", "method_name": "c", "parameter_types": [ "afsp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dpz", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dpz", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dqb", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
