@@ -3230,6 +3230,17 @@
             { "class_name": "aoaq", "method_name": "d", "parameter_types": [ "baoz" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151479": [
+            { "class_name": "amus", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "emt", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aogd", "method_name": "d", "parameter_types": [ "bavu" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
