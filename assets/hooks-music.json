@@ -590,6 +590,20 @@
             { "class_name": "dqb", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "38355": [
+            { "class_name": "xnf", "method_name": "c", "parameter_types": [ "afzl" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dpn", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dpn", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dpp", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
