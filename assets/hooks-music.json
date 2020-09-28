@@ -604,6 +604,20 @@
             { "class_name": "dpp", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "38550": [
+            { "class_name": "xqz", "method_name": "c", "parameter_types": [ "agdt" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "drt", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "drt", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "drv", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
