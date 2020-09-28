@@ -3263,6 +3263,17 @@
             { "class_name": "aojc", "method_name": "d", "parameter_types": [ "bayw" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151505": [
+            { "class_name": "amzt", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "enb", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aolo", "method_name": "d", "parameter_types": [ "bbeo" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
