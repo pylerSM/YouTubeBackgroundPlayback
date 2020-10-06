@@ -618,6 +618,20 @@
             { "class_name": "drv", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "38651": [
+            { "class_name": "xng", "method_name": "c", "parameter_types": [ "agas" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dsd", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dsd", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dsf", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
