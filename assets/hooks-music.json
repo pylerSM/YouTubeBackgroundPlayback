@@ -632,6 +632,20 @@
             { "class_name": "dsf", "method_name": "a", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "38752": [
+            { "class_name": "xtw", "method_name": "c", "parameter_types": [ "aght" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dyi", "method_name": "b", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dyi", "method_name": "c", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dyk", "method_name": "a", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
