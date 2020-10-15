@@ -3285,6 +3285,17 @@
             { "class_name": "aopi", "method_name": "d", "parameter_types": [ "bbky" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151544": [
+            { "class_name": "anlj", "method_name": "n", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "enr", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "aoxa", "method_name": "d", "parameter_types": [ "bbvi" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
