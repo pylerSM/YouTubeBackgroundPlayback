@@ -3296,6 +3296,17 @@
             { "class_name": "aoxa", "method_name": "d", "parameter_types": [ "bbvi" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151557": [
+            { "class_name": "anoo", "method_name": "n", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "enz", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "apao", "method_name": "d", "parameter_types": [ "bccd" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
