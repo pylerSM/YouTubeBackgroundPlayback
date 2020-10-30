@@ -660,6 +660,20 @@
             { "class_name": "dyn", "method_name": "d", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "39050": [
+            { "class_name": "xyo", "method_name": "c", "parameter_types": [ "agpy" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dze", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dze", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dzg", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
