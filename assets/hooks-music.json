@@ -674,6 +674,34 @@
             { "class_name": "dzg", "method_name": "d", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "40251": [
+            { "class_name": "xst", "method_name": "c", "parameter_types": [ "agiz" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxp", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxp", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxr", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
+        ],
+        "40351": [
+            { "class_name": "xtv", "method_name": "c", "parameter_types": [ "agkk" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxn", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxn", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxp", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
