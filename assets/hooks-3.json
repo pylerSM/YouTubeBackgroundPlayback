@@ -3340,6 +3340,17 @@
             { "class_name": "bcfp", "method_name": "f", "parameter_types": [ "awow" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151623": [
+            { "class_name": "alpx", "method_name": "n", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "efq", "method_name": "f", "parameter_types": [], "actions": [
+                { "name": "return_string", "value": "on" }
+            ] },
+            { "class_name": "bczf", "method_name": "l", "parameter_types": [ "awxf" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
