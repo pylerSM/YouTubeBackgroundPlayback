@@ -702,6 +702,20 @@
             { "class_name": "dxp", "method_name": "d", "parameter_types": [], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "40453": [
+            { "class_name": "xva", "method_name": "c", "parameter_types": [ "agme" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxn", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxn", "method_name": "e", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] },
+            { "class_name": "dxp", "method_name": "d", "parameter_types": [], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     },
     "x10000": {
