@@ -254,6 +254,40 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 						}
 						break;
 					}
+					
+					case "set_args_value_before_method": {
+						// only spupport base type
+						final String args_value = action.optString("args_value");
+						if (args_value.length() > 0) {
+						    callback = new XC_MethodHook() {
+							@Override
+							protected void beforeHookedMethod(final MethodHookParam param) {
+							    final String[] args = args_value.split("_|_");
+							    int i=0;
+							    for (String m : args) {
+								XposedBridge.log("set_args_value_before_method = " + m);
+								String temp;
+								if (m.startsWith("STRING:")){
+								    temp=m.replace("STRING:","");
+								    param.args[i] = temp;
+								}else  if (m.startsWith("INT:")){
+								    temp=m.replace("INT:","");
+								    param.args[i] = Integer.valueOf(temp);
+								}else  if (m.startsWith("BOOLEAN:")){
+								    temp=m.replace("BOOLEAN:","");
+								    param.args[i] = Boolean.valueOf(temp);
+								}else  if (m.startsWith("LONG:")){
+								    temp=m.replace("LONG:","");
+								    param.args[i] = Long.valueOf(temp);
+								}
+
+								i++;
+							    }
+							}
+						    };
+						}
+						break;
+					}
 
 					default: {
 						Log.w(LOG_TAG, "Ignoring an unrecognized hook action for YouTube in the list. [a:" + actionName + ";vc:" + versionCode + "]");
