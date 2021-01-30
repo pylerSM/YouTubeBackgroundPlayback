@@ -3395,6 +3395,17 @@
             { "class_name": "bgxg", "method_name": "j", "parameter_types": [ "ayfc" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151885": [
+            { "class_name": "aeya", "method_name": "n", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "dtp", "method_name": "a", "parameter_types": ["int"], "actions": [
+                { "name": "set_args_value_before_method", "value": "INT:1" }
+            ] },
+            { "class_name": "awas", "method_name": "o", "parameter_types": [ "aosp" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
