@@ -3439,6 +3439,17 @@
             { "class_name": "alpf", "method_name": "f", "parameter_types": [ "aows" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "151938": [
+            { "class_name": "afav", "method_name": "n", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "dvc", "method_name": "a", "parameter_types": ["int"], "actions": [
+                { "name": "set_args_value_before_method", "value": "INT:1" }
+            ] },
+            { "class_name": "alpf", "method_name": "f", "parameter_types": [ "aows" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
