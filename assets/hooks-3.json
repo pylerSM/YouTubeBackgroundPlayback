@@ -3516,6 +3516,17 @@
             { "class_name": "ahkg", "method_name": "f", "parameter_types": [ "aqol" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "152003": [
+            { "class_name": "aghs", "method_name": "n", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "dwz", "method_name": "a", "parameter_types": ["int"], "actions": [
+                { "name": "set_args_value_before_method", "value": "INT:1" }
+            ] },
+            { "class_name": "ahkg", "method_name": "f", "parameter_types": [ "aqol" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
