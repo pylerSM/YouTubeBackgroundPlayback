@@ -3538,6 +3538,17 @@
             { "class_name": "ahlw", "method_name": "f", "parameter_types": [ "aqpe" ], "actions": [
                 { "name": "return_boolean", "value": true }
             ] }
+        ],
+        "152029": [
+            { "class_name": "aglt", "method_name": "n", "parameter_types": [], "actions": [
+                { "name": "set_field_boolean_before_method", "field_name": "l.m", "value": true }
+            ] },
+            { "class_name": "dxj", "method_name": "a", "parameter_types": ["int"], "actions": [
+                { "name": "set_args_value_before_method", "value": "INT:1" }
+            ] },
+            { "class_name": "ahoe", "method_name": "f", "parameter_types": [ "aqss" ], "actions": [
+                { "name": "return_boolean", "value": true }
+            ] }
         ]
     }
 }
