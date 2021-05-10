@@ -265,7 +265,7 @@ public class YouTubeBackgroundPlayback implements IXposedHookLoadPackage {
 							    final String[] args = args_value.split("_|_");
 							    int i=0;
 							    for (String m : args) {
-								XposedBridge.log("set_args_value_before_method = " + m);
+								Log.w(LOG_TAG, "set_args_value_before_method = " + m);
 								String temp;
 								if (m.startsWith("STRING:")){
 								    temp=m.replace("STRING:","");
